@@ -1,0 +1,28 @@
+aid: frostbyte
+url: https://raw.githubusercontent.com/api-evangelist/frostbyte/refs/heads/main/apis.yml
+name: Frostbyte
+type: Index
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+description: 'Free API platform for developers and AI agents — 40+ services including IP Geolocation, Crypto Prices, Screenshots, DNS, Scraping, Code Execution.'
+created: '2026-05-16'
+modified: '2026-05-16'
+specificationVersion: '0.19'
+tags:
+  - Developer Tools
+  - Utility APIs
+  - Geolocation
+  - Cryptocurrency
+  - Screenshots
+  - DNS
+  - Scraping
+  - AI Agents
+
+common:
+  - url: https://api-catalog-three.vercel.app/
+    type: Website
+  - url: https://api-catalog-three.vercel.app/
+    type: Documentation
+  - url: https://api-catalog-three.vercel.app/apis.json
+    type: APIsJSON
+url-source: https://api-catalog-three.vercel.app/
+apis: []
