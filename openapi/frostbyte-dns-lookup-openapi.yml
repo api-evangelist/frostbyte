@@ -1,0 +1,195 @@
+openapi: 3.0.3
+info:
+  title: Frostbyte DNS Lookup API
+  description: DNS lookup API. Resolve domains, check propagation, WHOIS data, batch lookups. Supports A, AAAA, MX, NS, TXT,
+    CNAME, SOA records.
+  version: 1.0.0
+  contact:
+    name: Frostbyte API
+    url: https://api-catalog-three.vercel.app
+  license:
+    name: MIT
+servers:
+- url: https://agent-gateway-kappa.vercel.app
+  description: Production gateway
+security:
+- {}
+- ApiKeyHeader: []
+- ApiKeyQuery: []
+paths:
+  /v1/agent-dns/api/resolve/{domain}:
+    get:
+      tags:
+      - Other
+      summary: "Agent DNS Lookup \u2014 /api/resolve/:domain"
+      description: DNS resolution, WHOIS/RDAP data, domain availability checking, and DNS propagation analysis across 8 public
+        resolvers.
+      operationId: agent-dns_get_api_resolve_domain
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '402':
+          description: Payment required (x402)
+        '429':
+          description: Rate limit exceeded
+      parameters:
+      - name: domain
+        in: path
+        required: true
+        schema:
+          type: string
+  /v1/agent-dns/api/all/{domain}:
+    get:
+      tags:
+      - Other
+      summary: "Agent DNS Lookup \u2014 /api/all/:domain"
+      description: Part of Agent DNS Lookup
+      operationId: agent-dns_get_api_all_domain
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '402':
+          description: Payment required (x402)
+        '429':
+          description: Rate limit exceeded
+      parameters:
+      - name: domain
+        in: path
+        required: true
+        schema:
+          type: string
+  /v1/agent-dns/api/whois/{domain}:
+    get:
+      tags:
+      - Other
+      summary: "Agent DNS Lookup \u2014 /api/whois/:domain"
+      description: Part of Agent DNS Lookup
+      operationId: agent-dns_get_api_whois_domain
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '402':
+          description: Payment required (x402)
+        '429':
+          description: Rate limit exceeded
+      parameters:
+      - name: domain
+        in: path
+        required: true
+        schema:
+          type: string
+  /v1/agent-dns/api/check/{domain}:
+    get:
+      tags:
+      - Other
+      summary: "Agent DNS Lookup \u2014 /api/check/:domain"
+      description: Part of Agent DNS Lookup
+      operationId: agent-dns_get_api_check_domain
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '402':
+          description: Payment required (x402)
+        '429':
+          description: Rate limit exceeded
+      parameters:
+      - name: domain
+        in: path
+        required: true
+        schema:
+          type: string
+  /v1/agent-dns/api/propagation/{domain}:
+    get:
+      tags:
+      - Other
+      summary: "Agent DNS Lookup \u2014 /api/propagation/:domain"
+      description: Part of Agent DNS Lookup
+      operationId: agent-dns_get_api_propagation_domain
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '402':
+          description: Payment required (x402)
+        '429':
+          description: Rate limit exceeded
+      parameters:
+      - name: domain
+        in: path
+        required: true
+        schema:
+          type: string
+  /v1/agent-dns/api/batch:
+    post:
+      tags:
+      - Other
+      summary: "Agent DNS Lookup \u2014 /api/batch"
+      description: Part of Agent DNS Lookup
+      operationId: agent-dns_post_api_batch
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '402':
+          description: Payment required (x402)
+        '429':
+          description: Rate limit exceeded
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+components:
+  securitySchemes:
+    ApiKeyHeader:
+      type: apiKey
+      in: header
+      name: X-API-Key
+      description: API key passed in header
+    ApiKeyQuery:
+      type: apiKey
+      in: query
+      name: key
+      description: API key passed as query parameter
+  schemas:
+    Error:
+      type: object
+      properties:
+        error:
+          type: string
+        message:
+          type: string

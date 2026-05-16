@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-structure.org/draft/0.1",
+  "$id": "https://api-evangelist.github.io/frostbyte/json-structure/frostbyte-credit-balance-structure.json",
+  "title": "FrostbyteCreditBalanceStructure",
+  "description": "Structural shape of the credit-balance response (field names, types, units).",
+  "fields": [
+    { "name": "key",        "type": "string",    "purpose": "identifier",  "sensitive": true  },
+    { "name": "credits",    "type": "integer",   "purpose": "balance",     "unit": "credit"   },
+    { "name": "expires_at", "type": "timestamp", "purpose": "expiry"                          },
+    { "name": "expires_in", "type": "string",    "purpose": "ttl-human"                       },
+    { "name": "note",       "type": "string",    "purpose": "annotation"                      }
+  ]
+}

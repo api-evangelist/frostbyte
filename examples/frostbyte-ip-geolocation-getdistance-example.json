@@ -1,0 +1,19 @@
+{
+  "operationId": "getDistance",
+  "method": "POST",
+  "path": "/v1/agent-geo/api/geo/distance",
+  "summary": "Calculate Distance Between Two IPs",
+  "request": {
+    "headers": {
+      "Authorization": "Bearer YOUR_API_KEY"
+    },
+    "baseUrl": "https://agent-gateway-kappa.vercel.app"
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "success": true,
+      "note": "Example payload \u2014 replace with real shape from API."
+    }
+  }
+}

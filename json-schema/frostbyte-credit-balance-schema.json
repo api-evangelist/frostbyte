@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api-evangelist.github.io/frostbyte/json-schema/frostbyte-credit-balance-schema.json",
+  "title": "FrostbyteCreditBalance",
+  "description": "Credit balance and expiry for a Frostbyte API key.",
+  "type": "object",
+  "required": ["key", "credits"],
+  "properties": {
+    "key": {
+      "type": "string",
+      "description": "API key identifier (prefix only when displayed)."
+    },
+    "credits": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Remaining credit balance for this key."
+    },
+    "expires_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Key expiry timestamp."
+    },
+    "expires_in": {
+      "type": "string",
+      "description": "Human-readable expiry duration (e.g. '30 days')."
+    },
+    "note": {
+      "type": "string"
+    }
+  }
+}

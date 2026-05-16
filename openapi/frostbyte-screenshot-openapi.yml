@@ -1,0 +1,108 @@
+openapi: 3.0.3
+info:
+  title: Frostbyte Screenshot API
+  description: Free website screenshot API. Capture full-page screenshots of any URL as PNG. Powered by Chromium. Perfect
+    for visual testing, monitoring, and archiving.
+  version: 1.0.0
+  contact:
+    name: Frostbyte API
+    url: https://api-catalog-three.vercel.app
+  license:
+    name: MIT
+servers:
+- url: https://agent-gateway-kappa.vercel.app
+  description: Production gateway
+security:
+- {}
+- ApiKeyHeader: []
+- ApiKeyQuery: []
+paths:
+  /v1/agent-screenshot/api/screenshot:
+    post:
+      tags:
+      - Data & Analytics
+      summary: "Agent Screenshot \u2014 /api/screenshot"
+      description: URL-to-image API. Headless Chromium, 5 viewports, full-page, dark mode, element targeting.
+      operationId: agent-screenshot_post_api_screenshot
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '402':
+          description: Payment required (x402)
+        '429':
+          description: Rate limit exceeded
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+    get:
+      tags:
+      - Data & Analytics
+      summary: "Agent Screenshot \u2014 /api/screenshot"
+      description: URL-to-image API. Headless Chromium, 5 viewports, full-page, dark mode, element targeting.
+      operationId: agent-screenshot_get_api_screenshot
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '402':
+          description: Payment required (x402)
+        '429':
+          description: Rate limit exceeded
+  /v1/agent-screenshot/api/screenshot/json:
+    post:
+      tags:
+      - Data & Analytics
+      summary: "Agent Screenshot \u2014 /api/screenshot/json"
+      description: Part of Agent Screenshot
+      operationId: agent-screenshot_post_api_screenshot_json
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '402':
+          description: Payment required (x402)
+        '429':
+          description: Rate limit exceeded
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+components:
+  securitySchemes:
+    ApiKeyHeader:
+      type: apiKey
+      in: header
+      name: X-API-Key
+      description: API key passed in header
+    ApiKeyQuery:
+      type: apiKey
+      in: query
+      name: key
+      description: API key passed as query parameter
+  schemas:
+    Error:
+      type: object
+      properties:
+        error:
+          type: string
+        message:
+          type: string

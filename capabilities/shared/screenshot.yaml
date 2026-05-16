@@ -1,0 +1,22 @@
+apiVersion: naftiko.io/v1
+kind: Capability
+metadata:
+  name: frostbyte-screenshot
+  provider: frostbyte
+  api: screenshot
+spec:
+  summary: Capture full-page screenshots of any URL via headless Chromium.
+  baseUrl: https://agent-gateway-kappa.vercel.app
+  auth:
+    type: bearer
+    header: Authorization
+    valueTemplate: 'Bearer {{ frostbyte.api_key }}'
+  operations:
+    - id: take-screenshot
+      method: POST
+      path: /v1/agent-screenshot/api/screenshot
+    - id: take-screenshot-json
+      method: POST
+      path: /v1/agent-screenshot/api/screenshot/json
+  costPerCall: 1 credit
+  freeAllowance: 50 credits per key

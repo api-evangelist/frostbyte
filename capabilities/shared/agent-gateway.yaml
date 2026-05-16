@@ -1,0 +1,30 @@
+apiVersion: naftiko.io/v1
+kind: Capability
+metadata:
+  name: frostbyte-agent-gateway
+  provider: frostbyte
+  api: agent-gateway
+spec:
+  summary: Unified gateway exposing 40+ Frostbyte services under a single key.
+  baseUrl: https://agent-gateway-kappa.vercel.app
+  auth:
+    type: bearer
+    header: Authorization
+    valueTemplate: 'Bearer {{ frostbyte.api_key }}'
+  operations:
+    - id: create-key
+      method: POST
+      path: /api/keys/create
+    - id: get-balance
+      method: GET
+      path: /api/keys/balance
+    - id: list-services
+      method: GET
+      path: /api/services
+    - id: get-analytics
+      method: GET
+      path: /api/analytics
+  costPerCall: 1 credit
+  notes: |
+    All 40+ services route under /v1/{service-id}/...; the gateway-level
+    endpoints above manage keys, balances, and analytics.

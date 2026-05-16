@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api-evangelist.github.io/frostbyte/json-schema/frostbyte-crypto-price-schema.json",
+  "title": "FrostbyteCryptoPrice",
+  "description": "Real-time cryptocurrency price quote.",
+  "type": "object",
+  "required": ["symbol", "price"],
+  "properties": {
+    "symbol": { "type": "string", "description": "Trading pair, e.g. BTCUSDT." },
+    "price": { "type": "number" },
+    "change_24h": { "type": "number" },
+    "volume_24h": { "type": "number" },
+    "high_24h": { "type": "number" },
+    "low_24h": { "type": "number" },
+    "source": { "type": "string", "description": "Upstream data source (e.g. binance)." },
+    "ts": { "type": "string", "format": "date-time" }
+  }
+}

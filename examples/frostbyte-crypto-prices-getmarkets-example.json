@@ -1,0 +1,19 @@
+{
+  "operationId": "getMarkets",
+  "method": "GET",
+  "path": "/v1/defi-trading/api/markets",
+  "summary": "Get Market Data",
+  "request": {
+    "headers": {
+      "Authorization": "Bearer YOUR_API_KEY"
+    },
+    "baseUrl": "https://agent-gateway-kappa.vercel.app"
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "success": true,
+      "note": "Example payload \u2014 replace with real shape from API."
+    }
+  }
+}

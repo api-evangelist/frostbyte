@@ -1,0 +1,46 @@
+apiVersion: naftiko.io/v1
+kind: Workflow
+metadata:
+  name: agent-research-workflow
+  provider: frostbyte
+spec:
+  summary: |
+    A multi-step AI-agent research workflow combining geolocation, DNS,
+    scraping, screenshot, and code-execution capabilities under a single
+    Frostbyte API key.
+  capabilities:
+    - frostbyte-agent-gateway
+    - frostbyte-ip-geolocation
+    - frostbyte-dns-lookup
+    - frostbyte-web-scraper
+    - frostbyte-screenshot
+    - frostbyte-code-execution
+    - frostbyte-crypto-prices
+  steps:
+    - id: provision
+      capability: frostbyte-agent-gateway
+      operation: create-key
+      description: Provision a 200-credit API key with no signup.
+    - id: identify-target
+      capability: frostbyte-ip-geolocation
+      operation: get-ip-geo
+      description: Resolve target IP to geo / timezone.
+    - id: enumerate-dns
+      capability: frostbyte-dns-lookup
+      operation: all-records
+      description: Pull A, AAAA, MX, NS, TXT, CNAME, SOA records.
+    - id: capture-visual
+      capability: frostbyte-screenshot
+      operation: take-screenshot
+      description: Capture a screenshot of the target URL.
+    - id: scrape-content
+      capability: frostbyte-web-scraper
+      operation: scrape
+      description: Extract text / structured data.
+    - id: analyze
+      capability: frostbyte-code-execution
+      operation: execute
+      description: Run Python analysis on the scraped data.
+  cost:
+    creditsPerRun: '~6 credits per full pass'
+    paymentFallback: 'HTTP 402 → x402 USDC top-up on Base'

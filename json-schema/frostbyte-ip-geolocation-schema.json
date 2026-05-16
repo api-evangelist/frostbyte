@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api-evangelist.github.io/frostbyte/json-schema/frostbyte-ip-geolocation-schema.json",
+  "title": "FrostbyteIPGeolocation",
+  "description": "Geolocation record for an IP address as returned by Frostbyte's IP Geolocation API.",
+  "type": "object",
+  "required": ["ip"],
+  "properties": {
+    "ip": { "type": "string", "format": "ipv4" },
+    "country_code": { "type": "string", "minLength": 2, "maxLength": 2 },
+    "country_name": { "type": "string" },
+    "city": { "type": "string" },
+    "region": { "type": "string" },
+    "latitude": { "type": "number", "minimum": -90, "maximum": 90 },
+    "longitude": { "type": "number", "minimum": -180, "maximum": 180 },
+    "timezone": { "type": "string" },
+    "is_eu": { "type": "boolean" }
+  }
+}

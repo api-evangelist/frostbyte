@@ -1,0 +1,19 @@
+{
+  "operationId": "getGeoViaGateway",
+  "method": "GET",
+  "path": "/v1/agent-geo/api/geo/{ip}",
+  "summary": "Full Geolocation Lookup (via Gateway)",
+  "request": {
+    "headers": {
+      "Authorization": "Bearer YOUR_API_KEY"
+    },
+    "baseUrl": "https://agent-gateway-kappa.vercel.app"
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "success": true,
+      "note": "Example payload \u2014 replace with real shape from API."
+    }
+  }
+}

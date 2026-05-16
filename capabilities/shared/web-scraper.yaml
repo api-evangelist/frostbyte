@@ -1,0 +1,21 @@
+apiVersion: naftiko.io/v1
+kind: Capability
+metadata:
+  name: frostbyte-web-scraper
+  provider: frostbyte
+  api: web-scraper
+spec:
+  summary: Extract text, HTML, and structured data from any URL with headless Chrome.
+  baseUrl: https://agent-gateway-kappa.vercel.app
+  auth:
+    type: bearer
+    header: Authorization
+    valueTemplate: 'Bearer {{ frostbyte.api_key }}'
+  operations:
+    - id: scrape
+      method: POST
+      path: /v1/agent-scraper/api/scrape
+    - id: extract
+      method: POST
+      path: /v1/agent-scraper/api/extract
+  costPerCall: 1 credit

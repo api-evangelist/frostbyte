@@ -1,0 +1,68 @@
+apiCommonsRateLimits: '0.1'
+providerId: frostbyte
+provider:
+  name: Frostbyte
+  url: https://api-catalog-three.vercel.app/
+modified: '2026-05-16'
+reconciled: false
+description: |
+  Frostbyte does not publish explicit request-per-second or concurrency
+  ceilings. Throughput is governed by the credit-balance quota plus
+  platform-wide fair-use enforcement. When a request is unauthenticated
+  or the key has insufficient credits, the gateway returns HTTP 402
+  Payment Required with x402 USDC-on-Base payment details.
+
+policies:
+  - id: free-tier-credit-quota
+    description: Default credit allowance issued on key creation.
+    scope: per-api-key
+    quotas:
+      - dimension: requests
+        unit: credit
+        included: 200
+        period: per-key
+        notes: '1 credit consumed per request for most services.'
+    enforcement:
+      style: quota
+      on_exceeded:
+        http_status: 402
+        body_indicator: x402 payment details (USDC on Base)
+        retry_after: null
+
+  - id: screenshot-credit-quota
+    description: Smaller dedicated allowance for the Screenshot API.
+    scope: per-api-key
+    apis:
+      - screenshot
+    quotas:
+      - dimension: requests
+        unit: credit
+        included: 50
+        period: per-key
+    enforcement:
+      style: quota
+      on_exceeded:
+        http_status: 402
+        body_indicator: x402 payment details (USDC on Base)
+
+  - id: free-credit-expiry
+    description: Free credits expire after 30 days; topping up extends to 90 days.
+    scope: per-api-key
+    quotas:
+      - dimension: credit-validity
+        included: 30
+        unit: day
+        period: per-key
+        notes: 'Topping up with USDC on Base extends validity to 90 days.'
+
+unpublished:
+  - requests-per-second
+  - requests-per-minute
+  - concurrency
+  - burst
+
+notes: |
+  Per-second throughput, concurrency, and per-minute burst limits are not
+  published as part of the public catalog. Treat this profile as an upper
+  bound described by credit quotas and the documented 402 / x402 payment
+  fallback path.

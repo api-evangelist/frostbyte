@@ -1,0 +1,83 @@
+vocabulary: '0.1'
+providerId: frostbyte
+title: Frostbyte / Clawdia Agent Gateway Vocabulary
+description: |
+  Operational, capability, and economic vocabulary for the Frostbyte API
+  platform. Captures the credit-based pay-as-you-go model, the 40+ service
+  surface, and the AI-agent-oriented capability primitives.
+modified: '2026-05-16'
+
+domains:
+  - id: developer-tools
+    label: Developer Tools
+    description: Utility APIs aimed at developer workflows.
+  - id: ai-agents
+    label: AI Agents
+    description: Capability primitives for autonomous and assisted agents.
+  - id: utility-apis
+    label: Utility APIs
+    description: Cross-cutting utility services (geolocation, DNS, screenshots, scraping).
+  - id: defi-crypto
+    label: DeFi & Crypto
+    description: Cryptocurrency, DeFi, and on-chain analytics services.
+
+concepts:
+  - id: credit
+    label: Credit
+    description: Unit of consumption; 1 credit = 1 default API request.
+  - id: api-key
+    label: API Key
+    description: Bearer credential issued without signup; carries a credit balance.
+  - id: x402
+    label: x402 Payment Required
+    description: HTTP 402-based micropayment protocol used to top up credits.
+  - id: usdc-base
+    label: USDC on Base
+    description: Settlement currency and chain for x402 top-ups.
+  - id: agent-capability
+    label: Agent Capability
+    description: A discrete service primitive consumable by an AI agent (memory, scheduler, etc.).
+
+capabilities:
+  - id: geolocation
+    label: Geolocation
+    apis: [ip-geolocation]
+  - id: crypto-price
+    label: Crypto Price
+    apis: [crypto-prices]
+  - id: screenshot
+    label: Screenshot
+    apis: [screenshot]
+  - id: dns-lookup
+    label: DNS Lookup
+    apis: [dns-lookup]
+  - id: web-scrape
+    label: Web Scrape
+    apis: [web-scraper]
+  - id: code-execution
+    label: Code Execution
+    apis: [code-execution]
+  - id: gateway
+    label: Multi-Service Gateway
+    apis: [agent-gateway]
+
+operations:
+  - verb: lookup
+    description: Read an external fact (geo, DNS, price).
+  - verb: capture
+    description: Produce an artifact from a URL (screenshot, scrape).
+  - verb: execute
+    description: Run sandboxed code on the platform.
+  - verb: pay
+    description: Top up credits with USDC on Base via x402.
+
+economic_terms:
+  - id: free-tier
+    label: Free Tier
+    description: 200 credits issued at key creation, no signup.
+  - id: pay-as-you-go
+    label: Pay-As-You-Go
+    description: USDC-on-Base x402 micropayments to top up credits.
+  - id: expiry
+    label: Key Expiry
+    description: 30 days for free keys, 90 days for topped-up keys.

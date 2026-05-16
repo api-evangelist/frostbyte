@@ -1,0 +1,25 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "schema": "https://schema.org/",
+    "fb": "https://api-catalog-three.vercel.app/vocab#",
+    "Frostbyte":         { "@id": "schema:Organization" },
+    "FrostbyteAPI":      { "@id": "schema:WebAPI" },
+    "FrostbyteCredit":   { "@id": "fb:Credit" },
+    "FrostbyteKey":      { "@id": "fb:APIKey" },
+    "FrostbyteService":  { "@id": "fb:Service" },
+    "credits":           { "@id": "fb:credits", "@type": "schema:Integer" },
+    "expires_at":        { "@id": "fb:expiresAt", "@type": "schema:DateTime" },
+    "ip":                { "@id": "fb:ip" },
+    "country_code":      { "@id": "schema:addressCountry" },
+    "city":              { "@id": "schema:addressLocality" },
+    "latitude":          { "@id": "schema:latitude", "@type": "schema:Number" },
+    "longitude":         { "@id": "schema:longitude", "@type": "schema:Number" },
+    "timezone":          { "@id": "fb:timezone" },
+    "symbol":            { "@id": "fb:symbol" },
+    "price":             { "@id": "schema:price", "@type": "schema:Number" },
+    "change_24h":        { "@id": "fb:change24h", "@type": "schema:Number" },
+    "volume_24h":        { "@id": "fb:volume24h", "@type": "schema:Number" },
+    "source":            { "@id": "schema:provider" }
+  }
+}

@@ -1,0 +1,120 @@
+apiCommonsPlans: '0.1'
+providerId: frostbyte
+provider:
+  name: Frostbyte
+  url: https://api-catalog-three.vercel.app/
+description: |
+  Frostbyte (a.k.a. Clawdia Agent Gateway) is a free API platform offering
+  40+ services for developers and AI agents. The commercial model is built
+  around a unit-credit system. New users receive a free credit allowance
+  with no signup or credit card; additional credits are obtained via
+  x402 micropayments in USDC on the Base network.
+modified: '2026-05-16'
+reconciled: false
+notes: |
+  Pricing is published as a unit-credit model with x402 USDC top-ups.
+  Specific credit-to-USDC pricing tiers and bulk discounts are not formally
+  published; this profile captures what is documented on the catalog site.
+
+plans:
+  - id: free
+    name: Free Tier
+    description: |
+      No signup, no credit card required. Each new API key starts with
+      a free credit allowance. Most services consume 1 credit per request.
+    type: free
+    billing:
+      model: credit
+      currency: credit
+      signup_required: false
+    quotas:
+      - dimension: credits
+        included: 200
+        period: per-key
+        notes: |
+          Standard 200-credit free allowance issued on key creation.
+          Some individual services (e.g. Screenshot API) issue a smaller
+          dedicated credit balance (50 credits).
+    expiry:
+      duration: 30d
+      notes: 'Free credits expire 30 days after key creation; top-up extends to 90 days.'
+    features:
+      - All 40+ services accessible with a single key
+      - x402 payment fallback (402 response includes payment details)
+      - No personal data required to use the platform
+
+  - id: paid-credits
+    name: Pay-As-You-Go (x402 / USDC on Base)
+    description: |
+      Top up the credit balance by paying in USDC on the Base network using
+      the x402 protocol. Sending a request without auth or with an empty
+      balance returns a 402 Payment Required response containing the
+      payment details. Topping up extends the key expiry to 90 days.
+    type: usage-based
+    billing:
+      model: credit
+      currency: USDC
+      chain: base
+      protocol: x402
+      signup_required: false
+    quotas:
+      - dimension: credits
+        included: variable
+        period: per-key
+        notes: 'Credits purchased in USDC on Base; consumed at 1 credit per request.'
+    features:
+      - Same service surface as the Free Tier
+      - Extends key expiry from 30 to 90 days
+      - Micropayments without a traditional billing relationship
+
+apis:
+  - id: ip-geolocation
+    plan_overrides:
+      free:
+        quotas:
+          - dimension: credits
+            included: 200
+            period: per-key
+  - id: crypto-prices
+    plan_overrides:
+      free:
+        quotas:
+          - dimension: credits
+            included: 200
+            period: per-key
+  - id: screenshot
+    plan_overrides:
+      free:
+        quotas:
+          - dimension: credits
+            included: 50
+            period: per-key
+            notes: 'Screenshot API issues a dedicated 50-credit balance.'
+  - id: dns-lookup
+    plan_overrides:
+      free:
+        quotas:
+          - dimension: credits
+            included: 200
+            period: per-key
+  - id: web-scraper
+    plan_overrides:
+      free:
+        quotas:
+          - dimension: credits
+            included: 200
+            period: per-key
+  - id: code-execution
+    plan_overrides:
+      free:
+        quotas:
+          - dimension: credits
+            included: 200
+            period: per-key
+  - id: agent-gateway
+    plan_overrides:
+      free:
+        quotas:
+          - dimension: credits
+            included: 200
+            period: per-key

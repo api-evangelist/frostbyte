@@ -1,0 +1,62 @@
+extends:
+  - spectral:oas
+rules:
+  frostbyte-info-contact:
+    description: All Frostbyte APIs must declare a contact block pointing at the catalog.
+    severity: warn
+    given: $.info
+    then:
+      field: contact
+      function: truthy
+
+  frostbyte-info-license:
+    description: Info must declare a license.
+    severity: warn
+    given: $.info
+    then:
+      field: license
+      function: truthy
+
+  frostbyte-server-production:
+    description: Specs should declare the production gateway URL.
+    severity: warn
+    given: $.servers[*]
+    then:
+      field: url
+      function: pattern
+      functionOptions:
+        match: 'agent-gateway-kappa\\.vercel\\.app'
+
+  frostbyte-operation-summary-required:
+    description: Every operation must define a summary.
+    severity: warn
+    given: $.paths[*][get,post,put,patch,delete]
+    then:
+      field: summary
+      function: truthy
+
+  frostbyte-operation-summary-title-case:
+    description: Operation summaries should use Title Case.
+    severity: warn
+    given: $.paths[*][get,post,put,patch,delete].summary
+    then:
+      function: pattern
+      functionOptions:
+        match: '^[A-Z]'
+
+  frostbyte-path-versioned:
+    description: All non-admin paths must be versioned under /v1/ or /api/.
+    severity: warn
+    given: $.paths
+    then:
+      function: pattern
+      functionOptions:
+        match: '^/(v1|api|health)'
+
+  frostbyte-credit-aware-402:
+    description: Operations should document the 402 Payment Required response (x402 / USDC on Base).
+    severity: info
+    given: $.paths[*][get,post,put,patch,delete].responses
+    then:
+      field: '402'
+      function: truthy

@@ -1,0 +1,63 @@
+finopsFrameworkVersion: 'FOCUS-1.0'
+providerId: frostbyte
+provider:
+  name: Frostbyte
+  url: https://api-catalog-three.vercel.app/
+modified: '2026-05-16'
+reconciled: false
+description: |
+  Frostbyte's billing surface is a credit-based, pay-as-you-go model
+  with USDC-on-Base settlement via the x402 protocol. There are no
+  recurring subscriptions, no invoices, and no traditional billing
+  relationship; cost data is observable on-chain and through the
+  gateway's analytics and balance endpoints.
+
+billing_model:
+  type: usage-based
+  unit: credit
+  rate: 1 credit per request (default)
+  currency:
+    name: USDC
+    chain: base
+    protocol: x402
+  invoicing: none
+  contract: none
+
+focus:
+  BillingCurrency: USDC
+  PricingUnit: credit
+  ChargeCategory: Usage
+  ChargeFrequency: One-Time
+  ChargeSubcategory: Pay-As-You-Go
+  CommitmentDiscountType: None
+  ServiceCategory:
+    - Developer Tools
+    - AI & ML
+  SubAccount:
+    description: Per-API-key balance scoping; each key holds an independent credit balance.
+  ResourceType: api-call
+
+cost_observability:
+  - endpoint: GET /api/keys/balance
+    description: Returns remaining credit balance and key expiry.
+  - endpoint: GET /api/analytics
+    description: Gateway-level usage analytics.
+  - endpoint: 'GET /api/payments/*'
+    description: Payment lookup / receipt endpoints for x402 USDC top-ups.
+  - on_chain: 'Base network — USDC transfers to provider address (x402 settlement)'
+
+cost_optimization:
+  - Use the free 200-credit allowance for evaluation before topping up.
+  - Top up to extend key validity from 30 to 90 days.
+  - Batch endpoints where supported (e.g. IP geolocation batch, DNS batch).
+
+unpublished:
+  - bulk-discounts
+  - committed-use-discounts
+  - enterprise-pricing
+  - SLA-credits
+
+notes: |
+  No subscriptions, invoices, or enterprise plans are published as of the
+  profile date. All cost attribution is per-API-key, settled in USDC on
+  Base via x402.
