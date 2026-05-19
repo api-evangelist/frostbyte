@@ -1,0 +1,688 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Clawdia Agent Gateway API — DeFi & Crypto
+  description: 'Clawdia Agent Gateway API — DeFi & Crypto. 17 operations. Lead operation: Agent Wallet — /api/wallets/create.
+    Self-contained Naftiko capability covering one Frostbyte business surface.'
+  tags:
+  - Frostbyte
+  - DeFi & Crypto
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    FROSTBYTE_API_KEY: FROSTBYTE_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: agent-gateway-defi-crypto
+    baseUri: https://agent-gateway-kappa.vercel.app
+    description: Clawdia Agent Gateway API — DeFi & Crypto business capability. Self-contained, no shared references.
+    resources:
+    - name: v1-agent-wallet-api-wallets-create
+      path: /v1/agent-wallet/api/wallets/create
+      operations:
+      - name: agentwalletpostapiwalletscreate
+        method: POST
+        description: Agent Wallet — /api/wallets/create
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: v1-agent-wallet-api-wallets-id-balance
+      path: /v1/agent-wallet/api/wallets/{id}/balance
+      operations:
+      - name: agentwalletgetapiwalletsidbalance
+        method: GET
+        description: Agent Wallet — /api/wallets/:id/balance
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+    - name: v1-agent-wallet-api-wallets-id-send
+      path: /v1/agent-wallet/api/wallets/{id}/send
+      operations:
+      - name: agentwalletpostapiwalletsidsend
+        method: POST
+        description: Agent Wallet — /api/wallets/:id/send
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: v1-defi-mcp-mcp-tools-call
+      path: /v1/defi-mcp/mcp/tools/call
+      operations:
+      - name: defimcppostmcptoolscall
+        method: POST
+        description: DeFi MCP Server — /mcp/tools/call
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: v1-defi-mcp-mcp-tools-list
+      path: /v1/defi-mcp/mcp/tools/list
+      operations:
+      - name: defimcpgetmcptoolslist
+        method: GET
+        description: DeFi MCP Server — /mcp/tools/list
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-defi-trading-api-markets
+      path: /v1/defi-trading/api/markets
+      operations:
+      - name: defitradinggetapimarkets
+        method: GET
+        description: DeFi Trading Proxy — /api/markets
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-defi-trading-api-orders
+      path: /v1/defi-trading/api/orders
+      operations:
+      - name: defitradingpostapiorders
+        method: POST
+        description: DeFi Trading Proxy — /api/orders
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: v1-defi-trading-api-positions
+      path: /v1/defi-trading/api/positions
+      operations:
+      - name: defitradinggetapipositions
+        method: GET
+        description: DeFi Trading Proxy — /api/positions
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-frostbyte-wallet-v1-auth-register
+      path: /v1/frostbyte-wallet/v1/auth/register
+      operations:
+      - name: frostbytewalletpostv1authregister
+        method: POST
+        description: Frostbyte Wallet — /v1/auth/register
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: v1-frostbyte-wallet-v1-chains
+      path: /v1/frostbyte-wallet/v1/chains
+      operations:
+      - name: frostbytewalletgetv1chains
+        method: GET
+        description: Frostbyte Wallet — /v1/chains
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-frostbyte-wallet-v1-chains-gas
+      path: /v1/frostbyte-wallet/v1/chains/gas
+      operations:
+      - name: frostbytewalletgetv1chainsgas
+        method: GET
+        description: Frostbyte Wallet — /v1/chains/gas
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-frostbyte-wallet-v1-referral-stats
+      path: /v1/frostbyte-wallet/v1/referral/stats
+      operations:
+      - name: frostbytewalletgetv1referralstats
+        method: GET
+        description: Frostbyte Wallet — /v1/referral/stats
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-frostbyte-wallet-v1-swap-execute
+      path: /v1/frostbyte-wallet/v1/swap/execute
+      operations:
+      - name: frostbytewalletpostv1swapexecute
+        method: POST
+        description: Frostbyte Wallet — /v1/swap/execute
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: v1-frostbyte-wallet-v1-swap-quote
+      path: /v1/frostbyte-wallet/v1/swap/quote
+      operations:
+      - name: frostbytewalletgetv1swapquote
+        method: GET
+        description: Frostbyte Wallet — /v1/swap/quote
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-frostbyte-wallet-v1-wallet-balance-address
+      path: /v1/frostbyte-wallet/v1/wallet/balance/{address}
+      operations:
+      - name: frostbytewalletgetv1walletbalanceaddress
+        method: GET
+        description: Frostbyte Wallet — /v1/wallet/balance/:address
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: address
+          in: path
+          type: string
+          required: true
+    - name: v1-frostbyte-wallet-v1-wallet-create
+      path: /v1/frostbyte-wallet/v1/wallet/create
+      operations:
+      - name: frostbytewalletpostv1walletcreate
+        method: POST
+        description: Frostbyte Wallet — /v1/wallet/create
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: v1-frostbyte-wallet-v1-wallet-send
+      path: /v1/frostbyte-wallet/v1/wallet/send
+      operations:
+      - name: frostbytewalletpostv1walletsend
+        method: POST
+        description: Frostbyte Wallet — /v1/wallet/send
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    authentication:
+      type: apikey
+      key: X-API-Key
+      value: '{{env.FROSTBYTE_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: agent-gateway-defi-crypto-rest
+    port: 8080
+    description: REST adapter for Clawdia Agent Gateway API — DeFi & Crypto. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/v1/agent-wallet/api/wallets/create
+      name: v1-agent-wallet-api-wallets-create
+      description: REST surface for v1-agent-wallet-api-wallets-create.
+      operations:
+      - method: POST
+        name: agentwalletpostapiwalletscreate
+        description: Agent Wallet — /api/wallets/create
+        call: agent-gateway-defi-crypto.agentwalletpostapiwalletscreate
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/agent-wallet/api/wallets/{id}/balance
+      name: v1-agent-wallet-api-wallets-id-balance
+      description: REST surface for v1-agent-wallet-api-wallets-id-balance.
+      operations:
+      - method: GET
+        name: agentwalletgetapiwalletsidbalance
+        description: Agent Wallet — /api/wallets/:id/balance
+        call: agent-gateway-defi-crypto.agentwalletgetapiwalletsidbalance
+        with:
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/agent-wallet/api/wallets/{id}/send
+      name: v1-agent-wallet-api-wallets-id-send
+      description: REST surface for v1-agent-wallet-api-wallets-id-send.
+      operations:
+      - method: POST
+        name: agentwalletpostapiwalletsidsend
+        description: Agent Wallet — /api/wallets/:id/send
+        call: agent-gateway-defi-crypto.agentwalletpostapiwalletsidsend
+        with:
+          id: rest.id
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/defi-mcp/mcp/tools/call
+      name: v1-defi-mcp-mcp-tools-call
+      description: REST surface for v1-defi-mcp-mcp-tools-call.
+      operations:
+      - method: POST
+        name: defimcppostmcptoolscall
+        description: DeFi MCP Server — /mcp/tools/call
+        call: agent-gateway-defi-crypto.defimcppostmcptoolscall
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/defi-mcp/mcp/tools/list
+      name: v1-defi-mcp-mcp-tools-list
+      description: REST surface for v1-defi-mcp-mcp-tools-list.
+      operations:
+      - method: GET
+        name: defimcpgetmcptoolslist
+        description: DeFi MCP Server — /mcp/tools/list
+        call: agent-gateway-defi-crypto.defimcpgetmcptoolslist
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/defi-trading/api/markets
+      name: v1-defi-trading-api-markets
+      description: REST surface for v1-defi-trading-api-markets.
+      operations:
+      - method: GET
+        name: defitradinggetapimarkets
+        description: DeFi Trading Proxy — /api/markets
+        call: agent-gateway-defi-crypto.defitradinggetapimarkets
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/defi-trading/api/orders
+      name: v1-defi-trading-api-orders
+      description: REST surface for v1-defi-trading-api-orders.
+      operations:
+      - method: POST
+        name: defitradingpostapiorders
+        description: DeFi Trading Proxy — /api/orders
+        call: agent-gateway-defi-crypto.defitradingpostapiorders
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/defi-trading/api/positions
+      name: v1-defi-trading-api-positions
+      description: REST surface for v1-defi-trading-api-positions.
+      operations:
+      - method: GET
+        name: defitradinggetapipositions
+        description: DeFi Trading Proxy — /api/positions
+        call: agent-gateway-defi-crypto.defitradinggetapipositions
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/frostbyte-wallet/v1/auth/register
+      name: v1-frostbyte-wallet-v1-auth-register
+      description: REST surface for v1-frostbyte-wallet-v1-auth-register.
+      operations:
+      - method: POST
+        name: frostbytewalletpostv1authregister
+        description: Frostbyte Wallet — /v1/auth/register
+        call: agent-gateway-defi-crypto.frostbytewalletpostv1authregister
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/frostbyte-wallet/v1/chains
+      name: v1-frostbyte-wallet-v1-chains
+      description: REST surface for v1-frostbyte-wallet-v1-chains.
+      operations:
+      - method: GET
+        name: frostbytewalletgetv1chains
+        description: Frostbyte Wallet — /v1/chains
+        call: agent-gateway-defi-crypto.frostbytewalletgetv1chains
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/frostbyte-wallet/v1/chains/gas
+      name: v1-frostbyte-wallet-v1-chains-gas
+      description: REST surface for v1-frostbyte-wallet-v1-chains-gas.
+      operations:
+      - method: GET
+        name: frostbytewalletgetv1chainsgas
+        description: Frostbyte Wallet — /v1/chains/gas
+        call: agent-gateway-defi-crypto.frostbytewalletgetv1chainsgas
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/frostbyte-wallet/v1/referral/stats
+      name: v1-frostbyte-wallet-v1-referral-stats
+      description: REST surface for v1-frostbyte-wallet-v1-referral-stats.
+      operations:
+      - method: GET
+        name: frostbytewalletgetv1referralstats
+        description: Frostbyte Wallet — /v1/referral/stats
+        call: agent-gateway-defi-crypto.frostbytewalletgetv1referralstats
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/frostbyte-wallet/v1/swap/execute
+      name: v1-frostbyte-wallet-v1-swap-execute
+      description: REST surface for v1-frostbyte-wallet-v1-swap-execute.
+      operations:
+      - method: POST
+        name: frostbytewalletpostv1swapexecute
+        description: Frostbyte Wallet — /v1/swap/execute
+        call: agent-gateway-defi-crypto.frostbytewalletpostv1swapexecute
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/frostbyte-wallet/v1/swap/quote
+      name: v1-frostbyte-wallet-v1-swap-quote
+      description: REST surface for v1-frostbyte-wallet-v1-swap-quote.
+      operations:
+      - method: GET
+        name: frostbytewalletgetv1swapquote
+        description: Frostbyte Wallet — /v1/swap/quote
+        call: agent-gateway-defi-crypto.frostbytewalletgetv1swapquote
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/frostbyte-wallet/v1/wallet/balance/{address}
+      name: v1-frostbyte-wallet-v1-wallet-balance-address
+      description: REST surface for v1-frostbyte-wallet-v1-wallet-balance-address.
+      operations:
+      - method: GET
+        name: frostbytewalletgetv1walletbalanceaddress
+        description: Frostbyte Wallet — /v1/wallet/balance/:address
+        call: agent-gateway-defi-crypto.frostbytewalletgetv1walletbalanceaddress
+        with:
+          address: rest.address
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/frostbyte-wallet/v1/wallet/create
+      name: v1-frostbyte-wallet-v1-wallet-create
+      description: REST surface for v1-frostbyte-wallet-v1-wallet-create.
+      operations:
+      - method: POST
+        name: frostbytewalletpostv1walletcreate
+        description: Frostbyte Wallet — /v1/wallet/create
+        call: agent-gateway-defi-crypto.frostbytewalletpostv1walletcreate
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/frostbyte-wallet/v1/wallet/send
+      name: v1-frostbyte-wallet-v1-wallet-send
+      description: REST surface for v1-frostbyte-wallet-v1-wallet-send.
+      operations:
+      - method: POST
+        name: frostbytewalletpostv1walletsend
+        description: Frostbyte Wallet — /v1/wallet/send
+        call: agent-gateway-defi-crypto.frostbytewalletpostv1walletsend
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: agent-gateway-defi-crypto-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Clawdia Agent Gateway API — DeFi & Crypto. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: agent-wallet-api-wallets-create
+      description: Agent Wallet — /api/wallets/create
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: agent-gateway-defi-crypto.agentwalletpostapiwalletscreate
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: agent-wallet-api-wallets-id
+      description: Agent Wallet — /api/wallets/:id/balance
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: agent-gateway-defi-crypto.agentwalletgetapiwalletsidbalance
+      with:
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: agent-wallet-api-wallets-id-2
+      description: Agent Wallet — /api/wallets/:id/send
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: agent-gateway-defi-crypto.agentwalletpostapiwalletsidsend
+      with:
+        id: tools.id
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: defi-mcp-server-mcp-tools
+      description: DeFi MCP Server — /mcp/tools/call
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: agent-gateway-defi-crypto.defimcppostmcptoolscall
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: defi-mcp-server-mcp-tools-2
+      description: DeFi MCP Server — /mcp/tools/list
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: agent-gateway-defi-crypto.defimcpgetmcptoolslist
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: defi-trading-proxy-api-markets
+      description: DeFi Trading Proxy — /api/markets
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: agent-gateway-defi-crypto.defitradinggetapimarkets
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: defi-trading-proxy-api-orders
+      description: DeFi Trading Proxy — /api/orders
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: agent-gateway-defi-crypto.defitradingpostapiorders
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: defi-trading-proxy-api-positions
+      description: DeFi Trading Proxy — /api/positions
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: agent-gateway-defi-crypto.defitradinggetapipositions
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: frostbyte-wallet-v1-auth-register
+      description: Frostbyte Wallet — /v1/auth/register
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: agent-gateway-defi-crypto.frostbytewalletpostv1authregister
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: frostbyte-wallet-v1-chains
+      description: Frostbyte Wallet — /v1/chains
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: agent-gateway-defi-crypto.frostbytewalletgetv1chains
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: frostbyte-wallet-v1-chains-gas
+      description: Frostbyte Wallet — /v1/chains/gas
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: agent-gateway-defi-crypto.frostbytewalletgetv1chainsgas
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: frostbyte-wallet-v1-referral-stats
+      description: Frostbyte Wallet — /v1/referral/stats
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: agent-gateway-defi-crypto.frostbytewalletgetv1referralstats
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: frostbyte-wallet-v1-swap-execute
+      description: Frostbyte Wallet — /v1/swap/execute
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: agent-gateway-defi-crypto.frostbytewalletpostv1swapexecute
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: frostbyte-wallet-v1-swap-quote
+      description: Frostbyte Wallet — /v1/swap/quote
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: agent-gateway-defi-crypto.frostbytewalletgetv1swapquote
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: frostbyte-wallet-v1-wallet-balance
+      description: Frostbyte Wallet — /v1/wallet/balance/:address
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: agent-gateway-defi-crypto.frostbytewalletgetv1walletbalanceaddress
+      with:
+        address: tools.address
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: frostbyte-wallet-v1-wallet-create
+      description: Frostbyte Wallet — /v1/wallet/create
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: agent-gateway-defi-crypto.frostbytewalletpostv1walletcreate
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: frostbyte-wallet-v1-wallet-send
+      description: Frostbyte Wallet — /v1/wallet/send
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: agent-gateway-defi-crypto.frostbytewalletpostv1walletsend
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

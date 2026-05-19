@@ -1,0 +1,136 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Frostbyte Crypto Prices API — Crypto Prices
+  description: 'Frostbyte Crypto Prices API — Crypto Prices. 3 operations. Lead operation: Get Prices (shortcut Endpoint).
+    Self-contained Naftiko capability covering one Frostbyte business surface.'
+  tags:
+  - Frostbyte
+  - Crypto Prices
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    FROSTBYTE_API_KEY: FROSTBYTE_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: crypto-prices-crypto-prices
+    baseUri: https://agent-gateway-kappa.vercel.app
+    description: Frostbyte Crypto Prices API — Crypto Prices business capability. Self-contained, no shared references.
+    resources:
+    - name: api-prices
+      path: /api/prices
+      operations:
+      - name: getpricesshortcut
+        method: GET
+        description: Get Prices (shortcut Endpoint)
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-crypto-feeds-api-prices
+      path: /v1/crypto-feeds/api/prices
+      operations:
+      - name: getallprices
+        method: GET
+        description: Get All Cryptocurrency Prices
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-defi-trading-api-markets
+      path: /v1/defi-trading/api/markets
+      operations:
+      - name: getmarkets
+        method: GET
+        description: Get Market Data
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: apikey
+      key: X-API-Key
+      value: '{{env.FROSTBYTE_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: crypto-prices-crypto-prices-rest
+    port: 8080
+    description: REST adapter for Frostbyte Crypto Prices API — Crypto Prices. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/api/prices
+      name: api-prices
+      description: REST surface for api-prices.
+      operations:
+      - method: GET
+        name: getpricesshortcut
+        description: Get Prices (shortcut Endpoint)
+        call: crypto-prices-crypto-prices.getpricesshortcut
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/crypto-feeds/api/prices
+      name: v1-crypto-feeds-api-prices
+      description: REST surface for v1-crypto-feeds-api-prices.
+      operations:
+      - method: GET
+        name: getallprices
+        description: Get All Cryptocurrency Prices
+        call: crypto-prices-crypto-prices.getallprices
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/defi-trading/api/markets
+      name: v1-defi-trading-api-markets
+      description: REST surface for v1-defi-trading-api-markets.
+      operations:
+      - method: GET
+        name: getmarkets
+        description: Get Market Data
+        call: crypto-prices-crypto-prices.getmarkets
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: crypto-prices-crypto-prices-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Frostbyte Crypto Prices API — Crypto Prices. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: get-prices-shortcut-endpoint
+      description: Get Prices (shortcut Endpoint)
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: crypto-prices-crypto-prices.getpricesshortcut
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-all-cryptocurrency-prices
+      description: Get All Cryptocurrency Prices
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: crypto-prices-crypto-prices.getallprices
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-market-data
+      description: Get Market Data
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: crypto-prices-crypto-prices.getmarkets
+      outputParameters:
+      - type: object
+        mapping: $.

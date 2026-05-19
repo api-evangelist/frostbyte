@@ -1,0 +1,2282 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Clawdia Agent Gateway API — Other
+  description: 'Clawdia Agent Gateway API — Other. 56 operations. Lead operation: Agent Code Runner — /api/execute. Self-contained
+    Naftiko capability covering one Frostbyte business surface.'
+  tags:
+  - Frostbyte
+  - Other
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    FROSTBYTE_API_KEY: FROSTBYTE_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: agent-gateway-other
+    baseUri: https://agent-gateway-kappa.vercel.app
+    description: Clawdia Agent Gateway API — Other business capability. Self-contained, no shared references.
+    resources:
+    - name: v1-agent-coderunner-api-execute
+      path: /v1/agent-coderunner/api/execute
+      operations:
+      - name: agentcoderunnerpostapiexecute
+        method: POST
+        description: Agent Code Runner — /api/execute
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: v1-agent-coderunner-api-languages
+      path: /v1/agent-coderunner/api/languages
+      operations:
+      - name: agentcoderunnergetapilanguages
+        method: GET
+        description: Agent Code Runner — /api/languages
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-agent-coderunner-api-sessions
+      path: /v1/agent-coderunner/api/sessions
+      operations:
+      - name: agentcoderunnerpostapisessions
+        method: POST
+        description: Agent Code Runner — /api/sessions
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: v1-agent-coderunner-api-sessions-id-execute
+      path: /v1/agent-coderunner/api/sessions/{id}/execute
+      operations:
+      - name: agentcoderunnerpostapisessionsidexecute
+        method: POST
+        description: Agent Code Runner — /api/sessions/:id/execute
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: v1-agent-dns-api-all-domain
+      path: /v1/agent-dns/api/all/{domain}
+      operations:
+      - name: agentdnsgetapialldomain
+        method: GET
+        description: Agent DNS Lookup — /api/all/:domain
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: domain
+          in: path
+          type: string
+          required: true
+    - name: v1-agent-dns-api-batch
+      path: /v1/agent-dns/api/batch
+      operations:
+      - name: agentdnspostapibatch
+        method: POST
+        description: Agent DNS Lookup — /api/batch
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: v1-agent-dns-api-check-domain
+      path: /v1/agent-dns/api/check/{domain}
+      operations:
+      - name: agentdnsgetapicheckdomain
+        method: GET
+        description: Agent DNS Lookup — /api/check/:domain
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: domain
+          in: path
+          type: string
+          required: true
+    - name: v1-agent-dns-api-propagation-domain
+      path: /v1/agent-dns/api/propagation/{domain}
+      operations:
+      - name: agentdnsgetapipropagationdomain
+        method: GET
+        description: Agent DNS Lookup — /api/propagation/:domain
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: domain
+          in: path
+          type: string
+          required: true
+    - name: v1-agent-dns-api-resolve-domain
+      path: /v1/agent-dns/api/resolve/{domain}
+      operations:
+      - name: agentdnsgetapiresolvedomain
+        method: GET
+        description: Agent DNS Lookup — /api/resolve/:domain
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: domain
+          in: path
+          type: string
+          required: true
+    - name: v1-agent-dns-api-whois-domain
+      path: /v1/agent-dns/api/whois/{domain}
+      operations:
+      - name: agentdnsgetapiwhoisdomain
+        method: GET
+        description: Agent DNS Lookup — /api/whois/:domain
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: domain
+          in: path
+          type: string
+          required: true
+    - name: v1-agent-imageproc-api-blur
+      path: /v1/agent-imageproc/api/blur
+      operations:
+      - name: agentimageprocpostapiblur
+        method: POST
+        description: Agent Image Processor — /api/blur
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: v1-agent-imageproc-api-convert
+      path: /v1/agent-imageproc/api/convert
+      operations:
+      - name: agentimageprocpostapiconvert
+        method: POST
+        description: Agent Image Processor — /api/convert
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: v1-agent-imageproc-api-crop
+      path: /v1/agent-imageproc/api/crop
+      operations:
+      - name: agentimageprocpostapicrop
+        method: POST
+        description: Agent Image Processor — /api/crop
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: v1-agent-imageproc-api-metadata
+      path: /v1/agent-imageproc/api/metadata
+      operations:
+      - name: agentimageprocpostapimetadata
+        method: POST
+        description: Agent Image Processor — /api/metadata
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: v1-agent-imageproc-api-placeholder-w-h
+      path: /v1/agent-imageproc/api/placeholder/{w}/{h}
+      operations:
+      - name: agentimageprocgetapiplaceholderwh
+        method: GET
+        description: Agent Image Processor — /api/placeholder/:w/:h
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: w
+          in: path
+          type: string
+          required: true
+        - name: h
+          in: path
+          type: string
+          required: true
+    - name: v1-agent-imageproc-api-qrcode
+      path: /v1/agent-imageproc/api/qrcode
+      operations:
+      - name: agentimageprocpostapiqrcode
+        method: POST
+        description: Agent Image Processor — /api/qrcode
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: v1-agent-imageproc-api-resize
+      path: /v1/agent-imageproc/api/resize
+      operations:
+      - name: agentimageprocpostapiresize
+        method: POST
+        description: Agent Image Processor — /api/resize
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: v1-agent-imageproc-api-rotate
+      path: /v1/agent-imageproc/api/rotate
+      operations:
+      - name: agentimageprocpostapirotate
+        method: POST
+        description: Agent Image Processor — /api/rotate
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: v1-agent-imageproc-api-transform
+      path: /v1/agent-imageproc/api/transform
+      operations:
+      - name: agentimageprocpostapitransform
+        method: POST
+        description: Agent Image Processor — /api/transform
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: v1-agent-llm-api-chat
+      path: /v1/agent-llm/api/chat
+      operations:
+      - name: agentllmpostapichat
+        method: POST
+        description: Agent LLM Router — /api/chat
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: v1-agent-llm-api-keys-provider
+      path: /v1/agent-llm/api/keys/provider
+      operations:
+      - name: agentllmpostapikeysprovider
+        method: POST
+        description: Agent LLM Router — /api/keys/provider
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: v1-agent-llm-api-models
+      path: /v1/agent-llm/api/models
+      operations:
+      - name: agentllmgetapimodels
+        method: GET
+        description: Agent LLM Router — /api/models
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-agent-llm-api-providers
+      path: /v1/agent-llm/api/providers
+      operations:
+      - name: agentllmgetapiproviders
+        method: GET
+        description: Agent LLM Router — /api/providers
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-agent-llm-v1-chat-completions
+      path: /v1/agent-llm/v1/chat/completions
+      operations:
+      - name: agentllmpostv1chatcompletions
+        method: POST
+        description: Agent LLM Router — /v1/chat/completions
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: v1-agent-paste-api-collections
+      path: /v1/agent-paste/api/collections
+      operations:
+      - name: agentpastepostapicollections
+        method: POST
+        description: Agent Paste Bin — /api/collections
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: v1-agent-paste-api-collections-id
+      path: /v1/agent-paste/api/collections/{id}
+      operations:
+      - name: agentpastegetapicollectionsid
+        method: GET
+        description: Agent Paste Bin — /api/collections/:id
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+    - name: v1-agent-paste-api-diff
+      path: /v1/agent-paste/api/diff
+      operations:
+      - name: agentpastepostapidiff
+        method: POST
+        description: Agent Paste Bin — /api/diff
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: v1-agent-paste-api-pastes
+      path: /v1/agent-paste/api/pastes
+      operations:
+      - name: agentpastepostapipastes
+        method: POST
+        description: Agent Paste Bin — /api/pastes
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: v1-agent-paste-api-pastes-id
+      path: /v1/agent-paste/api/pastes/{id}
+      operations:
+      - name: agentpastegetapipastesid
+        method: GET
+        description: Agent Paste Bin — /api/pastes/:id
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+    - name: v1-agent-paste-api-pastes-id-raw
+      path: /v1/agent-paste/api/pastes/{id}/raw
+      operations:
+      - name: agentpastegetapipastesidraw
+        method: GET
+        description: Agent Paste Bin — /api/pastes/:id/raw
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+    - name: v1-agent-pdfgen-api-pdf-from-html
+      path: /v1/agent-pdfgen/api/pdf/from-html
+      operations:
+      - name: agentpdfgenpostapipdffromhtml
+        method: POST
+        description: Agent PDF Generator — /api/pdf/from-html
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: v1-agent-pdfgen-api-pdf-from-markdown
+      path: /v1/agent-pdfgen/api/pdf/from-markdown
+      operations:
+      - name: agentpdfgenpostapipdffrommarkdown
+        method: POST
+        description: Agent PDF Generator — /api/pdf/from-markdown
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: v1-agent-pdfgen-api-pdf-from-template
+      path: /v1/agent-pdfgen/api/pdf/from-template
+      operations:
+      - name: agentpdfgenpostapipdffromtemplate
+        method: POST
+        description: Agent PDF Generator — /api/pdf/from-template
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: v1-agent-pdfgen-api-pdf-from-url
+      path: /v1/agent-pdfgen/api/pdf/from-url
+      operations:
+      - name: agentpdfgenpostapipdffromurl
+        method: POST
+        description: Agent PDF Generator — /api/pdf/from-url
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: v1-agent-shorturl-api-shorten
+      path: /v1/agent-shorturl/api/shorten
+      operations:
+      - name: agentshorturlpostapishorten
+        method: POST
+        description: Agent Short URL — /api/shorten
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: v1-agent-shorturl-api-shorten-bulk
+      path: /v1/agent-shorturl/api/shorten/bulk
+      operations:
+      - name: agentshorturlpostapishortenbulk
+        method: POST
+        description: Agent Short URL — /api/shorten/bulk
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: v1-agent-shorturl-api-urls
+      path: /v1/agent-shorturl/api/urls
+      operations:
+      - name: agentshorturlgetapiurls
+        method: GET
+        description: Agent Short URL — /api/urls
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-agent-shorturl-api-urls-slug-stats
+      path: /v1/agent-shorturl/api/urls/{slug}/stats
+      operations:
+      - name: agentshorturlgetapiurlsslugstats
+        method: GET
+        description: Agent Short URL — /api/urls/:slug/stats
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: slug
+          in: path
+          type: string
+          required: true
+    - name: v1-agent-shorturl-slug
+      path: /v1/agent-shorturl/{slug}
+      operations:
+      - name: agentshorturlgetslug
+        method: GET
+        description: Agent Short URL — /:slug
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: slug
+          in: path
+          type: string
+          required: true
+    - name: v1-contract-deployer-api-compile
+      path: /v1/contract-deployer/api/compile
+      operations:
+      - name: contractdeployerpostapicompile
+        method: POST
+        description: Smart Contract Deployer — /api/compile
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: v1-contract-deployer-api-deploy
+      path: /v1/contract-deployer/api/deploy
+      operations:
+      - name: contractdeployerpostapideploy
+        method: POST
+        description: Smart Contract Deployer — /api/deploy
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: v1-contract-deployer-api-templates
+      path: /v1/contract-deployer/api/templates
+      operations:
+      - name: contractdeployergetapitemplates
+        method: GET
+        description: Smart Contract Deployer — /api/templates
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-frostbyte-domains-v1-auth-register
+      path: /v1/frostbyte-domains/v1/auth/register
+      operations:
+      - name: frostbytedomainspostv1authregister
+        method: POST
+        description: Frostbyte Domains — /v1/auth/register
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: v1-frostbyte-domains-v1-dns-records
+      path: /v1/frostbyte-domains/v1/dns/records
+      operations:
+      - name: frostbytedomainspostv1dnsrecords
+        method: POST
+        description: Frostbyte Domains — /v1/dns/records
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+      - name: frostbytedomainsgetv1dnsrecords
+        method: GET
+        description: Frostbyte Domains — /v1/dns/records
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-frostbyte-domains-v1-dns-records-id
+      path: /v1/frostbyte-domains/v1/dns/records/{id}
+      operations:
+      - name: frostbytedomainsputv1dnsrecordsid
+        method: PUT
+        description: Frostbyte Domains — /v1/dns/records/:id
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+      - name: frostbytedomainsdeletev1dnsrecordsid
+        method: DELETE
+        description: Frostbyte Domains — /v1/dns/records/:id
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+    - name: v1-frostbyte-domains-v1-domains
+      path: /v1/frostbyte-domains/v1/domains
+      operations:
+      - name: frostbytedomainsgetv1domains
+        method: GET
+        description: Frostbyte Domains — /v1/domains
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-frostbyte-domains-v1-domains-register
+      path: /v1/frostbyte-domains/v1/domains/register
+      operations:
+      - name: frostbytedomainspostv1domainsregister
+        method: POST
+        description: Frostbyte Domains — /v1/domains/register
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: v1-frostbyte-domains-v1-domains-search
+      path: /v1/frostbyte-domains/v1/domains/search
+      operations:
+      - name: frostbytedomainsgetv1domainssearch
+        method: GET
+        description: Frostbyte Domains — /v1/domains/search
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-token-launchpad-api-deployments
+      path: /v1/token-launchpad/api/deployments
+      operations:
+      - name: tokenlaunchpadgetapideployments
+        method: GET
+        description: Token Launchpad — /api/deployments
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-token-launchpad-api-templates
+      path: /v1/token-launchpad/api/templates
+      operations:
+      - name: tokenlaunchpadgetapitemplates
+        method: GET
+        description: Token Launchpad — /api/templates
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-token-launchpad-api-tokens-create
+      path: /v1/token-launchpad/api/tokens/create
+      operations:
+      - name: tokenlaunchpadpostapitokenscreate
+        method: POST
+        description: Token Launchpad — /api/tokens/create
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: v1-webhook-inspector-api-inbox-id-requests
+      path: /v1/webhook-inspector/api/inbox/{id}/requests
+      operations:
+      - name: webhookinspectorgetapiinboxidrequests
+        method: GET
+        description: Webhook Inspector — /api/inbox/:id/requests
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+    - name: v1-webhook-inspector-inspect-id
+      path: /v1/webhook-inspector/inspect/{id}
+      operations:
+      - name: webhookinspectorgetinspectid
+        method: GET
+        description: Webhook Inspector — /inspect/:id
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+    - name: v1-webhook-inspector-new
+      path: /v1/webhook-inspector/new
+      operations:
+      - name: webhookinspectorpostnew
+        method: POST
+        description: Webhook Inspector — /new
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    authentication:
+      type: apikey
+      key: X-API-Key
+      value: '{{env.FROSTBYTE_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: agent-gateway-other-rest
+    port: 8080
+    description: REST adapter for Clawdia Agent Gateway API — Other. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/v1/agent-coderunner/api/execute
+      name: v1-agent-coderunner-api-execute
+      description: REST surface for v1-agent-coderunner-api-execute.
+      operations:
+      - method: POST
+        name: agentcoderunnerpostapiexecute
+        description: Agent Code Runner — /api/execute
+        call: agent-gateway-other.agentcoderunnerpostapiexecute
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/agent-coderunner/api/languages
+      name: v1-agent-coderunner-api-languages
+      description: REST surface for v1-agent-coderunner-api-languages.
+      operations:
+      - method: GET
+        name: agentcoderunnergetapilanguages
+        description: Agent Code Runner — /api/languages
+        call: agent-gateway-other.agentcoderunnergetapilanguages
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/agent-coderunner/api/sessions
+      name: v1-agent-coderunner-api-sessions
+      description: REST surface for v1-agent-coderunner-api-sessions.
+      operations:
+      - method: POST
+        name: agentcoderunnerpostapisessions
+        description: Agent Code Runner — /api/sessions
+        call: agent-gateway-other.agentcoderunnerpostapisessions
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/agent-coderunner/api/sessions/{id}/execute
+      name: v1-agent-coderunner-api-sessions-id-execute
+      description: REST surface for v1-agent-coderunner-api-sessions-id-execute.
+      operations:
+      - method: POST
+        name: agentcoderunnerpostapisessionsidexecute
+        description: Agent Code Runner — /api/sessions/:id/execute
+        call: agent-gateway-other.agentcoderunnerpostapisessionsidexecute
+        with:
+          id: rest.id
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/agent-dns/api/all/{domain}
+      name: v1-agent-dns-api-all-domain
+      description: REST surface for v1-agent-dns-api-all-domain.
+      operations:
+      - method: GET
+        name: agentdnsgetapialldomain
+        description: Agent DNS Lookup — /api/all/:domain
+        call: agent-gateway-other.agentdnsgetapialldomain
+        with:
+          domain: rest.domain
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/agent-dns/api/batch
+      name: v1-agent-dns-api-batch
+      description: REST surface for v1-agent-dns-api-batch.
+      operations:
+      - method: POST
+        name: agentdnspostapibatch
+        description: Agent DNS Lookup — /api/batch
+        call: agent-gateway-other.agentdnspostapibatch
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/agent-dns/api/check/{domain}
+      name: v1-agent-dns-api-check-domain
+      description: REST surface for v1-agent-dns-api-check-domain.
+      operations:
+      - method: GET
+        name: agentdnsgetapicheckdomain
+        description: Agent DNS Lookup — /api/check/:domain
+        call: agent-gateway-other.agentdnsgetapicheckdomain
+        with:
+          domain: rest.domain
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/agent-dns/api/propagation/{domain}
+      name: v1-agent-dns-api-propagation-domain
+      description: REST surface for v1-agent-dns-api-propagation-domain.
+      operations:
+      - method: GET
+        name: agentdnsgetapipropagationdomain
+        description: Agent DNS Lookup — /api/propagation/:domain
+        call: agent-gateway-other.agentdnsgetapipropagationdomain
+        with:
+          domain: rest.domain
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/agent-dns/api/resolve/{domain}
+      name: v1-agent-dns-api-resolve-domain
+      description: REST surface for v1-agent-dns-api-resolve-domain.
+      operations:
+      - method: GET
+        name: agentdnsgetapiresolvedomain
+        description: Agent DNS Lookup — /api/resolve/:domain
+        call: agent-gateway-other.agentdnsgetapiresolvedomain
+        with:
+          domain: rest.domain
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/agent-dns/api/whois/{domain}
+      name: v1-agent-dns-api-whois-domain
+      description: REST surface for v1-agent-dns-api-whois-domain.
+      operations:
+      - method: GET
+        name: agentdnsgetapiwhoisdomain
+        description: Agent DNS Lookup — /api/whois/:domain
+        call: agent-gateway-other.agentdnsgetapiwhoisdomain
+        with:
+          domain: rest.domain
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/agent-imageproc/api/blur
+      name: v1-agent-imageproc-api-blur
+      description: REST surface for v1-agent-imageproc-api-blur.
+      operations:
+      - method: POST
+        name: agentimageprocpostapiblur
+        description: Agent Image Processor — /api/blur
+        call: agent-gateway-other.agentimageprocpostapiblur
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/agent-imageproc/api/convert
+      name: v1-agent-imageproc-api-convert
+      description: REST surface for v1-agent-imageproc-api-convert.
+      operations:
+      - method: POST
+        name: agentimageprocpostapiconvert
+        description: Agent Image Processor — /api/convert
+        call: agent-gateway-other.agentimageprocpostapiconvert
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/agent-imageproc/api/crop
+      name: v1-agent-imageproc-api-crop
+      description: REST surface for v1-agent-imageproc-api-crop.
+      operations:
+      - method: POST
+        name: agentimageprocpostapicrop
+        description: Agent Image Processor — /api/crop
+        call: agent-gateway-other.agentimageprocpostapicrop
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/agent-imageproc/api/metadata
+      name: v1-agent-imageproc-api-metadata
+      description: REST surface for v1-agent-imageproc-api-metadata.
+      operations:
+      - method: POST
+        name: agentimageprocpostapimetadata
+        description: Agent Image Processor — /api/metadata
+        call: agent-gateway-other.agentimageprocpostapimetadata
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/agent-imageproc/api/placeholder/{w}/{h}
+      name: v1-agent-imageproc-api-placeholder-w-h
+      description: REST surface for v1-agent-imageproc-api-placeholder-w-h.
+      operations:
+      - method: GET
+        name: agentimageprocgetapiplaceholderwh
+        description: Agent Image Processor — /api/placeholder/:w/:h
+        call: agent-gateway-other.agentimageprocgetapiplaceholderwh
+        with:
+          w: rest.w
+          h: rest.h
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/agent-imageproc/api/qrcode
+      name: v1-agent-imageproc-api-qrcode
+      description: REST surface for v1-agent-imageproc-api-qrcode.
+      operations:
+      - method: POST
+        name: agentimageprocpostapiqrcode
+        description: Agent Image Processor — /api/qrcode
+        call: agent-gateway-other.agentimageprocpostapiqrcode
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/agent-imageproc/api/resize
+      name: v1-agent-imageproc-api-resize
+      description: REST surface for v1-agent-imageproc-api-resize.
+      operations:
+      - method: POST
+        name: agentimageprocpostapiresize
+        description: Agent Image Processor — /api/resize
+        call: agent-gateway-other.agentimageprocpostapiresize
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/agent-imageproc/api/rotate
+      name: v1-agent-imageproc-api-rotate
+      description: REST surface for v1-agent-imageproc-api-rotate.
+      operations:
+      - method: POST
+        name: agentimageprocpostapirotate
+        description: Agent Image Processor — /api/rotate
+        call: agent-gateway-other.agentimageprocpostapirotate
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/agent-imageproc/api/transform
+      name: v1-agent-imageproc-api-transform
+      description: REST surface for v1-agent-imageproc-api-transform.
+      operations:
+      - method: POST
+        name: agentimageprocpostapitransform
+        description: Agent Image Processor — /api/transform
+        call: agent-gateway-other.agentimageprocpostapitransform
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/agent-llm/api/chat
+      name: v1-agent-llm-api-chat
+      description: REST surface for v1-agent-llm-api-chat.
+      operations:
+      - method: POST
+        name: agentllmpostapichat
+        description: Agent LLM Router — /api/chat
+        call: agent-gateway-other.agentllmpostapichat
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/agent-llm/api/keys/provider
+      name: v1-agent-llm-api-keys-provider
+      description: REST surface for v1-agent-llm-api-keys-provider.
+      operations:
+      - method: POST
+        name: agentllmpostapikeysprovider
+        description: Agent LLM Router — /api/keys/provider
+        call: agent-gateway-other.agentllmpostapikeysprovider
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/agent-llm/api/models
+      name: v1-agent-llm-api-models
+      description: REST surface for v1-agent-llm-api-models.
+      operations:
+      - method: GET
+        name: agentllmgetapimodels
+        description: Agent LLM Router — /api/models
+        call: agent-gateway-other.agentllmgetapimodels
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/agent-llm/api/providers
+      name: v1-agent-llm-api-providers
+      description: REST surface for v1-agent-llm-api-providers.
+      operations:
+      - method: GET
+        name: agentllmgetapiproviders
+        description: Agent LLM Router — /api/providers
+        call: agent-gateway-other.agentllmgetapiproviders
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/agent-llm/v1/chat/completions
+      name: v1-agent-llm-v1-chat-completions
+      description: REST surface for v1-agent-llm-v1-chat-completions.
+      operations:
+      - method: POST
+        name: agentllmpostv1chatcompletions
+        description: Agent LLM Router — /v1/chat/completions
+        call: agent-gateway-other.agentllmpostv1chatcompletions
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/agent-paste/api/collections
+      name: v1-agent-paste-api-collections
+      description: REST surface for v1-agent-paste-api-collections.
+      operations:
+      - method: POST
+        name: agentpastepostapicollections
+        description: Agent Paste Bin — /api/collections
+        call: agent-gateway-other.agentpastepostapicollections
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/agent-paste/api/collections/{id}
+      name: v1-agent-paste-api-collections-id
+      description: REST surface for v1-agent-paste-api-collections-id.
+      operations:
+      - method: GET
+        name: agentpastegetapicollectionsid
+        description: Agent Paste Bin — /api/collections/:id
+        call: agent-gateway-other.agentpastegetapicollectionsid
+        with:
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/agent-paste/api/diff
+      name: v1-agent-paste-api-diff
+      description: REST surface for v1-agent-paste-api-diff.
+      operations:
+      - method: POST
+        name: agentpastepostapidiff
+        description: Agent Paste Bin — /api/diff
+        call: agent-gateway-other.agentpastepostapidiff
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/agent-paste/api/pastes
+      name: v1-agent-paste-api-pastes
+      description: REST surface for v1-agent-paste-api-pastes.
+      operations:
+      - method: POST
+        name: agentpastepostapipastes
+        description: Agent Paste Bin — /api/pastes
+        call: agent-gateway-other.agentpastepostapipastes
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/agent-paste/api/pastes/{id}
+      name: v1-agent-paste-api-pastes-id
+      description: REST surface for v1-agent-paste-api-pastes-id.
+      operations:
+      - method: GET
+        name: agentpastegetapipastesid
+        description: Agent Paste Bin — /api/pastes/:id
+        call: agent-gateway-other.agentpastegetapipastesid
+        with:
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/agent-paste/api/pastes/{id}/raw
+      name: v1-agent-paste-api-pastes-id-raw
+      description: REST surface for v1-agent-paste-api-pastes-id-raw.
+      operations:
+      - method: GET
+        name: agentpastegetapipastesidraw
+        description: Agent Paste Bin — /api/pastes/:id/raw
+        call: agent-gateway-other.agentpastegetapipastesidraw
+        with:
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/agent-pdfgen/api/pdf/from-html
+      name: v1-agent-pdfgen-api-pdf-from-html
+      description: REST surface for v1-agent-pdfgen-api-pdf-from-html.
+      operations:
+      - method: POST
+        name: agentpdfgenpostapipdffromhtml
+        description: Agent PDF Generator — /api/pdf/from-html
+        call: agent-gateway-other.agentpdfgenpostapipdffromhtml
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/agent-pdfgen/api/pdf/from-markdown
+      name: v1-agent-pdfgen-api-pdf-from-markdown
+      description: REST surface for v1-agent-pdfgen-api-pdf-from-markdown.
+      operations:
+      - method: POST
+        name: agentpdfgenpostapipdffrommarkdown
+        description: Agent PDF Generator — /api/pdf/from-markdown
+        call: agent-gateway-other.agentpdfgenpostapipdffrommarkdown
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/agent-pdfgen/api/pdf/from-template
+      name: v1-agent-pdfgen-api-pdf-from-template
+      description: REST surface for v1-agent-pdfgen-api-pdf-from-template.
+      operations:
+      - method: POST
+        name: agentpdfgenpostapipdffromtemplate
+        description: Agent PDF Generator — /api/pdf/from-template
+        call: agent-gateway-other.agentpdfgenpostapipdffromtemplate
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/agent-pdfgen/api/pdf/from-url
+      name: v1-agent-pdfgen-api-pdf-from-url
+      description: REST surface for v1-agent-pdfgen-api-pdf-from-url.
+      operations:
+      - method: POST
+        name: agentpdfgenpostapipdffromurl
+        description: Agent PDF Generator — /api/pdf/from-url
+        call: agent-gateway-other.agentpdfgenpostapipdffromurl
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/agent-shorturl/api/shorten
+      name: v1-agent-shorturl-api-shorten
+      description: REST surface for v1-agent-shorturl-api-shorten.
+      operations:
+      - method: POST
+        name: agentshorturlpostapishorten
+        description: Agent Short URL — /api/shorten
+        call: agent-gateway-other.agentshorturlpostapishorten
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/agent-shorturl/api/shorten/bulk
+      name: v1-agent-shorturl-api-shorten-bulk
+      description: REST surface for v1-agent-shorturl-api-shorten-bulk.
+      operations:
+      - method: POST
+        name: agentshorturlpostapishortenbulk
+        description: Agent Short URL — /api/shorten/bulk
+        call: agent-gateway-other.agentshorturlpostapishortenbulk
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/agent-shorturl/api/urls
+      name: v1-agent-shorturl-api-urls
+      description: REST surface for v1-agent-shorturl-api-urls.
+      operations:
+      - method: GET
+        name: agentshorturlgetapiurls
+        description: Agent Short URL — /api/urls
+        call: agent-gateway-other.agentshorturlgetapiurls
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/agent-shorturl/api/urls/{slug}/stats
+      name: v1-agent-shorturl-api-urls-slug-stats
+      description: REST surface for v1-agent-shorturl-api-urls-slug-stats.
+      operations:
+      - method: GET
+        name: agentshorturlgetapiurlsslugstats
+        description: Agent Short URL — /api/urls/:slug/stats
+        call: agent-gateway-other.agentshorturlgetapiurlsslugstats
+        with:
+          slug: rest.slug
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/agent-shorturl/{slug}
+      name: v1-agent-shorturl-slug
+      description: REST surface for v1-agent-shorturl-slug.
+      operations:
+      - method: GET
+        name: agentshorturlgetslug
+        description: Agent Short URL — /:slug
+        call: agent-gateway-other.agentshorturlgetslug
+        with:
+          slug: rest.slug
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/contract-deployer/api/compile
+      name: v1-contract-deployer-api-compile
+      description: REST surface for v1-contract-deployer-api-compile.
+      operations:
+      - method: POST
+        name: contractdeployerpostapicompile
+        description: Smart Contract Deployer — /api/compile
+        call: agent-gateway-other.contractdeployerpostapicompile
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/contract-deployer/api/deploy
+      name: v1-contract-deployer-api-deploy
+      description: REST surface for v1-contract-deployer-api-deploy.
+      operations:
+      - method: POST
+        name: contractdeployerpostapideploy
+        description: Smart Contract Deployer — /api/deploy
+        call: agent-gateway-other.contractdeployerpostapideploy
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/contract-deployer/api/templates
+      name: v1-contract-deployer-api-templates
+      description: REST surface for v1-contract-deployer-api-templates.
+      operations:
+      - method: GET
+        name: contractdeployergetapitemplates
+        description: Smart Contract Deployer — /api/templates
+        call: agent-gateway-other.contractdeployergetapitemplates
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/frostbyte-domains/v1/auth/register
+      name: v1-frostbyte-domains-v1-auth-register
+      description: REST surface for v1-frostbyte-domains-v1-auth-register.
+      operations:
+      - method: POST
+        name: frostbytedomainspostv1authregister
+        description: Frostbyte Domains — /v1/auth/register
+        call: agent-gateway-other.frostbytedomainspostv1authregister
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/frostbyte-domains/v1/dns/records
+      name: v1-frostbyte-domains-v1-dns-records
+      description: REST surface for v1-frostbyte-domains-v1-dns-records.
+      operations:
+      - method: POST
+        name: frostbytedomainspostv1dnsrecords
+        description: Frostbyte Domains — /v1/dns/records
+        call: agent-gateway-other.frostbytedomainspostv1dnsrecords
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: GET
+        name: frostbytedomainsgetv1dnsrecords
+        description: Frostbyte Domains — /v1/dns/records
+        call: agent-gateway-other.frostbytedomainsgetv1dnsrecords
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/frostbyte-domains/v1/dns/records/{id}
+      name: v1-frostbyte-domains-v1-dns-records-id
+      description: REST surface for v1-frostbyte-domains-v1-dns-records-id.
+      operations:
+      - method: PUT
+        name: frostbytedomainsputv1dnsrecordsid
+        description: Frostbyte Domains — /v1/dns/records/:id
+        call: agent-gateway-other.frostbytedomainsputv1dnsrecordsid
+        with:
+          id: rest.id
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: frostbytedomainsdeletev1dnsrecordsid
+        description: Frostbyte Domains — /v1/dns/records/:id
+        call: agent-gateway-other.frostbytedomainsdeletev1dnsrecordsid
+        with:
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/frostbyte-domains/v1/domains
+      name: v1-frostbyte-domains-v1-domains
+      description: REST surface for v1-frostbyte-domains-v1-domains.
+      operations:
+      - method: GET
+        name: frostbytedomainsgetv1domains
+        description: Frostbyte Domains — /v1/domains
+        call: agent-gateway-other.frostbytedomainsgetv1domains
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/frostbyte-domains/v1/domains/register
+      name: v1-frostbyte-domains-v1-domains-register
+      description: REST surface for v1-frostbyte-domains-v1-domains-register.
+      operations:
+      - method: POST
+        name: frostbytedomainspostv1domainsregister
+        description: Frostbyte Domains — /v1/domains/register
+        call: agent-gateway-other.frostbytedomainspostv1domainsregister
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/frostbyte-domains/v1/domains/search
+      name: v1-frostbyte-domains-v1-domains-search
+      description: REST surface for v1-frostbyte-domains-v1-domains-search.
+      operations:
+      - method: GET
+        name: frostbytedomainsgetv1domainssearch
+        description: Frostbyte Domains — /v1/domains/search
+        call: agent-gateway-other.frostbytedomainsgetv1domainssearch
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/token-launchpad/api/deployments
+      name: v1-token-launchpad-api-deployments
+      description: REST surface for v1-token-launchpad-api-deployments.
+      operations:
+      - method: GET
+        name: tokenlaunchpadgetapideployments
+        description: Token Launchpad — /api/deployments
+        call: agent-gateway-other.tokenlaunchpadgetapideployments
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/token-launchpad/api/templates
+      name: v1-token-launchpad-api-templates
+      description: REST surface for v1-token-launchpad-api-templates.
+      operations:
+      - method: GET
+        name: tokenlaunchpadgetapitemplates
+        description: Token Launchpad — /api/templates
+        call: agent-gateway-other.tokenlaunchpadgetapitemplates
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/token-launchpad/api/tokens/create
+      name: v1-token-launchpad-api-tokens-create
+      description: REST surface for v1-token-launchpad-api-tokens-create.
+      operations:
+      - method: POST
+        name: tokenlaunchpadpostapitokenscreate
+        description: Token Launchpad — /api/tokens/create
+        call: agent-gateway-other.tokenlaunchpadpostapitokenscreate
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/webhook-inspector/api/inbox/{id}/requests
+      name: v1-webhook-inspector-api-inbox-id-requests
+      description: REST surface for v1-webhook-inspector-api-inbox-id-requests.
+      operations:
+      - method: GET
+        name: webhookinspectorgetapiinboxidrequests
+        description: Webhook Inspector — /api/inbox/:id/requests
+        call: agent-gateway-other.webhookinspectorgetapiinboxidrequests
+        with:
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/webhook-inspector/inspect/{id}
+      name: v1-webhook-inspector-inspect-id
+      description: REST surface for v1-webhook-inspector-inspect-id.
+      operations:
+      - method: GET
+        name: webhookinspectorgetinspectid
+        description: Webhook Inspector — /inspect/:id
+        call: agent-gateway-other.webhookinspectorgetinspectid
+        with:
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/webhook-inspector/new
+      name: v1-webhook-inspector-new
+      description: REST surface for v1-webhook-inspector-new.
+      operations:
+      - method: POST
+        name: webhookinspectorpostnew
+        description: Webhook Inspector — /new
+        call: agent-gateway-other.webhookinspectorpostnew
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: agent-gateway-other-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Clawdia Agent Gateway API — Other. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: agent-code-runner-api-execute
+      description: Agent Code Runner — /api/execute
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: agent-gateway-other.agentcoderunnerpostapiexecute
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: agent-code-runner-api-languages
+      description: Agent Code Runner — /api/languages
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: agent-gateway-other.agentcoderunnergetapilanguages
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: agent-code-runner-api-sessions
+      description: Agent Code Runner — /api/sessions
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: agent-gateway-other.agentcoderunnerpostapisessions
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: agent-code-runner-api-sessions-2
+      description: Agent Code Runner — /api/sessions/:id/execute
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: agent-gateway-other.agentcoderunnerpostapisessionsidexecute
+      with:
+        id: tools.id
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: agent-dns-lookup-api-all
+      description: Agent DNS Lookup — /api/all/:domain
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: agent-gateway-other.agentdnsgetapialldomain
+      with:
+        domain: tools.domain
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: agent-dns-lookup-api-batch
+      description: Agent DNS Lookup — /api/batch
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: agent-gateway-other.agentdnspostapibatch
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: agent-dns-lookup-api-check
+      description: Agent DNS Lookup — /api/check/:domain
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: agent-gateway-other.agentdnsgetapicheckdomain
+      with:
+        domain: tools.domain
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: agent-dns-lookup-api-propagation
+      description: Agent DNS Lookup — /api/propagation/:domain
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: agent-gateway-other.agentdnsgetapipropagationdomain
+      with:
+        domain: tools.domain
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: agent-dns-lookup-api-resolve
+      description: Agent DNS Lookup — /api/resolve/:domain
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: agent-gateway-other.agentdnsgetapiresolvedomain
+      with:
+        domain: tools.domain
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: agent-dns-lookup-api-whois
+      description: Agent DNS Lookup — /api/whois/:domain
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: agent-gateway-other.agentdnsgetapiwhoisdomain
+      with:
+        domain: tools.domain
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: agent-image-processor-api-blur
+      description: Agent Image Processor — /api/blur
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: agent-gateway-other.agentimageprocpostapiblur
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: agent-image-processor-api-convert
+      description: Agent Image Processor — /api/convert
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: agent-gateway-other.agentimageprocpostapiconvert
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: agent-image-processor-api-crop
+      description: Agent Image Processor — /api/crop
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: agent-gateway-other.agentimageprocpostapicrop
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: agent-image-processor-api-metadata
+      description: Agent Image Processor — /api/metadata
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: agent-gateway-other.agentimageprocpostapimetadata
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: agent-image-processor-api-placeholder
+      description: Agent Image Processor — /api/placeholder/:w/:h
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: agent-gateway-other.agentimageprocgetapiplaceholderwh
+      with:
+        w: tools.w
+        h: tools.h
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: agent-image-processor-api-qrcode
+      description: Agent Image Processor — /api/qrcode
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: agent-gateway-other.agentimageprocpostapiqrcode
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: agent-image-processor-api-resize
+      description: Agent Image Processor — /api/resize
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: agent-gateway-other.agentimageprocpostapiresize
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: agent-image-processor-api-rotate
+      description: Agent Image Processor — /api/rotate
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: agent-gateway-other.agentimageprocpostapirotate
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: agent-image-processor-api-transform
+      description: Agent Image Processor — /api/transform
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: agent-gateway-other.agentimageprocpostapitransform
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: agent-llm-router-api-chat
+      description: Agent LLM Router — /api/chat
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: agent-gateway-other.agentllmpostapichat
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: agent-llm-router-api-keys
+      description: Agent LLM Router — /api/keys/provider
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: agent-gateway-other.agentllmpostapikeysprovider
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: agent-llm-router-api-models
+      description: Agent LLM Router — /api/models
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: agent-gateway-other.agentllmgetapimodels
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: agent-llm-router-api-providers
+      description: Agent LLM Router — /api/providers
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: agent-gateway-other.agentllmgetapiproviders
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: agent-llm-router-v1-chat
+      description: Agent LLM Router — /v1/chat/completions
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: agent-gateway-other.agentllmpostv1chatcompletions
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: agent-paste-bin-api-collections
+      description: Agent Paste Bin — /api/collections
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: agent-gateway-other.agentpastepostapicollections
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: agent-paste-bin-api-collections-2
+      description: Agent Paste Bin — /api/collections/:id
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: agent-gateway-other.agentpastegetapicollectionsid
+      with:
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: agent-paste-bin-api-diff
+      description: Agent Paste Bin — /api/diff
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: agent-gateway-other.agentpastepostapidiff
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: agent-paste-bin-api-pastes
+      description: Agent Paste Bin — /api/pastes
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: agent-gateway-other.agentpastepostapipastes
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: agent-paste-bin-api-pastes-2
+      description: Agent Paste Bin — /api/pastes/:id
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: agent-gateway-other.agentpastegetapipastesid
+      with:
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: agent-paste-bin-api-pastes-3
+      description: Agent Paste Bin — /api/pastes/:id/raw
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: agent-gateway-other.agentpastegetapipastesidraw
+      with:
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: agent-pdf-generator-api-pdf
+      description: Agent PDF Generator — /api/pdf/from-html
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: agent-gateway-other.agentpdfgenpostapipdffromhtml
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: agent-pdf-generator-api-pdf-2
+      description: Agent PDF Generator — /api/pdf/from-markdown
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: agent-gateway-other.agentpdfgenpostapipdffrommarkdown
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: agent-pdf-generator-api-pdf-3
+      description: Agent PDF Generator — /api/pdf/from-template
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: agent-gateway-other.agentpdfgenpostapipdffromtemplate
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: agent-pdf-generator-api-pdf-4
+      description: Agent PDF Generator — /api/pdf/from-url
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: agent-gateway-other.agentpdfgenpostapipdffromurl
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: agent-short-url-api-shorten
+      description: Agent Short URL — /api/shorten
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: agent-gateway-other.agentshorturlpostapishorten
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: agent-short-url-api-shorten-2
+      description: Agent Short URL — /api/shorten/bulk
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: agent-gateway-other.agentshorturlpostapishortenbulk
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: agent-short-url-api-urls
+      description: Agent Short URL — /api/urls
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: agent-gateway-other.agentshorturlgetapiurls
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: agent-short-url-api-urls-2
+      description: Agent Short URL — /api/urls/:slug/stats
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: agent-gateway-other.agentshorturlgetapiurlsslugstats
+      with:
+        slug: tools.slug
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: agent-short-url-slug
+      description: Agent Short URL — /:slug
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: agent-gateway-other.agentshorturlgetslug
+      with:
+        slug: tools.slug
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: smart-contract-deployer-api-compile
+      description: Smart Contract Deployer — /api/compile
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: agent-gateway-other.contractdeployerpostapicompile
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: smart-contract-deployer-api-deploy
+      description: Smart Contract Deployer — /api/deploy
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: agent-gateway-other.contractdeployerpostapideploy
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: smart-contract-deployer-api-templates
+      description: Smart Contract Deployer — /api/templates
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: agent-gateway-other.contractdeployergetapitemplates
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: frostbyte-domains-v1-auth-register
+      description: Frostbyte Domains — /v1/auth/register
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: agent-gateway-other.frostbytedomainspostv1authregister
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: frostbyte-domains-v1-dns-records
+      description: Frostbyte Domains — /v1/dns/records
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: agent-gateway-other.frostbytedomainspostv1dnsrecords
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: frostbyte-domains-v1-dns-records-2
+      description: Frostbyte Domains — /v1/dns/records
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: agent-gateway-other.frostbytedomainsgetv1dnsrecords
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: frostbyte-domains-v1-dns-records-3
+      description: Frostbyte Domains — /v1/dns/records/:id
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: agent-gateway-other.frostbytedomainsputv1dnsrecordsid
+      with:
+        id: tools.id
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: frostbyte-domains-v1-dns-records-4
+      description: Frostbyte Domains — /v1/dns/records/:id
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: agent-gateway-other.frostbytedomainsdeletev1dnsrecordsid
+      with:
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: frostbyte-domains-v1-domains
+      description: Frostbyte Domains — /v1/domains
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: agent-gateway-other.frostbytedomainsgetv1domains
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: frostbyte-domains-v1-domains-register
+      description: Frostbyte Domains — /v1/domains/register
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: agent-gateway-other.frostbytedomainspostv1domainsregister
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: frostbyte-domains-v1-domains-search
+      description: Frostbyte Domains — /v1/domains/search
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: agent-gateway-other.frostbytedomainsgetv1domainssearch
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: token-launchpad-api-deployments
+      description: Token Launchpad — /api/deployments
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: agent-gateway-other.tokenlaunchpadgetapideployments
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: token-launchpad-api-templates
+      description: Token Launchpad — /api/templates
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: agent-gateway-other.tokenlaunchpadgetapitemplates
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: token-launchpad-api-tokens-create
+      description: Token Launchpad — /api/tokens/create
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: agent-gateway-other.tokenlaunchpadpostapitokenscreate
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: webhook-inspector-api-inbox-id
+      description: Webhook Inspector — /api/inbox/:id/requests
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: agent-gateway-other.webhookinspectorgetapiinboxidrequests
+      with:
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: webhook-inspector-inspect-id
+      description: Webhook Inspector — /inspect/:id
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: agent-gateway-other.webhookinspectorgetinspectid
+      with:
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: webhook-inspector-new
+      description: Webhook Inspector — /new
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: agent-gateway-other.webhookinspectorpostnew
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

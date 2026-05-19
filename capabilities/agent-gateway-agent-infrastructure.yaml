@@ -1,0 +1,1591 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Clawdia Agent Gateway API — Agent Infrastructure
+  description: 'Clawdia Agent Gateway API — Agent Infrastructure. 38 operations. Lead operation: Agent Event Bus — /api/channels/create.
+    Self-contained Naftiko capability covering one Frostbyte business surface.'
+  tags:
+  - Frostbyte
+  - Agent Infrastructure
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    FROSTBYTE_API_KEY: FROSTBYTE_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: agent-gateway-agent-infrastructure
+    baseUri: https://agent-gateway-kappa.vercel.app
+    description: Clawdia Agent Gateway API — Agent Infrastructure business capability. Self-contained, no shared references.
+    resources:
+    - name: v1-agent-eventbus-api-channels-create
+      path: /v1/agent-eventbus/api/channels/create
+      operations:
+      - name: agenteventbuspostapichannelscreate
+        method: POST
+        description: Agent Event Bus — /api/channels/create
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: v1-agent-eventbus-api-events-publish
+      path: /v1/agent-eventbus/api/events/publish
+      operations:
+      - name: agenteventbuspostapieventspublish
+        method: POST
+        description: Agent Event Bus — /api/events/publish
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: v1-agent-filestorage-api-files-upload
+      path: /v1/agent-filestorage/api/files/upload
+      operations:
+      - name: agentfilestoragepostapifilesupload
+        method: POST
+        description: Agent File Storage — /api/files/upload
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: v1-agent-filestorage-api-files-id-download
+      path: /v1/agent-filestorage/api/files/{id}/download
+      operations:
+      - name: agentfilestoragegetapifilesiddownload
+        method: GET
+        description: Agent File Storage — /api/files/:id/download
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+    - name: v1-agent-filestorage-d-token-filename
+      path: /v1/agent-filestorage/d/{token}/{filename}
+      operations:
+      - name: agentfilestoragegetdtokenfilename
+        method: GET
+        description: Agent File Storage — /d/:token/:filename
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: token
+          in: path
+          type: string
+          required: true
+        - name: filename
+          in: path
+          type: string
+          required: true
+    - name: v1-agent-identity-api-auth-challenge
+      path: /v1/agent-identity/api/auth/challenge
+      operations:
+      - name: agentidentitypostapiauthchallenge
+        method: POST
+        description: Agent Identity Service — /api/auth/challenge
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: v1-agent-identity-api-identities-create
+      path: /v1/agent-identity/api/identities/create
+      operations:
+      - name: agentidentitypostapiidentitiescreate
+        method: POST
+        description: Agent Identity Service — /api/identities/create
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: v1-agent-identity-api-identities-id-sign
+      path: /v1/agent-identity/api/identities/{id}/sign
+      operations:
+      - name: agentidentitypostapiidentitiesidsign
+        method: POST
+        description: Agent Identity Service — /api/identities/:id/sign
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: v1-agent-logdrain-api-logs
+      path: /v1/agent-logdrain/api/logs
+      operations:
+      - name: agentlogdrainpostapilogs
+        method: POST
+        description: Agent Log Drain — /api/logs
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+      - name: agentlogdraingetapilogs
+        method: GET
+        description: Agent Log Drain — /api/logs
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-agent-logdrain-api-logs-batch
+      path: /v1/agent-logdrain/api/logs/batch
+      operations:
+      - name: agentlogdrainpostapilogsbatch
+        method: POST
+        description: Agent Log Drain — /api/logs/batch
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: v1-agent-memory-api-kv-get-key
+      path: /v1/agent-memory/api/kv/get/{key}
+      operations:
+      - name: agentmemorygetapikvgetkey
+        method: GET
+        description: Agent Memory — /api/kv/get/:key
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: key
+          in: path
+          type: string
+          required: true
+    - name: v1-agent-memory-api-kv-set
+      path: /v1/agent-memory/api/kv/set
+      operations:
+      - name: agentmemorypostapikvset
+        method: POST
+        description: Agent Memory — /api/kv/set
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: v1-agent-memory-api-vectors-search
+      path: /v1/agent-memory/api/vectors/search
+      operations:
+      - name: agentmemorypostapivectorssearch
+        method: POST
+        description: Agent Memory — /api/vectors/search
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: v1-agent-monitor-api-monitors
+      path: /v1/agent-monitor/api/monitors
+      operations:
+      - name: agentmonitorpostapimonitors
+        method: POST
+        description: Agent Uptime Monitor — /api/monitors
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: v1-agent-monitor-api-monitors-id
+      path: /v1/agent-monitor/api/monitors/{id}
+      operations:
+      - name: agentmonitorgetapimonitorsid
+        method: GET
+        description: Agent Uptime Monitor — /api/monitors/:id
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+    - name: v1-agent-monitor-api-monitors-id-alerts
+      path: /v1/agent-monitor/api/monitors/{id}/alerts
+      operations:
+      - name: agentmonitorputapimonitorsidalerts
+        method: PUT
+        description: Agent Uptime Monitor — /api/monitors/:id/alerts
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: v1-agent-monitor-api-monitors-id-check
+      path: /v1/agent-monitor/api/monitors/{id}/check
+      operations:
+      - name: agentmonitorpostapimonitorsidcheck
+        method: POST
+        description: Agent Uptime Monitor — /api/monitors/:id/check
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: v1-agent-monitor-api-monitors-id-incidents
+      path: /v1/agent-monitor/api/monitors/{id}/incidents
+      operations:
+      - name: agentmonitorgetapimonitorsidincidents
+        method: GET
+        description: Agent Uptime Monitor — /api/monitors/:id/incidents
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+    - name: v1-agent-monitor-api-status
+      path: /v1/agent-monitor/api/status
+      operations:
+      - name: agentmonitorgetapistatus
+        method: GET
+        description: Agent Uptime Monitor — /api/status
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-agent-referral-api-programs-create
+      path: /v1/agent-referral/api/programs/create
+      operations:
+      - name: agentreferralpostapiprogramscreate
+        method: POST
+        description: Agent Referral Network — /api/programs/create
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: v1-agent-referral-api-track-click
+      path: /v1/agent-referral/api/track/click
+      operations:
+      - name: agentreferralpostapitrackclick
+        method: POST
+        description: Agent Referral Network — /api/track/click
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: v1-agent-referral-api-track-conversion
+      path: /v1/agent-referral/api/track/conversion
+      operations:
+      - name: agentreferralpostapitrackconversion
+        method: POST
+        description: Agent Referral Network — /api/track/conversion
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: v1-agent-registry-api-services-register
+      path: /v1/agent-registry/api/services/register
+      operations:
+      - name: agentregistrypostapiservicesregister
+        method: POST
+        description: Agent Registry & Discovery — /api/services/register
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: v1-agent-registry-api-services-search
+      path: /v1/agent-registry/api/services/search
+      operations:
+      - name: agentregistrygetapiservicessearch
+        method: GET
+        description: Agent Registry & Discovery — /api/services/search
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-agent-registry-api-services-id
+      path: /v1/agent-registry/api/services/{id}
+      operations:
+      - name: agentregistrygetapiservicesid
+        method: GET
+        description: Agent Registry & Discovery — /api/services/:id
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+    - name: v1-agent-scheduler-api-jobs
+      path: /v1/agent-scheduler/api/jobs
+      operations:
+      - name: agentschedulergetapijobs
+        method: GET
+        description: Agent Scheduler — /api/jobs
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-agent-scheduler-api-jobs-create
+      path: /v1/agent-scheduler/api/jobs/create
+      operations:
+      - name: agentschedulerpostapijobscreate
+        method: POST
+        description: Agent Scheduler — /api/jobs/create
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: v1-agent-scheduler-api-jobs-id
+      path: /v1/agent-scheduler/api/jobs/{id}
+      operations:
+      - name: agentschedulerdeleteapijobsid
+        method: DELETE
+        description: Agent Scheduler — /api/jobs/:id
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+    - name: v1-agent-secrets-api-secrets-get
+      path: /v1/agent-secrets/api/secrets/get
+      operations:
+      - name: agentsecretsgetapisecretsget
+        method: GET
+        description: Agent Secrets Vault — /api/secrets/get
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-agent-secrets-api-secrets-set
+      path: /v1/agent-secrets/api/secrets/set
+      operations:
+      - name: agentsecretspostapisecretsset
+        method: POST
+        description: Agent Secrets Vault — /api/secrets/set
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: v1-agent-secrets-api-vaults-create
+      path: /v1/agent-secrets/api/vaults/create
+      operations:
+      - name: agentsecretspostapivaultscreate
+        method: POST
+        description: Agent Secrets Vault — /api/vaults/create
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: v1-agent-taskqueue-api-tasks-dequeue
+      path: /v1/agent-taskqueue/api/tasks/dequeue
+      operations:
+      - name: agenttaskqueuepostapitasksdequeue
+        method: POST
+        description: Agent Task Queue — /api/tasks/dequeue
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: v1-agent-taskqueue-api-tasks-enqueue
+      path: /v1/agent-taskqueue/api/tasks/enqueue
+      operations:
+      - name: agenttaskqueuepostapitasksenqueue
+        method: POST
+        description: Agent Task Queue — /api/tasks/enqueue
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: v1-agent-taskqueue-api-tasks-id
+      path: /v1/agent-taskqueue/api/tasks/{id}
+      operations:
+      - name: agenttaskqueuegetapitasksid
+        method: GET
+        description: Agent Task Queue — /api/tasks/:id
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+    - name: v1-agent-webhooks-api-endpoints-create
+      path: /v1/agent-webhooks/api/endpoints/create
+      operations:
+      - name: agentwebhookspostapiendpointscreate
+        method: POST
+        description: Agent Webhook Relay — /api/endpoints/create
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: v1-agent-webhooks-api-events
+      path: /v1/agent-webhooks/api/events
+      operations:
+      - name: agentwebhooksgetapievents
+        method: GET
+        description: Agent Webhook Relay — /api/events
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-agent-webhooks-hook-id
+      path: /v1/agent-webhooks/hook/{id}
+      operations:
+      - name: agentwebhooksposthookid
+        method: POST
+        description: Agent Webhook Relay — /hook/:id
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    authentication:
+      type: apikey
+      key: X-API-Key
+      value: '{{env.FROSTBYTE_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: agent-gateway-agent-infrastructure-rest
+    port: 8080
+    description: REST adapter for Clawdia Agent Gateway API — Agent Infrastructure. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/v1/agent-eventbus/api/channels/create
+      name: v1-agent-eventbus-api-channels-create
+      description: REST surface for v1-agent-eventbus-api-channels-create.
+      operations:
+      - method: POST
+        name: agenteventbuspostapichannelscreate
+        description: Agent Event Bus — /api/channels/create
+        call: agent-gateway-agent-infrastructure.agenteventbuspostapichannelscreate
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/agent-eventbus/api/events/publish
+      name: v1-agent-eventbus-api-events-publish
+      description: REST surface for v1-agent-eventbus-api-events-publish.
+      operations:
+      - method: POST
+        name: agenteventbuspostapieventspublish
+        description: Agent Event Bus — /api/events/publish
+        call: agent-gateway-agent-infrastructure.agenteventbuspostapieventspublish
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/agent-filestorage/api/files/upload
+      name: v1-agent-filestorage-api-files-upload
+      description: REST surface for v1-agent-filestorage-api-files-upload.
+      operations:
+      - method: POST
+        name: agentfilestoragepostapifilesupload
+        description: Agent File Storage — /api/files/upload
+        call: agent-gateway-agent-infrastructure.agentfilestoragepostapifilesupload
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/agent-filestorage/api/files/{id}/download
+      name: v1-agent-filestorage-api-files-id-download
+      description: REST surface for v1-agent-filestorage-api-files-id-download.
+      operations:
+      - method: GET
+        name: agentfilestoragegetapifilesiddownload
+        description: Agent File Storage — /api/files/:id/download
+        call: agent-gateway-agent-infrastructure.agentfilestoragegetapifilesiddownload
+        with:
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/agent-filestorage/d/{token}/{filename}
+      name: v1-agent-filestorage-d-token-filename
+      description: REST surface for v1-agent-filestorage-d-token-filename.
+      operations:
+      - method: GET
+        name: agentfilestoragegetdtokenfilename
+        description: Agent File Storage — /d/:token/:filename
+        call: agent-gateway-agent-infrastructure.agentfilestoragegetdtokenfilename
+        with:
+          token: rest.token
+          filename: rest.filename
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/agent-identity/api/auth/challenge
+      name: v1-agent-identity-api-auth-challenge
+      description: REST surface for v1-agent-identity-api-auth-challenge.
+      operations:
+      - method: POST
+        name: agentidentitypostapiauthchallenge
+        description: Agent Identity Service — /api/auth/challenge
+        call: agent-gateway-agent-infrastructure.agentidentitypostapiauthchallenge
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/agent-identity/api/identities/create
+      name: v1-agent-identity-api-identities-create
+      description: REST surface for v1-agent-identity-api-identities-create.
+      operations:
+      - method: POST
+        name: agentidentitypostapiidentitiescreate
+        description: Agent Identity Service — /api/identities/create
+        call: agent-gateway-agent-infrastructure.agentidentitypostapiidentitiescreate
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/agent-identity/api/identities/{id}/sign
+      name: v1-agent-identity-api-identities-id-sign
+      description: REST surface for v1-agent-identity-api-identities-id-sign.
+      operations:
+      - method: POST
+        name: agentidentitypostapiidentitiesidsign
+        description: Agent Identity Service — /api/identities/:id/sign
+        call: agent-gateway-agent-infrastructure.agentidentitypostapiidentitiesidsign
+        with:
+          id: rest.id
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/agent-logdrain/api/logs
+      name: v1-agent-logdrain-api-logs
+      description: REST surface for v1-agent-logdrain-api-logs.
+      operations:
+      - method: POST
+        name: agentlogdrainpostapilogs
+        description: Agent Log Drain — /api/logs
+        call: agent-gateway-agent-infrastructure.agentlogdrainpostapilogs
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: GET
+        name: agentlogdraingetapilogs
+        description: Agent Log Drain — /api/logs
+        call: agent-gateway-agent-infrastructure.agentlogdraingetapilogs
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/agent-logdrain/api/logs/batch
+      name: v1-agent-logdrain-api-logs-batch
+      description: REST surface for v1-agent-logdrain-api-logs-batch.
+      operations:
+      - method: POST
+        name: agentlogdrainpostapilogsbatch
+        description: Agent Log Drain — /api/logs/batch
+        call: agent-gateway-agent-infrastructure.agentlogdrainpostapilogsbatch
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/agent-memory/api/kv/get/{key}
+      name: v1-agent-memory-api-kv-get-key
+      description: REST surface for v1-agent-memory-api-kv-get-key.
+      operations:
+      - method: GET
+        name: agentmemorygetapikvgetkey
+        description: Agent Memory — /api/kv/get/:key
+        call: agent-gateway-agent-infrastructure.agentmemorygetapikvgetkey
+        with:
+          key: rest.key
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/agent-memory/api/kv/set
+      name: v1-agent-memory-api-kv-set
+      description: REST surface for v1-agent-memory-api-kv-set.
+      operations:
+      - method: POST
+        name: agentmemorypostapikvset
+        description: Agent Memory — /api/kv/set
+        call: agent-gateway-agent-infrastructure.agentmemorypostapikvset
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/agent-memory/api/vectors/search
+      name: v1-agent-memory-api-vectors-search
+      description: REST surface for v1-agent-memory-api-vectors-search.
+      operations:
+      - method: POST
+        name: agentmemorypostapivectorssearch
+        description: Agent Memory — /api/vectors/search
+        call: agent-gateway-agent-infrastructure.agentmemorypostapivectorssearch
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/agent-monitor/api/monitors
+      name: v1-agent-monitor-api-monitors
+      description: REST surface for v1-agent-monitor-api-monitors.
+      operations:
+      - method: POST
+        name: agentmonitorpostapimonitors
+        description: Agent Uptime Monitor — /api/monitors
+        call: agent-gateway-agent-infrastructure.agentmonitorpostapimonitors
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/agent-monitor/api/monitors/{id}
+      name: v1-agent-monitor-api-monitors-id
+      description: REST surface for v1-agent-monitor-api-monitors-id.
+      operations:
+      - method: GET
+        name: agentmonitorgetapimonitorsid
+        description: Agent Uptime Monitor — /api/monitors/:id
+        call: agent-gateway-agent-infrastructure.agentmonitorgetapimonitorsid
+        with:
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/agent-monitor/api/monitors/{id}/alerts
+      name: v1-agent-monitor-api-monitors-id-alerts
+      description: REST surface for v1-agent-monitor-api-monitors-id-alerts.
+      operations:
+      - method: PUT
+        name: agentmonitorputapimonitorsidalerts
+        description: Agent Uptime Monitor — /api/monitors/:id/alerts
+        call: agent-gateway-agent-infrastructure.agentmonitorputapimonitorsidalerts
+        with:
+          id: rest.id
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/agent-monitor/api/monitors/{id}/check
+      name: v1-agent-monitor-api-monitors-id-check
+      description: REST surface for v1-agent-monitor-api-monitors-id-check.
+      operations:
+      - method: POST
+        name: agentmonitorpostapimonitorsidcheck
+        description: Agent Uptime Monitor — /api/monitors/:id/check
+        call: agent-gateway-agent-infrastructure.agentmonitorpostapimonitorsidcheck
+        with:
+          id: rest.id
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/agent-monitor/api/monitors/{id}/incidents
+      name: v1-agent-monitor-api-monitors-id-incidents
+      description: REST surface for v1-agent-monitor-api-monitors-id-incidents.
+      operations:
+      - method: GET
+        name: agentmonitorgetapimonitorsidincidents
+        description: Agent Uptime Monitor — /api/monitors/:id/incidents
+        call: agent-gateway-agent-infrastructure.agentmonitorgetapimonitorsidincidents
+        with:
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/agent-monitor/api/status
+      name: v1-agent-monitor-api-status
+      description: REST surface for v1-agent-monitor-api-status.
+      operations:
+      - method: GET
+        name: agentmonitorgetapistatus
+        description: Agent Uptime Monitor — /api/status
+        call: agent-gateway-agent-infrastructure.agentmonitorgetapistatus
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/agent-referral/api/programs/create
+      name: v1-agent-referral-api-programs-create
+      description: REST surface for v1-agent-referral-api-programs-create.
+      operations:
+      - method: POST
+        name: agentreferralpostapiprogramscreate
+        description: Agent Referral Network — /api/programs/create
+        call: agent-gateway-agent-infrastructure.agentreferralpostapiprogramscreate
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/agent-referral/api/track/click
+      name: v1-agent-referral-api-track-click
+      description: REST surface for v1-agent-referral-api-track-click.
+      operations:
+      - method: POST
+        name: agentreferralpostapitrackclick
+        description: Agent Referral Network — /api/track/click
+        call: agent-gateway-agent-infrastructure.agentreferralpostapitrackclick
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/agent-referral/api/track/conversion
+      name: v1-agent-referral-api-track-conversion
+      description: REST surface for v1-agent-referral-api-track-conversion.
+      operations:
+      - method: POST
+        name: agentreferralpostapitrackconversion
+        description: Agent Referral Network — /api/track/conversion
+        call: agent-gateway-agent-infrastructure.agentreferralpostapitrackconversion
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/agent-registry/api/services/register
+      name: v1-agent-registry-api-services-register
+      description: REST surface for v1-agent-registry-api-services-register.
+      operations:
+      - method: POST
+        name: agentregistrypostapiservicesregister
+        description: Agent Registry & Discovery — /api/services/register
+        call: agent-gateway-agent-infrastructure.agentregistrypostapiservicesregister
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/agent-registry/api/services/search
+      name: v1-agent-registry-api-services-search
+      description: REST surface for v1-agent-registry-api-services-search.
+      operations:
+      - method: GET
+        name: agentregistrygetapiservicessearch
+        description: Agent Registry & Discovery — /api/services/search
+        call: agent-gateway-agent-infrastructure.agentregistrygetapiservicessearch
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/agent-registry/api/services/{id}
+      name: v1-agent-registry-api-services-id
+      description: REST surface for v1-agent-registry-api-services-id.
+      operations:
+      - method: GET
+        name: agentregistrygetapiservicesid
+        description: Agent Registry & Discovery — /api/services/:id
+        call: agent-gateway-agent-infrastructure.agentregistrygetapiservicesid
+        with:
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/agent-scheduler/api/jobs
+      name: v1-agent-scheduler-api-jobs
+      description: REST surface for v1-agent-scheduler-api-jobs.
+      operations:
+      - method: GET
+        name: agentschedulergetapijobs
+        description: Agent Scheduler — /api/jobs
+        call: agent-gateway-agent-infrastructure.agentschedulergetapijobs
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/agent-scheduler/api/jobs/create
+      name: v1-agent-scheduler-api-jobs-create
+      description: REST surface for v1-agent-scheduler-api-jobs-create.
+      operations:
+      - method: POST
+        name: agentschedulerpostapijobscreate
+        description: Agent Scheduler — /api/jobs/create
+        call: agent-gateway-agent-infrastructure.agentschedulerpostapijobscreate
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/agent-scheduler/api/jobs/{id}
+      name: v1-agent-scheduler-api-jobs-id
+      description: REST surface for v1-agent-scheduler-api-jobs-id.
+      operations:
+      - method: DELETE
+        name: agentschedulerdeleteapijobsid
+        description: Agent Scheduler — /api/jobs/:id
+        call: agent-gateway-agent-infrastructure.agentschedulerdeleteapijobsid
+        with:
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/agent-secrets/api/secrets/get
+      name: v1-agent-secrets-api-secrets-get
+      description: REST surface for v1-agent-secrets-api-secrets-get.
+      operations:
+      - method: GET
+        name: agentsecretsgetapisecretsget
+        description: Agent Secrets Vault — /api/secrets/get
+        call: agent-gateway-agent-infrastructure.agentsecretsgetapisecretsget
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/agent-secrets/api/secrets/set
+      name: v1-agent-secrets-api-secrets-set
+      description: REST surface for v1-agent-secrets-api-secrets-set.
+      operations:
+      - method: POST
+        name: agentsecretspostapisecretsset
+        description: Agent Secrets Vault — /api/secrets/set
+        call: agent-gateway-agent-infrastructure.agentsecretspostapisecretsset
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/agent-secrets/api/vaults/create
+      name: v1-agent-secrets-api-vaults-create
+      description: REST surface for v1-agent-secrets-api-vaults-create.
+      operations:
+      - method: POST
+        name: agentsecretspostapivaultscreate
+        description: Agent Secrets Vault — /api/vaults/create
+        call: agent-gateway-agent-infrastructure.agentsecretspostapivaultscreate
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/agent-taskqueue/api/tasks/dequeue
+      name: v1-agent-taskqueue-api-tasks-dequeue
+      description: REST surface for v1-agent-taskqueue-api-tasks-dequeue.
+      operations:
+      - method: POST
+        name: agenttaskqueuepostapitasksdequeue
+        description: Agent Task Queue — /api/tasks/dequeue
+        call: agent-gateway-agent-infrastructure.agenttaskqueuepostapitasksdequeue
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/agent-taskqueue/api/tasks/enqueue
+      name: v1-agent-taskqueue-api-tasks-enqueue
+      description: REST surface for v1-agent-taskqueue-api-tasks-enqueue.
+      operations:
+      - method: POST
+        name: agenttaskqueuepostapitasksenqueue
+        description: Agent Task Queue — /api/tasks/enqueue
+        call: agent-gateway-agent-infrastructure.agenttaskqueuepostapitasksenqueue
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/agent-taskqueue/api/tasks/{id}
+      name: v1-agent-taskqueue-api-tasks-id
+      description: REST surface for v1-agent-taskqueue-api-tasks-id.
+      operations:
+      - method: GET
+        name: agenttaskqueuegetapitasksid
+        description: Agent Task Queue — /api/tasks/:id
+        call: agent-gateway-agent-infrastructure.agenttaskqueuegetapitasksid
+        with:
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/agent-webhooks/api/endpoints/create
+      name: v1-agent-webhooks-api-endpoints-create
+      description: REST surface for v1-agent-webhooks-api-endpoints-create.
+      operations:
+      - method: POST
+        name: agentwebhookspostapiendpointscreate
+        description: Agent Webhook Relay — /api/endpoints/create
+        call: agent-gateway-agent-infrastructure.agentwebhookspostapiendpointscreate
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/agent-webhooks/api/events
+      name: v1-agent-webhooks-api-events
+      description: REST surface for v1-agent-webhooks-api-events.
+      operations:
+      - method: GET
+        name: agentwebhooksgetapievents
+        description: Agent Webhook Relay — /api/events
+        call: agent-gateway-agent-infrastructure.agentwebhooksgetapievents
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/agent-webhooks/hook/{id}
+      name: v1-agent-webhooks-hook-id
+      description: REST surface for v1-agent-webhooks-hook-id.
+      operations:
+      - method: POST
+        name: agentwebhooksposthookid
+        description: Agent Webhook Relay — /hook/:id
+        call: agent-gateway-agent-infrastructure.agentwebhooksposthookid
+        with:
+          id: rest.id
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: agent-gateway-agent-infrastructure-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Clawdia Agent Gateway API — Agent Infrastructure. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: agent-event-bus-api-channels
+      description: Agent Event Bus — /api/channels/create
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: agent-gateway-agent-infrastructure.agenteventbuspostapichannelscreate
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: agent-event-bus-api-events
+      description: Agent Event Bus — /api/events/publish
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: agent-gateway-agent-infrastructure.agenteventbuspostapieventspublish
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: agent-file-storage-api-files
+      description: Agent File Storage — /api/files/upload
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: agent-gateway-agent-infrastructure.agentfilestoragepostapifilesupload
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: agent-file-storage-api-files-2
+      description: Agent File Storage — /api/files/:id/download
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: agent-gateway-agent-infrastructure.agentfilestoragegetapifilesiddownload
+      with:
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: agent-file-storage-d-token
+      description: Agent File Storage — /d/:token/:filename
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: agent-gateway-agent-infrastructure.agentfilestoragegetdtokenfilename
+      with:
+        token: tools.token
+        filename: tools.filename
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: agent-identity-service-api-auth
+      description: Agent Identity Service — /api/auth/challenge
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: agent-gateway-agent-infrastructure.agentidentitypostapiauthchallenge
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: agent-identity-service-api-identities
+      description: Agent Identity Service — /api/identities/create
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: agent-gateway-agent-infrastructure.agentidentitypostapiidentitiescreate
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: agent-identity-service-api-identities-2
+      description: Agent Identity Service — /api/identities/:id/sign
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: agent-gateway-agent-infrastructure.agentidentitypostapiidentitiesidsign
+      with:
+        id: tools.id
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: agent-log-drain-api-logs
+      description: Agent Log Drain — /api/logs
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: agent-gateway-agent-infrastructure.agentlogdrainpostapilogs
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: agent-log-drain-api-logs-2
+      description: Agent Log Drain — /api/logs
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: agent-gateway-agent-infrastructure.agentlogdraingetapilogs
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: agent-log-drain-api-logs-3
+      description: Agent Log Drain — /api/logs/batch
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: agent-gateway-agent-infrastructure.agentlogdrainpostapilogsbatch
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: agent-memory-api-kv-get
+      description: Agent Memory — /api/kv/get/:key
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: agent-gateway-agent-infrastructure.agentmemorygetapikvgetkey
+      with:
+        key: tools.key
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: agent-memory-api-kv-set
+      description: Agent Memory — /api/kv/set
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: agent-gateway-agent-infrastructure.agentmemorypostapikvset
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: agent-memory-api-vectors-search
+      description: Agent Memory — /api/vectors/search
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: agent-gateway-agent-infrastructure.agentmemorypostapivectorssearch
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: agent-uptime-monitor-api-monitors
+      description: Agent Uptime Monitor — /api/monitors
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: agent-gateway-agent-infrastructure.agentmonitorpostapimonitors
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: agent-uptime-monitor-api-monitors-2
+      description: Agent Uptime Monitor — /api/monitors/:id
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: agent-gateway-agent-infrastructure.agentmonitorgetapimonitorsid
+      with:
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: agent-uptime-monitor-api-monitors-3
+      description: Agent Uptime Monitor — /api/monitors/:id/alerts
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: agent-gateway-agent-infrastructure.agentmonitorputapimonitorsidalerts
+      with:
+        id: tools.id
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: agent-uptime-monitor-api-monitors-4
+      description: Agent Uptime Monitor — /api/monitors/:id/check
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: agent-gateway-agent-infrastructure.agentmonitorpostapimonitorsidcheck
+      with:
+        id: tools.id
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: agent-uptime-monitor-api-monitors-5
+      description: Agent Uptime Monitor — /api/monitors/:id/incidents
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: agent-gateway-agent-infrastructure.agentmonitorgetapimonitorsidincidents
+      with:
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: agent-uptime-monitor-api-status
+      description: Agent Uptime Monitor — /api/status
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: agent-gateway-agent-infrastructure.agentmonitorgetapistatus
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: agent-referral-network-api-programs
+      description: Agent Referral Network — /api/programs/create
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: agent-gateway-agent-infrastructure.agentreferralpostapiprogramscreate
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: agent-referral-network-api-track
+      description: Agent Referral Network — /api/track/click
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: agent-gateway-agent-infrastructure.agentreferralpostapitrackclick
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: agent-referral-network-api-track-2
+      description: Agent Referral Network — /api/track/conversion
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: agent-gateway-agent-infrastructure.agentreferralpostapitrackconversion
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: agent-registry-discovery-api-services
+      description: Agent Registry & Discovery — /api/services/register
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: agent-gateway-agent-infrastructure.agentregistrypostapiservicesregister
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: agent-registry-discovery-api-services-2
+      description: Agent Registry & Discovery — /api/services/search
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: agent-gateway-agent-infrastructure.agentregistrygetapiservicessearch
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: agent-registry-discovery-api-services-3
+      description: Agent Registry & Discovery — /api/services/:id
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: agent-gateway-agent-infrastructure.agentregistrygetapiservicesid
+      with:
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: agent-scheduler-api-jobs
+      description: Agent Scheduler — /api/jobs
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: agent-gateway-agent-infrastructure.agentschedulergetapijobs
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: agent-scheduler-api-jobs-create
+      description: Agent Scheduler — /api/jobs/create
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: agent-gateway-agent-infrastructure.agentschedulerpostapijobscreate
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: agent-scheduler-api-jobs-id
+      description: Agent Scheduler — /api/jobs/:id
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: agent-gateway-agent-infrastructure.agentschedulerdeleteapijobsid
+      with:
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: agent-secrets-vault-api-secrets
+      description: Agent Secrets Vault — /api/secrets/get
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: agent-gateway-agent-infrastructure.agentsecretsgetapisecretsget
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: agent-secrets-vault-api-secrets-2
+      description: Agent Secrets Vault — /api/secrets/set
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: agent-gateway-agent-infrastructure.agentsecretspostapisecretsset
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: agent-secrets-vault-api-vaults
+      description: Agent Secrets Vault — /api/vaults/create
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: agent-gateway-agent-infrastructure.agentsecretspostapivaultscreate
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: agent-task-queue-api-tasks
+      description: Agent Task Queue — /api/tasks/dequeue
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: agent-gateway-agent-infrastructure.agenttaskqueuepostapitasksdequeue
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: agent-task-queue-api-tasks-2
+      description: Agent Task Queue — /api/tasks/enqueue
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: agent-gateway-agent-infrastructure.agenttaskqueuepostapitasksenqueue
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: agent-task-queue-api-tasks-3
+      description: Agent Task Queue — /api/tasks/:id
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: agent-gateway-agent-infrastructure.agenttaskqueuegetapitasksid
+      with:
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: agent-webhook-relay-api-endpoints
+      description: Agent Webhook Relay — /api/endpoints/create
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: agent-gateway-agent-infrastructure.agentwebhookspostapiendpointscreate
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: agent-webhook-relay-api-events
+      description: Agent Webhook Relay — /api/events
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: agent-gateway-agent-infrastructure.agentwebhooksgetapievents
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: agent-webhook-relay-hook-id
+      description: Agent Webhook Relay — /hook/:id
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: agent-gateway-agent-infrastructure.agentwebhooksposthookid
+      with:
+        id: tools.id
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

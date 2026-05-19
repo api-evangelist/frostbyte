@@ -1,0 +1,287 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Frostbyte DNS Lookup API — Other
+  description: 'Frostbyte DNS Lookup API — Other. 6 operations. Lead operation: Agent DNS Lookup — /api/all/:domain. Self-contained
+    Naftiko capability covering one Frostbyte business surface.'
+  tags:
+  - Frostbyte
+  - Other
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    FROSTBYTE_API_KEY: FROSTBYTE_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: dns-lookup-other
+    baseUri: https://agent-gateway-kappa.vercel.app
+    description: Frostbyte DNS Lookup API — Other business capability. Self-contained, no shared references.
+    resources:
+    - name: v1-agent-dns-api-all-domain
+      path: /v1/agent-dns/api/all/{domain}
+      operations:
+      - name: agentdnsgetapialldomain
+        method: GET
+        description: Agent DNS Lookup — /api/all/:domain
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: domain
+          in: path
+          type: string
+          required: true
+    - name: v1-agent-dns-api-batch
+      path: /v1/agent-dns/api/batch
+      operations:
+      - name: agentdnspostapibatch
+        method: POST
+        description: Agent DNS Lookup — /api/batch
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: v1-agent-dns-api-check-domain
+      path: /v1/agent-dns/api/check/{domain}
+      operations:
+      - name: agentdnsgetapicheckdomain
+        method: GET
+        description: Agent DNS Lookup — /api/check/:domain
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: domain
+          in: path
+          type: string
+          required: true
+    - name: v1-agent-dns-api-propagation-domain
+      path: /v1/agent-dns/api/propagation/{domain}
+      operations:
+      - name: agentdnsgetapipropagationdomain
+        method: GET
+        description: Agent DNS Lookup — /api/propagation/:domain
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: domain
+          in: path
+          type: string
+          required: true
+    - name: v1-agent-dns-api-resolve-domain
+      path: /v1/agent-dns/api/resolve/{domain}
+      operations:
+      - name: agentdnsgetapiresolvedomain
+        method: GET
+        description: Agent DNS Lookup — /api/resolve/:domain
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: domain
+          in: path
+          type: string
+          required: true
+    - name: v1-agent-dns-api-whois-domain
+      path: /v1/agent-dns/api/whois/{domain}
+      operations:
+      - name: agentdnsgetapiwhoisdomain
+        method: GET
+        description: Agent DNS Lookup — /api/whois/:domain
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: domain
+          in: path
+          type: string
+          required: true
+    authentication:
+      type: apikey
+      key: X-API-Key
+      value: '{{env.FROSTBYTE_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: dns-lookup-other-rest
+    port: 8080
+    description: REST adapter for Frostbyte DNS Lookup API — Other. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/v1/agent-dns/api/all/{domain}
+      name: v1-agent-dns-api-all-domain
+      description: REST surface for v1-agent-dns-api-all-domain.
+      operations:
+      - method: GET
+        name: agentdnsgetapialldomain
+        description: Agent DNS Lookup — /api/all/:domain
+        call: dns-lookup-other.agentdnsgetapialldomain
+        with:
+          domain: rest.domain
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/agent-dns/api/batch
+      name: v1-agent-dns-api-batch
+      description: REST surface for v1-agent-dns-api-batch.
+      operations:
+      - method: POST
+        name: agentdnspostapibatch
+        description: Agent DNS Lookup — /api/batch
+        call: dns-lookup-other.agentdnspostapibatch
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/agent-dns/api/check/{domain}
+      name: v1-agent-dns-api-check-domain
+      description: REST surface for v1-agent-dns-api-check-domain.
+      operations:
+      - method: GET
+        name: agentdnsgetapicheckdomain
+        description: Agent DNS Lookup — /api/check/:domain
+        call: dns-lookup-other.agentdnsgetapicheckdomain
+        with:
+          domain: rest.domain
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/agent-dns/api/propagation/{domain}
+      name: v1-agent-dns-api-propagation-domain
+      description: REST surface for v1-agent-dns-api-propagation-domain.
+      operations:
+      - method: GET
+        name: agentdnsgetapipropagationdomain
+        description: Agent DNS Lookup — /api/propagation/:domain
+        call: dns-lookup-other.agentdnsgetapipropagationdomain
+        with:
+          domain: rest.domain
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/agent-dns/api/resolve/{domain}
+      name: v1-agent-dns-api-resolve-domain
+      description: REST surface for v1-agent-dns-api-resolve-domain.
+      operations:
+      - method: GET
+        name: agentdnsgetapiresolvedomain
+        description: Agent DNS Lookup — /api/resolve/:domain
+        call: dns-lookup-other.agentdnsgetapiresolvedomain
+        with:
+          domain: rest.domain
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/agent-dns/api/whois/{domain}
+      name: v1-agent-dns-api-whois-domain
+      description: REST surface for v1-agent-dns-api-whois-domain.
+      operations:
+      - method: GET
+        name: agentdnsgetapiwhoisdomain
+        description: Agent DNS Lookup — /api/whois/:domain
+        call: dns-lookup-other.agentdnsgetapiwhoisdomain
+        with:
+          domain: rest.domain
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: dns-lookup-other-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Frostbyte DNS Lookup API — Other. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: agent-dns-lookup-api-all
+      description: Agent DNS Lookup — /api/all/:domain
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: dns-lookup-other.agentdnsgetapialldomain
+      with:
+        domain: tools.domain
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: agent-dns-lookup-api-batch
+      description: Agent DNS Lookup — /api/batch
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: dns-lookup-other.agentdnspostapibatch
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: agent-dns-lookup-api-check
+      description: Agent DNS Lookup — /api/check/:domain
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: dns-lookup-other.agentdnsgetapicheckdomain
+      with:
+        domain: tools.domain
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: agent-dns-lookup-api-propagation
+      description: Agent DNS Lookup — /api/propagation/:domain
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: dns-lookup-other.agentdnsgetapipropagationdomain
+      with:
+        domain: tools.domain
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: agent-dns-lookup-api-resolve
+      description: Agent DNS Lookup — /api/resolve/:domain
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: dns-lookup-other.agentdnsgetapiresolvedomain
+      with:
+        domain: tools.domain
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: agent-dns-lookup-api-whois
+      description: Agent DNS Lookup — /api/whois/:domain
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: dns-lookup-other.agentdnsgetapiwhoisdomain
+      with:
+        domain: tools.domain
+      outputParameters:
+      - type: object
+        mapping: $.
