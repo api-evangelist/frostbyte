@@ -3,257 +3,238 @@ url: https://raw.githubusercontent.com/api-evangelist/frostbyte/refs/heads/main/
 name: Frostbyte
 type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
-description: Free API platform for developers and AI agents — 40+ services including IP Geolocation, Crypto Prices, Screenshots,
-  DNS, Scraping, Code Execution. Free tier of 200 credits with no signup; USDC on Base top-ups via x402 for higher volume.
+description: >-
+  Free API platform for developers and AI agents — 40+ services including IP Geolocation, Crypto Prices, Screenshots,
+  DNS, Scraping, Code Execution. Free tier of 200 credits with no signup; USDC on Base top-ups via x402 for higher
+  volume.
 created: '2026-05-16'
 modified: '2026-05-19'
 specificationVersion: '0.19'
 tags:
-- Developer Tools
-- Utility APIs
-- Geolocation
-- Cryptocurrency
-- Screenshots
-- DNS
-- Scraping
-- AI Agents
+  - Developer Tools
+  - Utility APIs
+  - Geolocation
+  - Cryptocurrency
+  - Screenshots
+  - DNS
+  - Scraping
+  - AI Agents
 common:
-- url: https://api-catalog-three.vercel.app/
-  type: Website
-- url: https://api-catalog-three.vercel.app/
-  type: Documentation
-- url: https://api-catalog-three.vercel.app/apis.json
-  type: APIsJSON
-- url: https://api-catalog-three.vercel.app/openapi.json
-  type: OpenAPI
-- url: https://api-catalog-three.vercel.app/guides/getting-started
-  type: GettingStarted
-- url: https://api-catalog-three.vercel.app/agent-gateway-collection.json
-  type: PostmanCollection
+  - url: https://api-catalog-three.vercel.app/
+    type: Website
+  - url: https://api-catalog-three.vercel.app/
+    type: Documentation
+  - url: https://api-catalog-three.vercel.app/apis.json
+    type: APIsJSON
+  - url: https://api-catalog-three.vercel.app/openapi.json
+    type: OpenAPI
+  - url: https://api-catalog-three.vercel.app/guides/getting-started
+    type: GettingStarted
+  - url: https://api-catalog-three.vercel.app/agent-gateway-collection.json
+    type: PostmanCollection
 url-source: https://api-catalog-three.vercel.app/
 apis:
-- aid: frostbyte:ip-geolocation
-  name: Frostbyte IP Geolocation API
-  description: 'Free IP geolocation API. Returns country, city, timezone, coordinates, and EU status for any IP address. Supports
-    single lookups, batch processing, distance calculation, and timezone detection. No signup required. Free tier: 200 credits,
-    1 credit per request.'
-  image: https://api-catalog-three.vercel.app/favicon.ico
-  humanURL: https://api-catalog-three.vercel.app/services/free-ip-address-api
-  baseURL: https://agent-gateway-kappa.vercel.app
-  tags:
-  - Geolocation
-  - IP
-  - Location
-  - Utility APIs
-  - Developer Tools
-  properties:
-  - type: Documentation
-    url: https://api-catalog-three.vercel.app/services/free-ip-address-api
-  - type: OpenAPI
-    url: openapi/frostbyte-ip-geolocation-openapi.yml
-  - type: GettingStarted
-    url: https://api-catalog-three.vercel.app/guides/getting-started
-  - type: NaftikoCapability
-    url: capabilities/ip-geolocation-ip-geolocation.yaml
-  contact:
-  - FN: Frostbyte API
-    url: https://api-catalog-three.vercel.app
-- aid: frostbyte:crypto-prices
-  name: Frostbyte Crypto Prices API
-  description: 'Free real-time cryptocurrency price API. Live prices, 24h OHLCV data for 38+ trading pairs (BTC, ETH, SOL,
-    XRP) sourced from Binance. No signup required. Free tier: 200 credits, 1 credit per request.'
-  image: https://api-catalog-three.vercel.app/favicon.ico
-  humanURL: https://api-catalog-three.vercel.app/blog/free-crypto-price-api
-  baseURL: https://agent-gateway-kappa.vercel.app
-  tags:
-  - Cryptocurrency
-  - Bitcoin
-  - Prices
-  - Trading
-  - Utility APIs
-  properties:
-  - type: Documentation
-    url: https://api-catalog-three.vercel.app/blog/free-crypto-price-api
-  - type: OpenAPI
-    url: openapi/frostbyte-crypto-prices-openapi.yml
-  - type: NaftikoCapability
-    url: capabilities/crypto-prices-crypto-prices.yaml
-  contact:
-  - FN: Frostbyte API
-    url: https://api-catalog-three.vercel.app
-- aid: frostbyte:screenshot
-  name: Frostbyte Screenshot API
-  description: 'Website screenshot API. Capture full-page screenshots of any URL as PNG using a Chromium engine. Supports
-    viewport presets, full-page mode, dark mode, and CSS selector targeting. Free tier: 50 credits with no signup; top-ups
-    in USDC on Base.'
-  image: https://api-catalog-three.vercel.app/favicon.ico
-  humanURL: https://api-catalog-three.vercel.app/blog/free-screenshot-api
-  baseURL: https://agent-gateway-kappa.vercel.app
-  tags:
-  - Screenshots
-  - Website
-  - Capture
-  - Images
-  - Developer Tools
-  properties:
-  - type: Documentation
-    url: https://api-catalog-three.vercel.app/blog/free-screenshot-api
-  - type: OpenAPI
-    url: openapi/frostbyte-screenshot-openapi.yml
-  - type: NaftikoCapability
-    url: capabilities/screenshot-data-analytics.yaml
-  contact:
-  - FN: Frostbyte API
-    url: https://api-catalog-three.vercel.app
-- aid: frostbyte:dns-lookup
-  name: Frostbyte DNS Lookup API
-  description: 'DNS lookup API. Resolve domains, check propagation, retrieve WHOIS data, batch lookups. Supports A, AAAA,
-    MX, NS, TXT, CNAME, and SOA records. Free tier: 200 credits, 1 credit per request.'
-  image: https://api-catalog-three.vercel.app/favicon.ico
-  humanURL: https://api-catalog-three.vercel.app/blog/free-dns-lookup-api
-  baseURL: https://agent-gateway-kappa.vercel.app
-  tags:
-  - DNS
-  - Domains
-  - WHOIS
-  - Lookup
-  - Utility APIs
-  properties:
-  - type: Documentation
-    url: https://api-catalog-three.vercel.app/blog/free-dns-lookup-api
-  - type: OpenAPI
-    url: openapi/frostbyte-dns-lookup-openapi.yml
-  - type: NaftikoCapability
-    url: capabilities/dns-lookup-other.yaml
-  contact:
-  - FN: Frostbyte API
-    url: https://api-catalog-three.vercel.app
-- aid: frostbyte:web-scraper
-  name: Frostbyte Web Scraper API
-  description: 'Web scraping API. Extract text, HTML, or structured data from any webpage. Headless Chrome rendering for JavaScript-heavy
-    sites. Free tier: 200 credits, 1 credit per request.'
-  image: https://api-catalog-three.vercel.app/favicon.ico
-  humanURL: https://api-catalog-three.vercel.app/blog/free-web-scraping-api
-  baseURL: https://agent-gateway-kappa.vercel.app
-  tags:
-  - Scraping
-  - Web
-  - Extract
-  - Crawl
-  - Developer Tools
-  properties:
-  - type: Documentation
-    url: https://api-catalog-three.vercel.app/blog/free-web-scraping-api
-  - type: OpenAPI
-    url: openapi/frostbyte-web-scraper-openapi.yml
-  - type: NaftikoCapability
-    url: capabilities/web-scraper-data-analytics.yaml
-  contact:
-  - FN: Frostbyte API
-    url: https://api-catalog-three.vercel.app
-- aid: frostbyte:code-execution
-  name: Frostbyte Code Execution API
-  description: 'Sandboxed code execution API. Run Python, JavaScript, TypeScript, and Bash code securely. Designed for AI
-    agents, online IDEs, and coding challenges. Free tier: 200 credits, 1 credit per request.'
-  image: https://api-catalog-three.vercel.app/favicon.ico
-  humanURL: https://api-catalog-three.vercel.app/blog/free-code-execution-api
-  baseURL: https://agent-gateway-kappa.vercel.app
-  tags:
-  - Code Execution
-  - Sandbox
-  - Python
-  - JavaScript
-  - AI Agents
-  - Developer Tools
-  properties:
-  - type: Documentation
-    url: https://api-catalog-three.vercel.app/blog/free-code-execution-api
-  - type: OpenAPI
-    url: openapi/frostbyte-code-execution-openapi.yml
-  - type: NaftikoCapability
-    url: capabilities/code-execution-other.yaml
-  contact:
-  - FN: Frostbyte API
-    url: https://api-catalog-three.vercel.app
-- aid: frostbyte:agent-gateway
-  name: Frostbyte Agent Gateway (Full API)
-  description: Unified API gateway with 40+ services for AI agents. Includes crypto, geolocation, screenshots, scraping, DNS,
-    storage, code execution, agent memory, wallets, DeFi trading, scheduling, and more. Free tier of 200 credits; x402 USDC-on-Base
-    payments for higher volume.
-  image: https://api-catalog-three.vercel.app/favicon.ico
-  humanURL: https://api-catalog-three.vercel.app
-  baseURL: https://agent-gateway-kappa.vercel.app
-  tags:
-  - AI Agents
-  - Gateway
-  - Multi-Service
-  - Developer Tools
-  - Utility APIs
-  properties:
-  - type: OpenAPI
-    url: openapi/frostbyte-agent-gateway-openapi.yml
-  - type: GettingStarted
-    url: https://api-catalog-three.vercel.app/guides/getting-started
-  - type: PostmanCollection
-    url: https://api-catalog-three.vercel.app/agent-gateway-collection.json
-  - type: NaftikoCapability
-    url: capabilities/agent-gateway-agent-infrastructure.yaml
-  - type: NaftikoCapability
-    url: capabilities/agent-gateway-communication.yaml
-  - type: NaftikoCapability
-    url: capabilities/agent-gateway-data-analytics.yaml
-  - type: NaftikoCapability
-    url: capabilities/agent-gateway-defi-crypto.yaml
-  - type: NaftikoCapability
-    url: capabilities/agent-gateway-gaming.yaml
-  - type: NaftikoCapability
-    url: capabilities/agent-gateway-gateway.yaml
-  - type: NaftikoCapability
-    url: capabilities/agent-gateway-other.yaml
-  - type: NaftikoCapability
-    url: capabilities/agent-gateway-security.yaml
-  contact:
-  - FN: Frostbyte API
-    url: https://api-catalog-three.vercel.app
+  - aid: frostbyte:ip-geolocation
+    name: Frostbyte IP Geolocation API
+    description: >-
+      Free IP geolocation API. Returns country, city, timezone, coordinates, and EU status for any IP address. Supports
+      single lookups, batch processing, distance calculation, and timezone detection. No signup required. Free tier: 200
+      credits, 1 credit per request.
+    image: https://api-catalog-three.vercel.app/favicon.ico
+    humanURL: https://api-catalog-three.vercel.app/services/free-ip-address-api
+    baseURL: https://agent-gateway-kappa.vercel.app
+    tags:
+      - Geolocation
+      - IP
+      - Location
+      - Utility APIs
+      - Developer Tools
+    properties:
+      - type: Documentation
+        url: https://api-catalog-three.vercel.app/services/free-ip-address-api
+      - type: OpenAPI
+        url: openapi/frostbyte-ip-geolocation-openapi.yml
+      - type: GettingStarted
+        url: https://api-catalog-three.vercel.app/guides/getting-started
+    contact:
+      - FN: Frostbyte API
+        url: https://api-catalog-three.vercel.app
+  - aid: frostbyte:crypto-prices
+    name: Frostbyte Crypto Prices API
+    description: >-
+      Free real-time cryptocurrency price API. Live prices, 24h OHLCV data for 38+ trading pairs (BTC, ETH, SOL, XRP)
+      sourced from Binance. No signup required. Free tier: 200 credits, 1 credit per request.
+    image: https://api-catalog-three.vercel.app/favicon.ico
+    humanURL: https://api-catalog-three.vercel.app/blog/free-crypto-price-api
+    baseURL: https://agent-gateway-kappa.vercel.app
+    tags:
+      - Cryptocurrency
+      - Bitcoin
+      - Prices
+      - Trading
+      - Utility APIs
+    properties:
+      - type: Documentation
+        url: https://api-catalog-three.vercel.app/blog/free-crypto-price-api
+      - type: OpenAPI
+        url: openapi/frostbyte-crypto-prices-openapi.yml
+    contact:
+      - FN: Frostbyte API
+        url: https://api-catalog-three.vercel.app
+  - aid: frostbyte:screenshot
+    name: Frostbyte Screenshot API
+    description: >-
+      Website screenshot API. Capture full-page screenshots of any URL as PNG using a Chromium engine. Supports viewport
+      presets, full-page mode, dark mode, and CSS selector targeting. Free tier: 50 credits with no signup; top-ups in
+      USDC on Base.
+    image: https://api-catalog-three.vercel.app/favicon.ico
+    humanURL: https://api-catalog-three.vercel.app/blog/free-screenshot-api
+    baseURL: https://agent-gateway-kappa.vercel.app
+    tags:
+      - Screenshots
+      - Website
+      - Capture
+      - Images
+      - Developer Tools
+    properties:
+      - type: Documentation
+        url: https://api-catalog-three.vercel.app/blog/free-screenshot-api
+      - type: OpenAPI
+        url: openapi/frostbyte-screenshot-openapi.yml
+    contact:
+      - FN: Frostbyte API
+        url: https://api-catalog-three.vercel.app
+  - aid: frostbyte:dns-lookup
+    name: Frostbyte DNS Lookup API
+    description: >-
+      DNS lookup API. Resolve domains, check propagation, retrieve WHOIS data, batch lookups. Supports A, AAAA, MX, NS,
+      TXT, CNAME, and SOA records. Free tier: 200 credits, 1 credit per request.
+    image: https://api-catalog-three.vercel.app/favicon.ico
+    humanURL: https://api-catalog-three.vercel.app/blog/free-dns-lookup-api
+    baseURL: https://agent-gateway-kappa.vercel.app
+    tags:
+      - DNS
+      - Domains
+      - WHOIS
+      - Lookup
+      - Utility APIs
+    properties:
+      - type: Documentation
+        url: https://api-catalog-three.vercel.app/blog/free-dns-lookup-api
+      - type: OpenAPI
+        url: openapi/frostbyte-dns-lookup-openapi.yml
+    contact:
+      - FN: Frostbyte API
+        url: https://api-catalog-three.vercel.app
+  - aid: frostbyte:web-scraper
+    name: Frostbyte Web Scraper API
+    description: >-
+      Web scraping API. Extract text, HTML, or structured data from any webpage. Headless Chrome rendering for
+      JavaScript-heavy sites. Free tier: 200 credits, 1 credit per request.
+    image: https://api-catalog-three.vercel.app/favicon.ico
+    humanURL: https://api-catalog-three.vercel.app/blog/free-web-scraping-api
+    baseURL: https://agent-gateway-kappa.vercel.app
+    tags:
+      - Scraping
+      - Web
+      - Extract
+      - Crawl
+      - Developer Tools
+    properties:
+      - type: Documentation
+        url: https://api-catalog-three.vercel.app/blog/free-web-scraping-api
+      - type: OpenAPI
+        url: openapi/frostbyte-web-scraper-openapi.yml
+    contact:
+      - FN: Frostbyte API
+        url: https://api-catalog-three.vercel.app
+  - aid: frostbyte:code-execution
+    name: Frostbyte Code Execution API
+    description: >-
+      Sandboxed code execution API. Run Python, JavaScript, TypeScript, and Bash code securely. Designed for AI agents,
+      online IDEs, and coding challenges. Free tier: 200 credits, 1 credit per request.
+    image: https://api-catalog-three.vercel.app/favicon.ico
+    humanURL: https://api-catalog-three.vercel.app/blog/free-code-execution-api
+    baseURL: https://agent-gateway-kappa.vercel.app
+    tags:
+      - Code Execution
+      - Sandbox
+      - Python
+      - JavaScript
+      - AI Agents
+      - Developer Tools
+    properties:
+      - type: Documentation
+        url: https://api-catalog-three.vercel.app/blog/free-code-execution-api
+      - type: OpenAPI
+        url: openapi/frostbyte-code-execution-openapi.yml
+    contact:
+      - FN: Frostbyte API
+        url: https://api-catalog-three.vercel.app
+  - aid: frostbyte:agent-gateway
+    name: Frostbyte Agent Gateway (Full API)
+    description: >-
+      Unified API gateway with 40+ services for AI agents. Includes crypto, geolocation, screenshots, scraping, DNS,
+      storage, code execution, agent memory, wallets, DeFi trading, scheduling, and more. Free tier of 200 credits; x402
+      USDC-on-Base payments for higher volume.
+    image: https://api-catalog-three.vercel.app/favicon.ico
+    humanURL: https://api-catalog-three.vercel.app
+    baseURL: https://agent-gateway-kappa.vercel.app
+    tags:
+      - AI Agents
+      - Gateway
+      - Multi-Service
+      - Developer Tools
+      - Utility APIs
+    properties:
+      - type: OpenAPI
+        url: openapi/frostbyte-agent-gateway-openapi.yml
+      - type: GettingStarted
+        url: https://api-catalog-three.vercel.app/guides/getting-started
+      - type: PostmanCollection
+        url: https://api-catalog-three.vercel.app/agent-gateway-collection.json
+    contact:
+      - FN: Frostbyte API
+        url: https://api-catalog-three.vercel.app
 maintainers:
-- FN: Frostbyte
-  url: https://api-catalog-three.vercel.app
+  - FN: Frostbyte
+    url: https://api-catalog-three.vercel.app
 x-reconciled: false
 x-artifacts:
   openapi:
-  - openapi/frostbyte-ip-geolocation-openapi.yml
-  - openapi/frostbyte-crypto-prices-openapi.yml
-  - openapi/frostbyte-screenshot-openapi.yml
-  - openapi/frostbyte-dns-lookup-openapi.yml
-  - openapi/frostbyte-web-scraper-openapi.yml
-  - openapi/frostbyte-code-execution-openapi.yml
-  - openapi/frostbyte-agent-gateway-openapi.yml
+    - openapi/frostbyte-ip-geolocation-openapi.yml
+    - openapi/frostbyte-crypto-prices-openapi.yml
+    - openapi/frostbyte-screenshot-openapi.yml
+    - openapi/frostbyte-dns-lookup-openapi.yml
+    - openapi/frostbyte-web-scraper-openapi.yml
+    - openapi/frostbyte-code-execution-openapi.yml
+    - openapi/frostbyte-agent-gateway-openapi.yml
   json-schema:
-  - json-schema/frostbyte-credit-balance-schema.json
-  - json-schema/frostbyte-ip-geolocation-schema.json
-  - json-schema/frostbyte-crypto-price-schema.json
+    - json-schema/frostbyte-credit-balance-schema.json
+    - json-schema/frostbyte-ip-geolocation-schema.json
+    - json-schema/frostbyte-crypto-price-schema.json
   json-structure:
-  - json-structure/frostbyte-credit-balance-structure.json
+    - json-structure/frostbyte-credit-balance-structure.json
   json-ld:
-  - json-ld/frostbyte-context.jsonld
+    - json-ld/frostbyte-context.jsonld
   vocabulary:
-  - vocabulary/frostbyte-vocabulary.yml
+    - vocabulary/frostbyte-vocabulary.yml
   rules:
-  - rules/frostbyte-rules.yml
+    - rules/frostbyte-rules.yml
   capabilities:
-  - capabilities/agent-research-workflow.yaml
-  - capabilities/shared/ip-geolocation.yaml
-  - capabilities/shared/crypto-prices.yaml
-  - capabilities/shared/screenshot.yaml
-  - capabilities/shared/dns-lookup.yaml
-  - capabilities/shared/web-scraper.yaml
-  - capabilities/shared/code-execution.yaml
-  - capabilities/shared/agent-gateway.yaml
+    - capabilities/agent-research-workflow.yaml
+    - capabilities/shared/ip-geolocation.yaml
+    - capabilities/shared/crypto-prices.yaml
+    - capabilities/shared/screenshot.yaml
+    - capabilities/shared/dns-lookup.yaml
+    - capabilities/shared/web-scraper.yaml
+    - capabilities/shared/code-execution.yaml
+    - capabilities/shared/agent-gateway.yaml
   plans:
-  - plans/frostbyte-plans-pricing.yml
+    - plans/frostbyte-plans-pricing.yml
   rate-limits:
-  - rate-limits/frostbyte-rate-limits.yml
+    - rate-limits/frostbyte-rate-limits.yml
   finops:
-  - finops/frostbyte-finops.yml
+    - finops/frostbyte-finops.yml
   examples:
-  - examples/ (27 operation examples)
+    - examples/ (27 operation examples)

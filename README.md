@@ -1,62 +1,198 @@
 # Frostbyte (frostbyte)
 
-Free API platform for developers and AI agents — 40+ services including IP Geolocation, Crypto Prices, Screenshots, DNS Lookup, Web Scraping, and Code Execution. The platform is also known as the **Clawdia Agent Gateway**.
+Free API platform for developers and AI agents — 40+ services including IP Geolocation, Crypto Prices, Screenshots, DNS, Scraping, Code Execution. Free tier of 200 credits with no signup; USDC on Base top-ups via x402 for higher volume.
 
-- **Source:** https://api-catalog-three.vercel.app/
-- **APIs.json:** https://api-catalog-three.vercel.app/apis.json
-- **Unified OpenAPI:** https://api-catalog-three.vercel.app/openapi.json
-- **Postman Collection:** https://api-catalog-three.vercel.app/agent-gateway-collection.json
-- **Getting Started:** https://api-catalog-three.vercel.app/guides/getting-started
-- **api-search issue:** [#20](https://github.com/api-search/network/issues/20)
+**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/frostbyte/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/frostbyte/refs/heads/main/apis.yml)
 
-## Type
+## Scope
 
-`company` — commercial (but free-at-point-of-use) developer-API platform with USDC-on-Base micropayments for higher volume.
-
-## APIs Profiled (7)
-
-| API | Description | OpenAPI |
-|---|---|---|
-| Frostbyte IP Geolocation API | IP-to-geo, timezone, distance, batch | `openapi/frostbyte-ip-geolocation-openapi.yml` |
-| Frostbyte Crypto Prices API | Real-time prices for 38+ pairs (Binance source) | `openapi/frostbyte-crypto-prices-openapi.yml` |
-| Frostbyte Screenshot API | Headless-Chromium URL screenshots | `openapi/frostbyte-screenshot-openapi.yml` |
-| Frostbyte DNS Lookup API | A/AAAA/MX/NS/TXT/CNAME/SOA plus WHOIS plus propagation | `openapi/frostbyte-dns-lookup-openapi.yml` |
-| Frostbyte Web Scraper API | Text/HTML/structured-data extraction (JS rendering) | `openapi/frostbyte-web-scraper-openapi.yml` |
-| Frostbyte Code Execution API | Sandboxed Python/JS/TS/Bash execution | `openapi/frostbyte-code-execution-openapi.yml` |
-| Frostbyte Agent Gateway (Full API) | Unified 40+-service gateway | `openapi/frostbyte-agent-gateway-openapi.yml` |
+- **Type:** Index
 
 ## Tags
 
-Developer Tools, Utility APIs, Geolocation, Cryptocurrency, Screenshots, DNS, Scraping, AI Agents
+- Developer Tools
+- Utility APIs
+- Geolocation
+- Cryptocurrency
+- Screenshots
+- DNS
+- Scraping
+- AI Agents
 
-## Commercial Model
+## Timestamps
 
-- **Free tier**: 200 credits issued on key creation (50 credits for the Screenshot API). 1 credit per request. No signup, no credit card.
-- **Pay-as-you-go**: x402 micropayments in USDC on the Base network. Topping up extends key expiry from 30 days to 90 days.
-- See `plans/frostbyte-plans-pricing.yml`, `rate-limits/frostbyte-rate-limits.yml`, `finops/frostbyte-finops.yml`.
+- **Created:** 2026-05-16
+- **Modified:** 2026-05-19
 
-## Layout
+## APIs
 
-```
-frostbyte/
-├── apis.yml
-├── README.md
-├── openapi/         # 7 per-API specs
-├── capabilities/    # Naftiko capabilities (1 workflow + 7 shared)
-│   └── shared/
-├── rules/           # Spectral ruleset
-├── json-schema/     # 3 entity schemas
-├── json-structure/  # 1 structure
-├── json-ld/         # JSON-LD context
-├── vocabulary/      # Domain vocabulary
-├── examples/        # 27 operation examples
-├── plans/           # Pricing (free + pay-as-you-go)
-├── rate-limits/     # Credit quotas, expiry, 402 fallback
-└── finops/          # FOCUS-aligned billing surface
-```
+### Frostbyte IP Geolocation API
 
-## Notes
+Free IP geolocation API. Returns country, city, timezone, coordinates, and EU status for any IP address. Supports single lookups, batch processing, distance calculation, and timezone detection. No signup required. Free tier: 200 credits, 1 credit per request.
 
-- Most per-service rate limits (RPS, concurrency) are **not published**; `reconciled: false` in `apis.yml`. The credit quota and the HTTP 402 / x402 payment fallback are the documented enforcement surface.
-- The unified `frostbyte-agent-gateway-openapi.yml` contains 156 operations across 40+ services (agent memory, scheduler, wallets, DeFi, contract deployer, etc.) beyond the seven APIs profiled individually.
-- All operation summaries normalized to Title Case.
+- **Human URL:** [https://api-catalog-three.vercel.app/services/free-ip-address-api](https://api-catalog-three.vercel.app/services/free-ip-address-api)
+- **Base URL:** `https://agent-gateway-kappa.vercel.app`
+
+#### Tags
+
+- Geolocation
+- IP
+- Location
+- Utility APIs
+- Developer Tools
+
+#### Properties
+
+- [Documentation](https://api-catalog-three.vercel.app/services/free-ip-address-api)
+- [OpenAPI](openapi/frostbyte-ip-geolocation-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
+- [Postman Collection](collections/frostbyte-ip-geolocation.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/frostbyte-ip-geolocation.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Getting Started](https://api-catalog-three.vercel.app/guides/getting-started)
+
+### Frostbyte Crypto Prices API
+
+Free real-time cryptocurrency price API. Live prices, 24h OHLCV data for 38+ trading pairs (BTC, ETH, SOL, XRP) sourced from Binance. No signup required. Free tier: 200 credits, 1 credit per request.
+
+- **Human URL:** [https://api-catalog-three.vercel.app/blog/free-crypto-price-api](https://api-catalog-three.vercel.app/blog/free-crypto-price-api)
+- **Base URL:** `https://agent-gateway-kappa.vercel.app`
+
+#### Tags
+
+- Cryptocurrency
+- Bitcoin
+- Prices
+- Trading
+- Utility APIs
+
+#### Properties
+
+- [Documentation](https://api-catalog-three.vercel.app/blog/free-crypto-price-api)
+- [OpenAPI](openapi/frostbyte-crypto-prices-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
+- [Postman Collection](collections/frostbyte-crypto-prices.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/frostbyte-crypto-prices.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+
+### Frostbyte Screenshot API
+
+Website screenshot API. Capture full-page screenshots of any URL as PNG using a Chromium engine. Supports viewport presets, full-page mode, dark mode, and CSS selector targeting. Free tier: 50 credits with no signup; top-ups in USDC on Base.
+
+- **Human URL:** [https://api-catalog-three.vercel.app/blog/free-screenshot-api](https://api-catalog-three.vercel.app/blog/free-screenshot-api)
+- **Base URL:** `https://agent-gateway-kappa.vercel.app`
+
+#### Tags
+
+- Screenshots
+- Website
+- Capture
+- Images
+- Developer Tools
+
+#### Properties
+
+- [Documentation](https://api-catalog-three.vercel.app/blog/free-screenshot-api)
+- [OpenAPI](openapi/frostbyte-screenshot-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
+- [Postman Collection](collections/frostbyte-screenshot.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/frostbyte-screenshot.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+
+### Frostbyte DNS Lookup API
+
+DNS lookup API. Resolve domains, check propagation, retrieve WHOIS data, batch lookups. Supports A, AAAA, MX, NS, TXT, CNAME, and SOA records. Free tier: 200 credits, 1 credit per request.
+
+- **Human URL:** [https://api-catalog-three.vercel.app/blog/free-dns-lookup-api](https://api-catalog-three.vercel.app/blog/free-dns-lookup-api)
+- **Base URL:** `https://agent-gateway-kappa.vercel.app`
+
+#### Tags
+
+- DNS
+- Domains
+- WHOIS
+- Lookup
+- Utility APIs
+
+#### Properties
+
+- [Documentation](https://api-catalog-three.vercel.app/blog/free-dns-lookup-api)
+- [OpenAPI](openapi/frostbyte-dns-lookup-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
+- [Postman Collection](collections/frostbyte-dns-lookup.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/frostbyte-dns-lookup.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+
+### Frostbyte Web Scraper API
+
+Web scraping API. Extract text, HTML, or structured data from any webpage. Headless Chrome rendering for JavaScript-heavy sites. Free tier: 200 credits, 1 credit per request.
+
+- **Human URL:** [https://api-catalog-three.vercel.app/blog/free-web-scraping-api](https://api-catalog-three.vercel.app/blog/free-web-scraping-api)
+- **Base URL:** `https://agent-gateway-kappa.vercel.app`
+
+#### Tags
+
+- Scraping
+- Web
+- Extract
+- Crawl
+- Developer Tools
+
+#### Properties
+
+- [Documentation](https://api-catalog-three.vercel.app/blog/free-web-scraping-api)
+- [OpenAPI](openapi/frostbyte-web-scraper-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
+- [Postman Collection](collections/frostbyte-web-scraper.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/frostbyte-web-scraper.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+
+### Frostbyte Code Execution API
+
+Sandboxed code execution API. Run Python, JavaScript, TypeScript, and Bash code securely. Designed for AI agents, online IDEs, and coding challenges. Free tier: 200 credits, 1 credit per request.
+
+- **Human URL:** [https://api-catalog-three.vercel.app/blog/free-code-execution-api](https://api-catalog-three.vercel.app/blog/free-code-execution-api)
+- **Base URL:** `https://agent-gateway-kappa.vercel.app`
+
+#### Tags
+
+- Code Execution
+- Sandbox
+- Python
+- JavaScript
+- AI Agents
+- Developer Tools
+
+#### Properties
+
+- [Documentation](https://api-catalog-three.vercel.app/blog/free-code-execution-api)
+- [OpenAPI](openapi/frostbyte-code-execution-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
+- [Postman Collection](collections/frostbyte-code-execution.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/frostbyte-code-execution.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+
+### Frostbyte Agent Gateway (Full API)
+
+Unified API gateway with 40+ services for AI agents. Includes crypto, geolocation, screenshots, scraping, DNS, storage, code execution, agent memory, wallets, DeFi trading, scheduling, and more. Free tier of 200 credits; x402 USDC-on-Base payments for higher volume.
+
+- **Human URL:** [https://api-catalog-three.vercel.app](https://api-catalog-three.vercel.app)
+- **Base URL:** `https://agent-gateway-kappa.vercel.app`
+
+#### Tags
+
+- AI Agents
+- Gateway
+- Multi-Service
+- Developer Tools
+- Utility APIs
+
+#### Properties
+
+- [OpenAPI](openapi/frostbyte-agent-gateway-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
+- [Postman Collection](collections/frostbyte-agent-gateway.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/frostbyte-agent-gateway.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Getting Started](https://api-catalog-three.vercel.app/guides/getting-started)
+- [Postman Collection](https://api-catalog-three.vercel.app/agent-gateway-collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+
+## Common Properties
+
+- [Website](https://api-catalog-three.vercel.app/)
+- [Documentation](https://api-catalog-three.vercel.app/)
+- [A P Is J S O N](https://api-catalog-three.vercel.app/apis.json)
+- [OpenAPI](https://api-catalog-three.vercel.app/openapi.json) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
+- [Getting Started](https://api-catalog-three.vercel.app/guides/getting-started)
+- [Postman Collection](https://api-catalog-three.vercel.app/agent-gateway-collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+
+## Maintainers
+
+**FN:** Frostbyte
+**URL:** https://api-catalog-three.vercel.app
