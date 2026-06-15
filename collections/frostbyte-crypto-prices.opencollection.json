@@ -1,0 +1,51 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Frostbyte Crypto Prices API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Crypto Prices",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get All Cryptocurrency Prices",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/crypto-feeds/api/prices"
+          },
+          "docs": "Returns real-time prices for 38+ cryptocurrency trading pairs including BTC, ETH, SOL, XRP, and more. Data sourced from Binance with 24h OHLCV data."
+        },
+        {
+          "info": {
+            "name": "Get Market Data",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/defi-trading/api/markets"
+          },
+          "docs": "Returns market data including available trading pairs and current prices."
+        },
+        {
+          "info": {
+            "name": "Get Prices (shortcut Endpoint)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agent-gateway-kappa.vercel.app/api/prices"
+          },
+          "docs": "Shortcut endpoint that returns cryptocurrency prices directly."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

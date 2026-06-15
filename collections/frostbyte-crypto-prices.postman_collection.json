@@ -1,0 +1,256 @@
+{
+  "item": [
+    {
+      "id": "251e88af-8694-47a3-b21e-2c3a0be84d2b",
+      "name": "Crypto Prices",
+      "description": {
+        "content": "Real-time cryptocurrency price endpoints",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "8da91c08-078e-4a78-a37a-d00194923d6d",
+          "name": "Get All Cryptocurrency Prices",
+          "request": {
+            "name": "Get All Cryptocurrency Prices",
+            "description": {
+              "content": "Returns real-time prices for 38+ cryptocurrency trading pairs including BTC, ETH, SOL, XRP, and more. Data sourced from Binance with 24h OHLCV data.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "crypto-feeds",
+                "api",
+                "prices"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c6bf8163-5c58-441c-87af-8699b2bef256",
+              "name": "All cryptocurrency prices",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "crypto-feeds",
+                    "api",
+                    "prices"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 38,\n  \"prices\": {\n    \"BTCUSDT\": {\n      \"symbol\": \"BTCUSDT\",\n      \"price\": 71103.4,\n      \"open\": 73228,\n      \"high\": 73565.2,\n      \"low\": 70647.1,\n      \"volume\": 11622.15,\n      \"quote_volume\": 838255962.02,\n      \"change\": -2124.6,\n      \"change_pct\": -2.9,\n      \"timestamp\": 1772746736407\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "64a49c2f-00d3-45aa-9a81-e46b70200547",
+          "name": "Get Market Data",
+          "request": {
+            "name": "Get Market Data",
+            "description": {
+              "content": "Returns market data including available trading pairs and current prices.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "defi-trading",
+                "api",
+                "markets"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "19505fa0-f195-4a87-8d2f-f70a643e3d93",
+              "name": "Market data",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "defi-trading",
+                    "api",
+                    "markets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"markets\": [\n    {\n      \"symbol\": \"string\",\n      \"price\": 564.1673320484697,\n      \"change_pct\": 5950.008015727699\n    },\n    {\n      \"symbol\": \"string\",\n      \"price\": 5278.255961636837,\n      \"change_pct\": 7954.452830336702\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "04659511-a140-48a2-9cf6-a86a82a7bffc",
+          "name": "Get Prices (shortcut Endpoint)",
+          "request": {
+            "name": "Get Prices (shortcut Endpoint)",
+            "description": {
+              "content": "Shortcut endpoint that returns cryptocurrency prices directly.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "prices"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0aafa23f-cad8-4680-9b10-09c2d2c6a794",
+              "name": "Cryptocurrency prices",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "prices"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 38,\n  \"prices\": {\n    \"key_0\": {\n      \"symbol\": \"BTCUSDT\",\n      \"price\": 71103.4,\n      \"open\": 290.80127045139517,\n      \"high\": 5924.97146872494,\n      \"low\": 5722.593057545691,\n      \"volume\": 1010.7964750407816,\n      \"quote_volume\": 3840.1588563763567,\n      \"change\": 2806.955921257427,\n      \"change_pct\": 7379.89996149521,\n      \"bid\": 3035.755853313666,\n      \"ask\": 8490.326462798279,\n      \"timestamp\": 1492\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://agent-gateway-kappa.vercel.app",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "9c76ff5b-52c1-4e64-9eef-50a3a209faad",
+    "name": "Frostbyte Crypto Prices API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Free real-time cryptocurrency price API. Get live prices, 24h changes, volume data for 38+ trading pairs from Binance. No signup required for basic usage.\n\nFree tier: 200 credits, no API key needed. Each request costs 1 credit.\n\nContact Support:\n Name: Frostbyte API",
+      "type": "text/plain"
+    }
+  }
+}

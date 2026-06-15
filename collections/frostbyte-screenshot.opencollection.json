@@ -1,0 +1,59 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Frostbyte Screenshot API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Data & Analytics",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Agent Screenshot — /api/screenshot",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-screenshot/api/screenshot"
+          },
+          "docs": "URL-to-image API. Headless Chromium, 5 viewports, full-page, dark mode, element targeting."
+        },
+        {
+          "info": {
+            "name": "Agent Screenshot — /api/screenshot",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-screenshot/api/screenshot",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "URL-to-image API. Headless Chromium, 5 viewports, full-page, dark mode, element targeting."
+        },
+        {
+          "info": {
+            "name": "Agent Screenshot — /api/screenshot/json",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-screenshot/api/screenshot/json",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Part of Agent Screenshot"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

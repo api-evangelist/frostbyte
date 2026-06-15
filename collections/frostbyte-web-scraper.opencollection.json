@@ -1,0 +1,59 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Frostbyte Web Scraper API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Data & Analytics",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Agent Scraper — /api/scrape",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-scraper/api/scrape"
+          },
+          "docs": "Web content extraction. URL to markdown, text, HTML, or structured data. JavaScript rendering via Chromium."
+        },
+        {
+          "info": {
+            "name": "Agent Scraper — /api/scrape",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-scraper/api/scrape",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Web content extraction. URL to markdown, text, HTML, or structured data. JavaScript rendering via Chromium."
+        },
+        {
+          "info": {
+            "name": "Agent Scraper — /api/extract",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-scraper/api/extract",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Part of Agent Scraper"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

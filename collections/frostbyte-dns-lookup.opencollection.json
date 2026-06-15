@@ -1,0 +1,123 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Frostbyte DNS Lookup API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Other",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Agent DNS Lookup — /api/resolve/:domain",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-dns/api/resolve/:domain",
+            "params": [
+              {
+                "name": "domain",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "DNS resolution, WHOIS/RDAP data, domain availability checking, and DNS propagation analysis across 8 public resolvers."
+        },
+        {
+          "info": {
+            "name": "Agent DNS Lookup — /api/all/:domain",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-dns/api/all/:domain",
+            "params": [
+              {
+                "name": "domain",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Part of Agent DNS Lookup"
+        },
+        {
+          "info": {
+            "name": "Agent DNS Lookup — /api/whois/:domain",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-dns/api/whois/:domain",
+            "params": [
+              {
+                "name": "domain",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Part of Agent DNS Lookup"
+        },
+        {
+          "info": {
+            "name": "Agent DNS Lookup — /api/check/:domain",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-dns/api/check/:domain",
+            "params": [
+              {
+                "name": "domain",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Part of Agent DNS Lookup"
+        },
+        {
+          "info": {
+            "name": "Agent DNS Lookup — /api/propagation/:domain",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-dns/api/propagation/:domain",
+            "params": [
+              {
+                "name": "domain",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Part of Agent DNS Lookup"
+        },
+        {
+          "info": {
+            "name": "Agent DNS Lookup — /api/batch",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-dns/api/batch",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Part of Agent DNS Lookup"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

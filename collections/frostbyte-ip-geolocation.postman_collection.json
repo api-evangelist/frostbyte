@@ -1,0 +1,756 @@
+{
+  "item": [
+    {
+      "id": "c1f1f4d4-ccef-411a-8843-086eb7358d7a",
+      "name": "IP Geolocation",
+      "description": {
+        "content": "IP address geolocation lookup endpoints",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b3a7fce8-80cb-467d-a5e9-a9c49a404196",
+          "name": "Get Your Own IP Geolocation",
+          "request": {
+            "name": "Get Your Own IP Geolocation",
+            "description": {
+              "content": "Returns geolocation data for the requesting IP address. No authentication required.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ip",
+                "json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "da9f0846-da9e-422a-96d6-eae02d19ef52",
+              "name": "IP geolocation data",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ip",
+                    "json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"ip\": \"203.0.113.42\",\n  \"found\": true,\n  \"country\": \"US\",\n  \"region\": \"California\",\n  \"city\": \"San Francisco\",\n  \"timezone\": \"America/Los_Angeles\",\n  \"latitude\": 37.7749,\n  \"longitude\": -122.4194,\n  \"metro\": 807,\n  \"area\": 1,\n  \"eu\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "177ff550-b5f8-403b-b680-c7f1e1673870",
+          "name": "Get Geolocation for an IP Address",
+          "request": {
+            "name": "Get Geolocation for an IP Address",
+            "description": {
+              "content": "Returns geolocation data for the specified IP address.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ip",
+                "geo",
+                ":ip"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "ip",
+                  "description": "(Required) IPv4 or IPv6 address to look up"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ab7986e4-e2c9-4728-a3a4-b584016a1454",
+              "name": "IP geolocation data",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ip",
+                    "geo",
+                    ":ip"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ip",
+                      "description": "(Required) IPv4 or IPv6 address to look up"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"ip\": \"8.8.8.8\",\n  \"found\": true,\n  \"country\": \"US\",\n  \"region\": null,\n  \"city\": null,\n  \"timezone\": \"America/Chicago\",\n  \"latitude\": 37.751,\n  \"longitude\": -97.822,\n  \"metro\": null,\n  \"area\": 1000,\n  \"eu\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0a58a703-6679-4221-8f54-6d4084191dd4",
+          "name": "Full Geolocation Lookup (via Gateway)",
+          "request": {
+            "name": "Full Geolocation Lookup (via Gateway)",
+            "description": {
+              "content": "Full geolocation data for any IP address via the gateway route.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "agent-geo",
+                "api",
+                "geo",
+                ":ip"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "ip",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "aaa64c6c-bd85-47c0-9831-0275ab33dfc4",
+              "name": "Geolocation data",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "agent-geo",
+                    "api",
+                    "geo",
+                    ":ip"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ip",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"ip\": \"8.8.8.8\",\n  \"found\": false,\n  \"country\": \"US\",\n  \"region\": \"string\",\n  \"city\": \"string\",\n  \"timezone\": \"America/Chicago\",\n  \"latitude\": 37.751,\n  \"longitude\": -97.822,\n  \"metro\": 898,\n  \"area\": 1000,\n  \"eu\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "eda14e5d-6303-4c86-96bf-a200fbd36c24",
+          "name": "Batch IP Geolocation Lookup",
+          "request": {
+            "name": "Batch IP Geolocation Lookup",
+            "description": {
+              "content": "Look up geolocation data for multiple IP addresses in a single request. Maximum 100 IPs per request.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "agent-geo",
+                "api",
+                "geo",
+                "batch"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"ips\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "721cf330-b297-45b1-9e9b-cfd76d3d3ce3",
+              "name": "Batch geolocation results",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "agent-geo",
+                    "api",
+                    "geo",
+                    "batch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ips\": [\n    \"8.8.8.8\",\n    \"1.1.1.1\",\n    \"208.67.222.222\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"results\": [\n    {\n      \"ip\": \"8.8.8.8\",\n      \"found\": true,\n      \"country\": \"US\",\n      \"region\": \"string\",\n      \"city\": \"string\",\n      \"timezone\": \"America/Chicago\",\n      \"latitude\": 37.751,\n      \"longitude\": -97.822,\n      \"metro\": 492,\n      \"area\": 1000,\n      \"eu\": false\n    },\n    {\n      \"ip\": \"8.8.8.8\",\n      \"found\": true,\n      \"country\": \"US\",\n      \"region\": \"string\",\n      \"city\": \"string\",\n      \"timezone\": \"America/Chicago\",\n      \"latitude\": 37.751,\n      \"longitude\": -97.822,\n      \"metro\": 3792,\n      \"area\": 1000,\n      \"eu\": true\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1aa28d53-f43e-4bf3-b43b-c66c1d76ccd9",
+          "name": "Get Your Own Geolocation",
+          "request": {
+            "name": "Get Your Own Geolocation",
+            "description": {
+              "content": "Returns geolocation data for the requesting IP address.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "agent-geo",
+                "api",
+                "geo",
+                "me"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "bb6ebb11-c70a-4a72-8dca-2e473bb053ac",
+              "name": "Your IP geolocation data",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "agent-geo",
+                    "api",
+                    "geo",
+                    "me"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"ip\": \"8.8.8.8\",\n  \"found\": false,\n  \"country\": \"US\",\n  \"region\": \"string\",\n  \"city\": \"string\",\n  \"timezone\": \"America/Chicago\",\n  \"latitude\": 37.751,\n  \"longitude\": -97.822,\n  \"metro\": 898,\n  \"area\": 1000,\n  \"eu\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2106cc8a-4482-424d-aefc-fb381d3237ef",
+          "name": "Get Timezone for an IP",
+          "request": {
+            "name": "Get Timezone for an IP",
+            "description": {
+              "content": "Returns the timezone for the specified IP address.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "agent-geo",
+                "api",
+                "geo",
+                "timezone",
+                ":ip"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "ip",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "aa3b5434-041d-420f-a004-41b853c7332d",
+              "name": "Timezone data",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "agent-geo",
+                    "api",
+                    "geo",
+                    "timezone",
+                    ":ip"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ip",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"ip\": \"string\",\n  \"timezone\": \"America/Chicago\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "81bc5704-cdfb-4dd7-957a-d2879aa8d845",
+          "name": "Get Country Code for an IP",
+          "request": {
+            "name": "Get Country Code for an IP",
+            "description": {
+              "content": "Returns just the country code for the specified IP address.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "agent-geo",
+                "api",
+                "geo",
+                "country",
+                ":ip"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "ip",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "cb0717e1-3687-4305-80ac-58759a116f8d",
+              "name": "Country data",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "agent-geo",
+                    "api",
+                    "geo",
+                    "country",
+                    ":ip"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ip",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"ip\": \"string\",\n  \"country\": \"US\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b16bb9ce-d7d3-41d3-ad50-207fde739145",
+          "name": "Calculate Distance Between Two IPs",
+          "request": {
+            "name": "Calculate Distance Between Two IPs",
+            "description": {
+              "content": "Calculates the geographic distance between two IP addresses using the Haversine formula.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "agent-geo",
+                "api",
+                "geo",
+                "distance"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"ip1\": \"<string>\",\n  \"ip2\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e14f4015-50cd-4473-8201-ba3f5f3455fa",
+              "name": "Distance result",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "agent-geo",
+                    "api",
+                    "geo",
+                    "distance"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ip1\": \"8.8.8.8\",\n  \"ip2\": \"1.1.1.1\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"ip1\": \"string\",\n  \"ip2\": \"string\",\n  \"distance_km\": 12345.67\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://agent-gateway-kappa.vercel.app",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "07a614bd-0840-4fa4-b171-0f02a6122da2",
+    "name": "Frostbyte IP Geolocation API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Free IP geolocation API. Get country, city, timezone, coordinates, and EU status for any IP address. No signup required for basic usage. Supports single lookups, batch processing, distance calculation, and timezone detection.\n\nFree tier: 200 credits, no API key needed. Each request costs 1 credit.\n\nContact Support:\n Name: Frostbyte API",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,2412 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Clawdia Agent Gateway API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Security",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Poison Guard — /api/analyze",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/poison-guard/api/analyze",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Address poisoning detection for EVM wallets. Detects dust transactions, similarity attacks, and risk scoring."
+        },
+        {
+          "info": {
+            "name": "Poison Guard — /api/check/:address",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/poison-guard/api/check/:address",
+            "params": [
+              {
+                "name": "address",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Part of Poison Guard"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Gaming",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Provably Fair Games — /api/games/dice",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/fair-games/api/games/dice",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Cryptographically provable fair games API. HMAC-SHA256 proofs on every outcome. Dice, coinflip, roulette, cards, lottery."
+        },
+        {
+          "info": {
+            "name": "Provably Fair Games — /api/games/coinflip",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/fair-games/api/games/coinflip",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Part of Provably Fair Games"
+        },
+        {
+          "info": {
+            "name": "Provably Fair Games — /api/games/roulette",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/fair-games/api/games/roulette",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Part of Provably Fair Games"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "DeFi & Crypto",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Agent Wallet — /api/wallets/create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-wallet/api/wallets/create",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Non-custodial multi-chain wallet API. Create wallets, check balances, send transactions across 7 chains."
+        },
+        {
+          "info": {
+            "name": "Agent Wallet — /api/wallets/:id/balance",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-wallet/api/wallets/:id/balance",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Part of Agent Wallet"
+        },
+        {
+          "info": {
+            "name": "Agent Wallet — /api/wallets/:id/send",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-wallet/api/wallets/:id/send",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Part of Agent Wallet"
+        },
+        {
+          "info": {
+            "name": "DeFi Trading Proxy — /api/markets",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/defi-trading/api/markets"
+          },
+          "docs": "REST API wrapper around Hyperliquid DEX. 229 perpetual futures markets. Market orders, limit orders, positions."
+        },
+        {
+          "info": {
+            "name": "DeFi Trading Proxy — /api/orders",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/defi-trading/api/orders",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Part of DeFi Trading Proxy"
+        },
+        {
+          "info": {
+            "name": "DeFi Trading Proxy — /api/positions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/defi-trading/api/positions"
+          },
+          "docs": "Part of DeFi Trading Proxy"
+        },
+        {
+          "info": {
+            "name": "DeFi MCP Server — /mcp/tools/call",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/defi-mcp/mcp/tools/call",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Model Context Protocol server for DeFi operations. 12 tools for token research, prices, and analytics."
+        },
+        {
+          "info": {
+            "name": "DeFi MCP Server — /mcp/tools/list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/defi-mcp/mcp/tools/list"
+          },
+          "docs": "Part of DeFi MCP Server"
+        },
+        {
+          "info": {
+            "name": "Frostbyte Wallet — /v1/auth/register",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/frostbyte-wallet/v1/auth/register",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Multi-chain non-custodial HD wallet API for AI agents. 9 chains (Ethereum, Base, Arbitrum, Optimism, Polygon, BSC, Avalanche, Solana, Bitcoin). Create wallets, check balances, send transactions, cross-chain swaps. 0.3% swap fee, 10 free transactions."
+        },
+        {
+          "info": {
+            "name": "Frostbyte Wallet — /v1/wallet/create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/frostbyte-wallet/v1/wallet/create",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Part of Frostbyte Wallet"
+        },
+        {
+          "info": {
+            "name": "Frostbyte Wallet — /v1/wallet/balance/:address",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/frostbyte-wallet/v1/wallet/balance/:address",
+            "params": [
+              {
+                "name": "address",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Part of Frostbyte Wallet"
+        },
+        {
+          "info": {
+            "name": "Frostbyte Wallet — /v1/wallet/send",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/frostbyte-wallet/v1/wallet/send",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Part of Frostbyte Wallet"
+        },
+        {
+          "info": {
+            "name": "Frostbyte Wallet — /v1/swap/quote",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/frostbyte-wallet/v1/swap/quote"
+          },
+          "docs": "Part of Frostbyte Wallet"
+        },
+        {
+          "info": {
+            "name": "Frostbyte Wallet — /v1/swap/execute",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/frostbyte-wallet/v1/swap/execute",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Part of Frostbyte Wallet"
+        },
+        {
+          "info": {
+            "name": "Frostbyte Wallet — /v1/chains",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/frostbyte-wallet/v1/chains"
+          },
+          "docs": "Part of Frostbyte Wallet"
+        },
+        {
+          "info": {
+            "name": "Frostbyte Wallet — /v1/chains/gas",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/frostbyte-wallet/v1/chains/gas"
+          },
+          "docs": "Part of Frostbyte Wallet"
+        },
+        {
+          "info": {
+            "name": "Frostbyte Wallet — /v1/referral/stats",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/frostbyte-wallet/v1/referral/stats"
+          },
+          "docs": "Part of Frostbyte Wallet"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Data & Analytics",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "On-Chain Analytics — /api/tokens/:address",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/onchain-analytics/api/tokens/:address",
+            "params": [
+              {
+                "name": "address",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Token analytics via DexScreener + GeckoTerminal. Price, volume, liquidity, holders across 8 chains."
+        },
+        {
+          "info": {
+            "name": "On-Chain Analytics — /api/search",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/onchain-analytics/api/search"
+          },
+          "docs": "Part of On-Chain Analytics"
+        },
+        {
+          "info": {
+            "name": "On-Chain Analytics — /api/trending",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/onchain-analytics/api/trending"
+          },
+          "docs": "Part of On-Chain Analytics"
+        },
+        {
+          "info": {
+            "name": "Crypto Data Feeds — /api/prices",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/crypto-feeds/api/prices"
+          },
+          "docs": "Part of Crypto Data Feeds"
+        },
+        {
+          "info": {
+            "name": "Agent Screenshot — /api/screenshot",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-screenshot/api/screenshot"
+          },
+          "docs": "URL-to-image API. Headless Chromium, 5 viewports, full-page, dark mode, element targeting."
+        },
+        {
+          "info": {
+            "name": "Agent Screenshot — /api/screenshot",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-screenshot/api/screenshot",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "URL-to-image API. Headless Chromium, 5 viewports, full-page, dark mode, element targeting."
+        },
+        {
+          "info": {
+            "name": "Agent Screenshot — /api/screenshot/json",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-screenshot/api/screenshot/json",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Part of Agent Screenshot"
+        },
+        {
+          "info": {
+            "name": "Agent Scraper — /api/scrape",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-scraper/api/scrape"
+          },
+          "docs": "Web content extraction. URL to markdown, text, HTML, or structured data. JavaScript rendering via Chromium."
+        },
+        {
+          "info": {
+            "name": "Agent Scraper — /api/scrape",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-scraper/api/scrape",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Web content extraction. URL to markdown, text, HTML, or structured data. JavaScript rendering via Chromium."
+        },
+        {
+          "info": {
+            "name": "Agent Scraper — /api/extract",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-scraper/api/extract",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Part of Agent Scraper"
+        },
+        {
+          "info": {
+            "name": "Agent Data Transformer — /api/transform",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-transform/api/transform",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Convert data between JSON, CSV, XML, YAML, TSV, and Markdown tables. Plus base64, URL encoding, hashing, and formatting."
+        },
+        {
+          "info": {
+            "name": "Agent Data Transformer — /api/detect",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-transform/api/detect",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Part of Agent Data Transformer"
+        },
+        {
+          "info": {
+            "name": "Agent Data Transformer — /api/format",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-transform/api/format",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Part of Agent Data Transformer"
+        },
+        {
+          "info": {
+            "name": "Agent Data Transformer — /api/validate/json",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-transform/api/validate/json",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Part of Agent Data Transformer"
+        },
+        {
+          "info": {
+            "name": "Agent Data Transformer — /api/base64/encode",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-transform/api/base64/encode",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Part of Agent Data Transformer"
+        },
+        {
+          "info": {
+            "name": "Agent Data Transformer — /api/hash",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-transform/api/hash",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Part of Agent Data Transformer"
+        },
+        {
+          "info": {
+            "name": "Agent Geo API — /api/geo/:ip",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-geo/api/geo/:ip",
+            "params": [
+              {
+                "name": "ip",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "IP geolocation, timezone, country, city lookup. Self-hosted MaxMind database, sub-microsecond lookups, batch and distance calculation."
+        },
+        {
+          "info": {
+            "name": "Agent Geo API — /api/geo/me",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-geo/api/geo/me"
+          },
+          "docs": "Part of Agent Geo API"
+        },
+        {
+          "info": {
+            "name": "Agent Geo API — /api/geo/batch",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-geo/api/geo/batch",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Part of Agent Geo API"
+        },
+        {
+          "info": {
+            "name": "Agent Geo API — /api/geo/distance",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-geo/api/geo/distance",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Part of Agent Geo API"
+        },
+        {
+          "info": {
+            "name": "Agent Geo API — /api/geo/country/:ip",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-geo/api/geo/country/:ip",
+            "params": [
+              {
+                "name": "ip",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Part of Agent Geo API"
+        },
+        {
+          "info": {
+            "name": "Agent Geo API — /api/geo/timezone/:ip",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-geo/api/geo/timezone/:ip",
+            "params": [
+              {
+                "name": "ip",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Part of Agent Geo API"
+        },
+        {
+          "info": {
+            "name": "Agent Search API — /api/search",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-search/api/search"
+          },
+          "docs": "Web search for AI agents. DuckDuckGo-powered, structured JSON results. Single, multi-query, and extract modes."
+        },
+        {
+          "info": {
+            "name": "Agent Search API — /api/search",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-search/api/search",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Web search for AI agents. DuckDuckGo-powered, structured JSON results. Single, multi-query, and extract modes."
+        },
+        {
+          "info": {
+            "name": "Agent Search API — /api/search/multi",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-search/api/search/multi",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Part of Agent Search API"
+        },
+        {
+          "info": {
+            "name": "Agent Search API — /api/search/extract",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-search/api/search/extract",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Part of Agent Search API"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Other",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Smart Contract Deployer — /api/compile",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/contract-deployer/api/compile",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Compile and deploy Solidity contracts. 9 chains, 5 templates (ERC-20, ERC-721, etc.). Built-in solc 0.8.x."
+        },
+        {
+          "info": {
+            "name": "Smart Contract Deployer — /api/deploy",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/contract-deployer/api/deploy",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Part of Smart Contract Deployer"
+        },
+        {
+          "info": {
+            "name": "Smart Contract Deployer — /api/templates",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/contract-deployer/api/templates"
+          },
+          "docs": "Part of Smart Contract Deployer"
+        },
+        {
+          "info": {
+            "name": "Token Launchpad — /api/tokens/create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/token-launchpad/api/tokens/create",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Deploy ERC-20 tokens. 5 templates, 7 chains. Built-in solc compilation and on-chain deployment."
+        },
+        {
+          "info": {
+            "name": "Token Launchpad — /api/templates",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/token-launchpad/api/templates"
+          },
+          "docs": "Part of Token Launchpad"
+        },
+        {
+          "info": {
+            "name": "Token Launchpad — /api/deployments",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/token-launchpad/api/deployments"
+          },
+          "docs": "Part of Token Launchpad"
+        },
+        {
+          "info": {
+            "name": "Agent Code Runner — /api/execute",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-coderunner/api/execute",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Sandboxed code execution for AI agents. Run JavaScript, Python, TypeScript, and Bash safely with resource limits and sessions."
+        },
+        {
+          "info": {
+            "name": "Agent Code Runner — /api/sessions",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-coderunner/api/sessions",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Part of Agent Code Runner"
+        },
+        {
+          "info": {
+            "name": "Agent Code Runner — /api/sessions/:id/execute",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-coderunner/api/sessions/:id/execute",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Part of Agent Code Runner"
+        },
+        {
+          "info": {
+            "name": "Agent Code Runner — /api/languages",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-coderunner/api/languages"
+          },
+          "docs": "Part of Agent Code Runner"
+        },
+        {
+          "info": {
+            "name": "Agent PDF Generator — /api/pdf/from-html",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-pdfgen/api/pdf/from-html",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Generate PDFs from HTML, Markdown, URLs, and templates. Pixel-perfect rendering with Playwright/Chromium."
+        },
+        {
+          "info": {
+            "name": "Agent PDF Generator — /api/pdf/from-url",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-pdfgen/api/pdf/from-url",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Part of Agent PDF Generator"
+        },
+        {
+          "info": {
+            "name": "Agent PDF Generator — /api/pdf/from-markdown",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-pdfgen/api/pdf/from-markdown",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Part of Agent PDF Generator"
+        },
+        {
+          "info": {
+            "name": "Agent PDF Generator — /api/pdf/from-template",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-pdfgen/api/pdf/from-template",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Part of Agent PDF Generator"
+        },
+        {
+          "info": {
+            "name": "Agent Image Processor — /api/resize",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-imageproc/api/resize",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Resize, convert, crop, rotate, blur, sharpen, optimize images. Generate QR codes and placeholders. Transform pipelines. Supports JPEG, PNG, WebP, AVIF, GIF, TIFF."
+        },
+        {
+          "info": {
+            "name": "Agent Image Processor — /api/convert",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-imageproc/api/convert",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Part of Agent Image Processor"
+        },
+        {
+          "info": {
+            "name": "Agent Image Processor — /api/crop",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-imageproc/api/crop",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Part of Agent Image Processor"
+        },
+        {
+          "info": {
+            "name": "Agent Image Processor — /api/rotate",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-imageproc/api/rotate",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Part of Agent Image Processor"
+        },
+        {
+          "info": {
+            "name": "Agent Image Processor — /api/blur",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-imageproc/api/blur",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Part of Agent Image Processor"
+        },
+        {
+          "info": {
+            "name": "Agent Image Processor — /api/metadata",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-imageproc/api/metadata",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Part of Agent Image Processor"
+        },
+        {
+          "info": {
+            "name": "Agent Image Processor — /api/qrcode",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-imageproc/api/qrcode",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Part of Agent Image Processor"
+        },
+        {
+          "info": {
+            "name": "Agent Image Processor — /api/placeholder/:w/:h",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-imageproc/api/placeholder/:w/:h",
+            "params": [
+              {
+                "name": "w",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "h",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Part of Agent Image Processor"
+        },
+        {
+          "info": {
+            "name": "Agent Image Processor — /api/transform",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-imageproc/api/transform",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Part of Agent Image Processor"
+        },
+        {
+          "info": {
+            "name": "Agent Short URL — /api/shorten",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-shorturl/api/shorten",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "URL shortener with click analytics, custom slugs, expiring links, tags, and bulk operations."
+        },
+        {
+          "info": {
+            "name": "Agent Short URL — /api/shorten/bulk",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-shorturl/api/shorten/bulk",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Part of Agent Short URL"
+        },
+        {
+          "info": {
+            "name": "Agent Short URL — /api/urls",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-shorturl/api/urls"
+          },
+          "docs": "Part of Agent Short URL"
+        },
+        {
+          "info": {
+            "name": "Agent Short URL — /api/urls/:slug/stats",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-shorturl/api/urls/:slug/stats",
+            "params": [
+              {
+                "name": "slug",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Part of Agent Short URL"
+        },
+        {
+          "info": {
+            "name": "Agent Short URL — /:slug",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-shorturl/:slug",
+            "params": [
+              {
+                "name": "slug",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Part of Agent Short URL"
+        },
+        {
+          "info": {
+            "name": "Agent DNS Lookup — /api/resolve/:domain",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-dns/api/resolve/:domain",
+            "params": [
+              {
+                "name": "domain",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "DNS resolution, WHOIS/RDAP data, domain availability checking, and DNS propagation analysis across 8 public resolvers."
+        },
+        {
+          "info": {
+            "name": "Agent DNS Lookup — /api/all/:domain",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-dns/api/all/:domain",
+            "params": [
+              {
+                "name": "domain",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Part of Agent DNS Lookup"
+        },
+        {
+          "info": {
+            "name": "Agent DNS Lookup — /api/whois/:domain",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-dns/api/whois/:domain",
+            "params": [
+              {
+                "name": "domain",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Part of Agent DNS Lookup"
+        },
+        {
+          "info": {
+            "name": "Agent DNS Lookup — /api/check/:domain",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-dns/api/check/:domain",
+            "params": [
+              {
+                "name": "domain",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Part of Agent DNS Lookup"
+        },
+        {
+          "info": {
+            "name": "Agent DNS Lookup — /api/propagation/:domain",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-dns/api/propagation/:domain",
+            "params": [
+              {
+                "name": "domain",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Part of Agent DNS Lookup"
+        },
+        {
+          "info": {
+            "name": "Agent DNS Lookup — /api/batch",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-dns/api/batch",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Part of Agent DNS Lookup"
+        },
+        {
+          "info": {
+            "name": "Agent Paste Bin — /api/pastes",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-paste/api/pastes",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Code and text sharing with auto-language detection, collections, diffing, expiring pastes, and raw content endpoints."
+        },
+        {
+          "info": {
+            "name": "Agent Paste Bin — /api/pastes/:id",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-paste/api/pastes/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Part of Agent Paste Bin"
+        },
+        {
+          "info": {
+            "name": "Agent Paste Bin — /api/pastes/:id/raw",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-paste/api/pastes/:id/raw",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Part of Agent Paste Bin"
+        },
+        {
+          "info": {
+            "name": "Agent Paste Bin — /api/collections",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-paste/api/collections",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Part of Agent Paste Bin"
+        },
+        {
+          "info": {
+            "name": "Agent Paste Bin — /api/collections/:id",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-paste/api/collections/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Part of Agent Paste Bin"
+        },
+        {
+          "info": {
+            "name": "Agent Paste Bin — /api/diff",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-paste/api/diff",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Part of Agent Paste Bin"
+        },
+        {
+          "info": {
+            "name": "Agent LLM Router — /api/chat",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-llm/api/chat",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Multi-provider LLM proxy. Unified API for OpenAI, Anthropic, Google, Groq, Together, DeepSeek. Response caching, retries, BYO keys."
+        },
+        {
+          "info": {
+            "name": "Agent LLM Router — /v1/chat/completions",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-llm/v1/chat/completions",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Part of Agent LLM Router"
+        },
+        {
+          "info": {
+            "name": "Agent LLM Router — /api/models",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-llm/api/models"
+          },
+          "docs": "Part of Agent LLM Router"
+        },
+        {
+          "info": {
+            "name": "Agent LLM Router — /api/providers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-llm/api/providers"
+          },
+          "docs": "Part of Agent LLM Router"
+        },
+        {
+          "info": {
+            "name": "Agent LLM Router — /api/keys/provider",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-llm/api/keys/provider",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Part of Agent LLM Router"
+        },
+        {
+          "info": {
+            "name": "Webhook Inspector — /new",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/webhook-inspector/new",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Instant webhook capture and inspection. Create a unique inbox URL, send webhooks to it, inspect every request in real-time. RequestBin alternative."
+        },
+        {
+          "info": {
+            "name": "Webhook Inspector — /inspect/:id",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/webhook-inspector/inspect/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Part of Webhook Inspector"
+        },
+        {
+          "info": {
+            "name": "Webhook Inspector — /api/inbox/:id/requests",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/webhook-inspector/api/inbox/:id/requests",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Part of Webhook Inspector"
+        },
+        {
+          "info": {
+            "name": "Frostbyte Domains — /v1/auth/register",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/frostbyte-domains/v1/auth/register",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Domain registration and DNS management for AI agents. 18 TLDs supported, privacy-first registration, full DNS control (A, AAAA, CNAME, MX, TXT, NS, SRV, CAA). 15% markup."
+        },
+        {
+          "info": {
+            "name": "Frostbyte Domains — /v1/domains/search",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/frostbyte-domains/v1/domains/search"
+          },
+          "docs": "Part of Frostbyte Domains"
+        },
+        {
+          "info": {
+            "name": "Frostbyte Domains — /v1/domains/register",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/frostbyte-domains/v1/domains/register",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Part of Frostbyte Domains"
+        },
+        {
+          "info": {
+            "name": "Frostbyte Domains — /v1/domains",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/frostbyte-domains/v1/domains"
+          },
+          "docs": "Part of Frostbyte Domains"
+        },
+        {
+          "info": {
+            "name": "Frostbyte Domains — /v1/dns/records",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/frostbyte-domains/v1/dns/records"
+          },
+          "docs": "Part of Frostbyte Domains"
+        },
+        {
+          "info": {
+            "name": "Frostbyte Domains — /v1/dns/records",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/frostbyte-domains/v1/dns/records",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Part of Frostbyte Domains"
+        },
+        {
+          "info": {
+            "name": "Frostbyte Domains — /v1/dns/records/:id",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/frostbyte-domains/v1/dns/records/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Part of Frostbyte Domains"
+        },
+        {
+          "info": {
+            "name": "Frostbyte Domains — /v1/dns/records/:id",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/frostbyte-domains/v1/dns/records/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Part of Frostbyte Domains"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Agent Infrastructure",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Agent Registry & Discovery — /api/services/register",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-registry/api/services/register",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Service registry for AI agents. Register, discover, search, rate, and monitor agent services."
+        },
+        {
+          "info": {
+            "name": "Agent Registry & Discovery — /api/services/search",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-registry/api/services/search"
+          },
+          "docs": "Part of Agent Registry & Discovery"
+        },
+        {
+          "info": {
+            "name": "Agent Registry & Discovery — /api/services/:id",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-registry/api/services/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Part of Agent Registry & Discovery"
+        },
+        {
+          "info": {
+            "name": "Agent Identity Service — /api/identities/create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-identity/api/identities/create",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Disposable identities for AI agents. Ed25519 signing, DIDs, attestations, challenge-response auth."
+        },
+        {
+          "info": {
+            "name": "Agent Identity Service — /api/identities/:id/sign",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-identity/api/identities/:id/sign",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Part of Agent Identity Service"
+        },
+        {
+          "info": {
+            "name": "Agent Identity Service — /api/auth/challenge",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-identity/api/auth/challenge",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Part of Agent Identity Service"
+        },
+        {
+          "info": {
+            "name": "Agent Referral Network — /api/programs/create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-referral/api/programs/create",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Referral tracking for agent-to-agent commissions. Programs, affiliates, click/conversion tracking, leaderboards."
+        },
+        {
+          "info": {
+            "name": "Agent Referral Network — /api/track/click",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-referral/api/track/click",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Part of Agent Referral Network"
+        },
+        {
+          "info": {
+            "name": "Agent Referral Network — /api/track/conversion",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-referral/api/track/conversion",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Part of Agent Referral Network"
+        },
+        {
+          "info": {
+            "name": "Agent Memory — /api/kv/set",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-memory/api/kv/set",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Persistent key-value storage + vector search for AI agents. 128d embeddings, conversations, namespaces."
+        },
+        {
+          "info": {
+            "name": "Agent Memory — /api/kv/get/:key",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-memory/api/kv/get/:key",
+            "params": [
+              {
+                "name": "key",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Part of Agent Memory"
+        },
+        {
+          "info": {
+            "name": "Agent Memory — /api/vectors/search",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-memory/api/vectors/search",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Part of Agent Memory"
+        },
+        {
+          "info": {
+            "name": "Agent Task Queue — /api/tasks/enqueue",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-taskqueue/api/tasks/enqueue",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Distributed job queue for AI agents. Workers, priorities, workflows, DLQ, webhook callbacks."
+        },
+        {
+          "info": {
+            "name": "Agent Task Queue — /api/tasks/dequeue",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-taskqueue/api/tasks/dequeue",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Part of Agent Task Queue"
+        },
+        {
+          "info": {
+            "name": "Agent Task Queue — /api/tasks/:id",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-taskqueue/api/tasks/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Part of Agent Task Queue"
+        },
+        {
+          "info": {
+            "name": "Agent Secrets Vault — /api/vaults/create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-secrets/api/vaults/create",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Encrypted secret storage. AES-256-GCM encryption, vault namespaces, versioning, audit logs."
+        },
+        {
+          "info": {
+            "name": "Agent Secrets Vault — /api/secrets/set",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-secrets/api/secrets/set",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Part of Agent Secrets Vault"
+        },
+        {
+          "info": {
+            "name": "Agent Secrets Vault — /api/secrets/get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-secrets/api/secrets/get"
+          },
+          "docs": "Part of Agent Secrets Vault"
+        },
+        {
+          "info": {
+            "name": "Agent Scheduler — /api/jobs/create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-scheduler/api/jobs/create",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Job scheduling for AI agents. Cron expressions, intervals, one-time jobs, webhook callbacks."
+        },
+        {
+          "info": {
+            "name": "Agent Scheduler — /api/jobs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-scheduler/api/jobs"
+          },
+          "docs": "Part of Agent Scheduler"
+        },
+        {
+          "info": {
+            "name": "Agent Scheduler — /api/jobs/:id",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-scheduler/api/jobs/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Part of Agent Scheduler"
+        },
+        {
+          "info": {
+            "name": "Agent Webhook Relay — /api/endpoints/create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-webhooks/api/endpoints/create",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Receive, store, and forward webhooks. HMAC verification, retry logic, event filtering."
+        },
+        {
+          "info": {
+            "name": "Agent Webhook Relay — /hook/:id",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-webhooks/hook/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Part of Agent Webhook Relay"
+        },
+        {
+          "info": {
+            "name": "Agent Webhook Relay — /api/events",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-webhooks/api/events"
+          },
+          "docs": "Part of Agent Webhook Relay"
+        },
+        {
+          "info": {
+            "name": "Agent Event Bus — /api/channels/create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-eventbus/api/channels/create",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Pub-sub messaging for AI agents. Channels, WebSocket subscriptions, event replay, webhooks."
+        },
+        {
+          "info": {
+            "name": "Agent Event Bus — /api/events/publish",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-eventbus/api/events/publish",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Part of Agent Event Bus"
+        },
+        {
+          "info": {
+            "name": "Agent File Storage — /api/files/upload",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-filestorage/api/files/upload",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Temporary file storage for AI agents. Upload, download, share files with TTL expiration and direct links."
+        },
+        {
+          "info": {
+            "name": "Agent File Storage — /api/files/:id/download",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-filestorage/api/files/:id/download",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Part of Agent File Storage"
+        },
+        {
+          "info": {
+            "name": "Agent File Storage — /d/:token/:filename",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-filestorage/d/:token/:filename",
+            "params": [
+              {
+                "name": "token",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "filename",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Part of Agent File Storage"
+        },
+        {
+          "info": {
+            "name": "Agent Log Drain — /api/logs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-logdrain/api/logs"
+          },
+          "docs": "Centralized log ingestion and querying. Structured JSON logs, batch ingest, real-time tailing via WebSocket."
+        },
+        {
+          "info": {
+            "name": "Agent Log Drain — /api/logs",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-logdrain/api/logs",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Centralized log ingestion and querying. Structured JSON logs, batch ingest, real-time tailing via WebSocket."
+        },
+        {
+          "info": {
+            "name": "Agent Log Drain — /api/logs/batch",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-logdrain/api/logs/batch",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Part of Agent Log Drain"
+        },
+        {
+          "info": {
+            "name": "Agent Uptime Monitor — /api/monitors",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-monitor/api/monitors",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Uptime monitoring and health checking. Automated checks at 30s-1h intervals, response time tracking, webhook alerts, incident history, status page."
+        },
+        {
+          "info": {
+            "name": "Agent Uptime Monitor — /api/monitors/:id",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-monitor/api/monitors/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Part of Agent Uptime Monitor"
+        },
+        {
+          "info": {
+            "name": "Agent Uptime Monitor — /api/monitors/:id/check",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-monitor/api/monitors/:id/check",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Part of Agent Uptime Monitor"
+        },
+        {
+          "info": {
+            "name": "Agent Uptime Monitor — /api/monitors/:id/incidents",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-monitor/api/monitors/:id/incidents",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Part of Agent Uptime Monitor"
+        },
+        {
+          "info": {
+            "name": "Agent Uptime Monitor — /api/monitors/:id/alerts",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-monitor/api/monitors/:id/alerts",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Part of Agent Uptime Monitor"
+        },
+        {
+          "info": {
+            "name": "Agent Uptime Monitor — /api/status",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-monitor/api/status"
+          },
+          "docs": "Part of Agent Uptime Monitor"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Communication",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Agent Email Sender — /api/send",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-email/api/send",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Email sending API for AI agents. Send plain text, HTML, or templated emails with SMTP configuration and delivery tracking."
+        },
+        {
+          "info": {
+            "name": "Agent Email Sender — /api/send/template",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-email/api/send/template",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Part of Agent Email Sender"
+        },
+        {
+          "info": {
+            "name": "Agent Email Sender — /api/smtp/configure",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-email/api/smtp/configure",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Part of Agent Email Sender"
+        },
+        {
+          "info": {
+            "name": "Agent Email Sender — /api/smtp/verify",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-email/api/smtp/verify",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Part of Agent Email Sender"
+        },
+        {
+          "info": {
+            "name": "Agent Email Sender — /api/templates",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-email/api/templates"
+          },
+          "docs": "Part of Agent Email Sender"
+        },
+        {
+          "info": {
+            "name": "Agent Email Sender — /api/logs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-email/api/logs"
+          },
+          "docs": "Part of Agent Email Sender"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Gateway",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List All Services",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agent-gateway-kappa.vercel.app/api/services"
+          },
+          "docs": "Returns all available services with their endpoints and metadata."
+        },
+        {
+          "info": {
+            "name": "Create API Key",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/api/keys/create",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new API key with 200 free credits. Optionally pass email for updates and ref for referral tracking."
+        },
+        {
+          "info": {
+            "name": "Check Key Balance",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agent-gateway-kappa.vercel.app/api/keys/balance"
+          },
+          "docs": "Check remaining credits for an API key."
+        },
+        {
+          "info": {
+            "name": "Top Up Credits (USDC)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/api/credits/topup",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Verify a USDC payment on Base and add credits to an API key."
+        },
+        {
+          "info": {
+            "name": "Top Up Credits (XMR)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/api/credits/topup-xmr",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Verify a Monero payment and add credits to an API key."
+        },
+        {
+          "info": {
+            "name": "Payment Info",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agent-gateway-kappa.vercel.app/api/payments/info"
+          },
+          "docs": "Get USDC and XMR payment addresses and pricing."
+        },
+        {
+          "info": {
+            "name": "Public Analytics",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agent-gateway-kappa.vercel.app/api/analytics"
+          },
+          "docs": "Get aggregate gateway analytics — request volume, top services, response times."
+        },
+        {
+          "info": {
+            "name": "Health Check",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agent-gateway-kappa.vercel.app/health"
+          },
+          "docs": "Health Check"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

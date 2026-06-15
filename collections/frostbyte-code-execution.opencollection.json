@@ -1,0 +1,81 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Frostbyte Code Execution API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Other",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Agent Code Runner — /api/execute",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-coderunner/api/execute",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Sandboxed code execution for AI agents. Run JavaScript, Python, TypeScript, and Bash safely with resource limits and sessions."
+        },
+        {
+          "info": {
+            "name": "Agent Code Runner — /api/sessions",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-coderunner/api/sessions",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Part of Agent Code Runner"
+        },
+        {
+          "info": {
+            "name": "Agent Code Runner — /api/sessions/:id/execute",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-coderunner/api/sessions/:id/execute",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Part of Agent Code Runner"
+        },
+        {
+          "info": {
+            "name": "Agent Code Runner — /api/languages",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-coderunner/api/languages"
+          },
+          "docs": "Part of Agent Code Runner"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

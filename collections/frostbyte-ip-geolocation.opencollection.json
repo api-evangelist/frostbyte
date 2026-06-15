@@ -1,0 +1,143 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Frostbyte IP Geolocation API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "IP Geolocation",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Your Own IP Geolocation",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agent-gateway-kappa.vercel.app/ip/json"
+          },
+          "docs": "Returns geolocation data for the requesting IP address. No authentication required."
+        },
+        {
+          "info": {
+            "name": "Get Geolocation for an IP Address",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agent-gateway-kappa.vercel.app/ip/geo/:ip",
+            "params": [
+              {
+                "name": "ip",
+                "value": "",
+                "type": "path",
+                "description": "IPv4 or IPv6 address to look up"
+              }
+            ]
+          },
+          "docs": "Returns geolocation data for the specified IP address."
+        },
+        {
+          "info": {
+            "name": "Full Geolocation Lookup (via Gateway)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-geo/api/geo/:ip",
+            "params": [
+              {
+                "name": "ip",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Full geolocation data for any IP address via the gateway route."
+        },
+        {
+          "info": {
+            "name": "Batch IP Geolocation Lookup",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-geo/api/geo/batch",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Look up geolocation data for multiple IP addresses in a single request. Maximum 100 IPs per request."
+        },
+        {
+          "info": {
+            "name": "Get Your Own Geolocation",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-geo/api/geo/me"
+          },
+          "docs": "Returns geolocation data for the requesting IP address."
+        },
+        {
+          "info": {
+            "name": "Get Timezone for an IP",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-geo/api/geo/timezone/:ip",
+            "params": [
+              {
+                "name": "ip",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns the timezone for the specified IP address."
+        },
+        {
+          "info": {
+            "name": "Get Country Code for an IP",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-geo/api/geo/country/:ip",
+            "params": [
+              {
+                "name": "ip",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns just the country code for the specified IP address."
+        },
+        {
+          "info": {
+            "name": "Calculate Distance Between Two IPs",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-geo/api/geo/distance",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Calculates the geographic distance between two IP addresses using the Haversine formula."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
