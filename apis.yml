@@ -2,7 +2,7 @@ aid: frostbyte
 url: https://raw.githubusercontent.com/api-evangelist/frostbyte/refs/heads/main/apis.yml
 name: Frostbyte
 type: Index
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 description: >-
   Free API platform for developers and AI agents — 40+ services including IP Geolocation, Crypto Prices, Screenshots,
   DNS, Scraping, Code Execution. Free tier of 200 credits with no signup; USDC on Base top-ups via x402 for higher
