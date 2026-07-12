@@ -1,0 +1,36 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/frostbyte-agent-gateway-openapi.yml, openapi/frostbyte-code-execution-openapi.yml,
+  openapi/frostbyte-crypto-prices-openapi.yml, openapi/frostbyte-dns-lookup-openapi.yml, openapi/frostbyte-ip-geolocation-openapi.yml,
+  openapi/frostbyte-screenshot-openapi.yml, openapi/frostbyte-web-scraper-openapi.yml
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - header
+  - query
+schemes:
+- name: ApiKeyHeader
+  type: apiKey
+  in: header
+  parameter: X-API-Key
+  description: API key passed in header
+  sources:
+  - openapi/frostbyte-agent-gateway-openapi.yml
+  - openapi/frostbyte-code-execution-openapi.yml
+  - openapi/frostbyte-crypto-prices-openapi.yml
+  - openapi/frostbyte-dns-lookup-openapi.yml
+  - openapi/frostbyte-ip-geolocation-openapi.yml
+  - openapi/frostbyte-screenshot-openapi.yml
+  - openapi/frostbyte-web-scraper-openapi.yml
+- name: ApiKeyQuery
+  type: apiKey
+  in: query
+  parameter: key
+  description: API key passed as query parameter
+  sources:
+  - openapi/frostbyte-agent-gateway-openapi.yml
+  - openapi/frostbyte-code-execution-openapi.yml
+  - openapi/frostbyte-dns-lookup-openapi.yml
+  - openapi/frostbyte-screenshot-openapi.yml
+  - openapi/frostbyte-web-scraper-openapi.yml

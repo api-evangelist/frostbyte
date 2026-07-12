@@ -20,6 +20,10 @@ tags:
   - Scraping
   - AI Agents
 common:
+  - type: DomainSecurity
+    url: security/frostbyte-domain-security.yml
+  - type: Authentication
+    url: authentication/frostbyte-authentication.yml
   - url: https://api-catalog-three.vercel.app/
     type: Website
   - url: https://api-catalog-three.vercel.app/
