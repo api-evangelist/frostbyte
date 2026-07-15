@@ -20,6 +20,8 @@ tags:
   - Scraping
   - AI Agents
 common:
+  - type: AgenticAccess
+    url: agentic-access/frostbyte-agentic-access.yml
   - type: DomainSecurity
     url: security/frostbyte-domain-security.yml
   - type: Authentication
