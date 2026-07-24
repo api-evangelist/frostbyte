@@ -1,24 +1,29 @@
 openapi: 3.0.3
 info:
-  title: Frostbyte IP Geolocation API
-  description: 'Free IP geolocation API. Get country, city, timezone, coordinates, and EU status for any IP address. No signup
-    required for basic usage. Supports single lookups, batch processing, distance calculation, and timezone detection.
+  title: Clawdia Agent Gateway Agent Infrastructure IP Geolocation API
+  description: 'Unified API gateway providing 40+ services for AI agents. Web scraping, screenshots, code execution, crypto data, agent memory, file storage, and more.
 
 
-    Free tier: 200 credits, no API key needed. Each request costs 1 credit.'
+    **Authentication**: Free tier (200 credits, no key needed). For higher volume: create an API key via `POST /api/keys/create`, then pass it as `X-API-Key` header or `?key=` query param.
+
+
+    **x402 Payments**: All endpoints support [x402](https://www.x402.org/) micropayments (USDC on Base). Send a request without auth to get a 402 response with payment details.'
   version: 1.0.0
   contact:
-    name: Frostbyte API
+    name: Clawdia
     url: https://api-catalog-three.vercel.app
   license:
-    name: Proprietary
-    url: https://api-catalog-three.vercel.app
-  x-logo:
-    url: https://api-catalog-three.vercel.app/favicon.ico
+    name: MIT
 servers:
 - url: https://agent-gateway-kappa.vercel.app
-  description: Production
-security: []
+  description: Production gateway
+security:
+- {}
+- ApiKeyHeader: []
+- ApiKeyQuery: []
+tags:
+- name: IP Geolocation
+  description: IP address geolocation lookup endpoints
 paths:
   /ip/json:
     get:
@@ -297,11 +302,13 @@ components:
           type: boolean
           description: Whether the IP is in the European Union
   securitySchemes:
-    ApiKey:
+    ApiKeyHeader:
       type: apiKey
       in: header
       name: X-API-Key
-      description: Optional API key for higher rate limits. Get one free at POST /api/keys/create
-tags:
-- name: IP Geolocation
-  description: IP address geolocation lookup endpoints
+      description: API key passed in header
+    ApiKeyQuery:
+      type: apiKey
+      in: query
+      name: key
+      description: API key passed as query parameter

@@ -1,11 +1,16 @@
 openapi: 3.0.3
 info:
-  title: Frostbyte Code Execution API
-  description: Sandboxed code execution API. Run Python, JavaScript, TypeScript, and Bash code securely. Perfect for AI agents,
-    online IDEs, and coding challenges.
+  title: Clawdia Agent Gateway Agent Infrastructure Gaming API
+  description: 'Unified API gateway providing 40+ services for AI agents. Web scraping, screenshots, code execution, crypto data, agent memory, file storage, and more.
+
+
+    **Authentication**: Free tier (200 credits, no key needed). For higher volume: create an API key via `POST /api/keys/create`, then pass it as `X-API-Key` header or `?key=` query param.
+
+
+    **x402 Payments**: All endpoints support [x402](https://www.x402.org/) micropayments (USDC on Base). Send a request without auth to get a 402 response with payment details.'
   version: 1.0.0
   contact:
-    name: Frostbyte API
+    name: Clawdia
     url: https://api-catalog-three.vercel.app
   license:
     name: MIT
@@ -16,15 +21,17 @@ security:
 - {}
 - ApiKeyHeader: []
 - ApiKeyQuery: []
+tags:
+- name: Gaming
+  description: 1 services
 paths:
-  /v1/agent-coderunner/api/execute:
+  /v1/fair-games/api/games/dice:
     post:
       tags:
-      - Other
-      summary: "Agent Code Runner \u2014 /api/execute"
-      description: Sandboxed code execution for AI agents. Run JavaScript, Python, TypeScript, and Bash safely with resource
-        limits and sessions.
-      operationId: agent-coderunner_post_api_execute
+      - Gaming
+      summary: Provably Fair Games — /api/games/dice
+      description: Cryptographically provable fair games API. HMAC-SHA256 proofs on every outcome. Dice, coinflip, roulette, cards, lottery.
+      operationId: fair-games_post_api_games_dice
       responses:
         '200':
           description: Successful response
@@ -43,13 +50,13 @@ paths:
           application/json:
             schema:
               type: object
-  /v1/agent-coderunner/api/sessions:
+  /v1/fair-games/api/games/coinflip:
     post:
       tags:
-      - Other
-      summary: "Agent Code Runner \u2014 /api/sessions"
-      description: Part of Agent Code Runner
-      operationId: agent-coderunner_post_api_sessions
+      - Gaming
+      summary: Provably Fair Games — /api/games/coinflip
+      description: Part of Provably Fair Games
+      operationId: fair-games_post_api_games_coinflip
       responses:
         '200':
           description: Successful response
@@ -68,13 +75,13 @@ paths:
           application/json:
             schema:
               type: object
-  /v1/agent-coderunner/api/sessions/{id}/execute:
+  /v1/fair-games/api/games/roulette:
     post:
       tags:
-      - Other
-      summary: "Agent Code Runner \u2014 /api/sessions/:id/execute"
-      description: Part of Agent Code Runner
-      operationId: agent-coderunner_post_api_sessions_id_execute
+      - Gaming
+      summary: Provably Fair Games — /api/games/roulette
+      description: Part of Provably Fair Games
+      operationId: fair-games_post_api_games_roulette
       responses:
         '200':
           description: Successful response
@@ -88,38 +95,20 @@ paths:
           description: Payment required (x402)
         '429':
           description: Rate limit exceeded
-      parameters:
-      - name: id
-        in: path
-        required: true
-        schema:
-          type: string
       requestBody:
         content:
           application/json:
             schema:
               type: object
-  /v1/agent-coderunner/api/languages:
-    get:
-      tags:
-      - Other
-      summary: "Agent Code Runner \u2014 /api/languages"
-      description: Part of Agent Code Runner
-      operationId: agent-coderunner_get_api_languages
-      responses:
-        '200':
-          description: Successful response
-        '400':
-          description: Bad request
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-        '402':
-          description: Payment required (x402)
-        '429':
-          description: Rate limit exceeded
 components:
+  schemas:
+    Error:
+      type: object
+      properties:
+        error:
+          type: string
+        message:
+          type: string
   securitySchemes:
     ApiKeyHeader:
       type: apiKey
@@ -131,11 +120,3 @@ components:
       in: query
       name: key
       description: API key passed as query parameter
-  schemas:
-    Error:
-      type: object
-      properties:
-        error:
-          type: string
-        message:
-          type: string

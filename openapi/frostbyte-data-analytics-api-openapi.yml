@@ -1,0 +1,663 @@
+openapi: 3.0.3
+info:
+  title: Clawdia Agent Gateway Agent Infrastructure Data & Analytics API
+  description: 'Unified API gateway providing 40+ services for AI agents. Web scraping, screenshots, code execution, crypto data, agent memory, file storage, and more.
+
+
+    **Authentication**: Free tier (200 credits, no key needed). For higher volume: create an API key via `POST /api/keys/create`, then pass it as `X-API-Key` header or `?key=` query param.
+
+
+    **x402 Payments**: All endpoints support [x402](https://www.x402.org/) micropayments (USDC on Base). Send a request without auth to get a 402 response with payment details.'
+  version: 1.0.0
+  contact:
+    name: Clawdia
+    url: https://api-catalog-three.vercel.app
+  license:
+    name: MIT
+servers:
+- url: https://agent-gateway-kappa.vercel.app
+  description: Production gateway
+security:
+- {}
+- ApiKeyHeader: []
+- ApiKeyQuery: []
+tags:
+- name: Data & Analytics
+  description: 7 services
+paths:
+  /v1/onchain-analytics/api/tokens/{address}:
+    get:
+      tags:
+      - Data & Analytics
+      summary: On-Chain Analytics — /api/tokens/:address
+      description: Token analytics via DexScreener + GeckoTerminal. Price, volume, liquidity, holders across 8 chains.
+      operationId: onchain-analytics_get_api_tokens_address
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '402':
+          description: Payment required (x402)
+        '429':
+          description: Rate limit exceeded
+      parameters:
+      - name: address
+        in: path
+        required: true
+        schema:
+          type: string
+  /v1/onchain-analytics/api/search:
+    get:
+      tags:
+      - Data & Analytics
+      summary: On-Chain Analytics — /api/search
+      description: Part of On-Chain Analytics
+      operationId: onchain-analytics_get_api_search
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '402':
+          description: Payment required (x402)
+        '429':
+          description: Rate limit exceeded
+  /v1/onchain-analytics/api/trending:
+    get:
+      tags:
+      - Data & Analytics
+      summary: On-Chain Analytics — /api/trending
+      description: Part of On-Chain Analytics
+      operationId: onchain-analytics_get_api_trending
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '402':
+          description: Payment required (x402)
+        '429':
+          description: Rate limit exceeded
+  /v1/crypto-feeds/api/prices:
+    get:
+      tags:
+      - Data & Analytics
+      summary: Crypto Data Feeds — /api/prices
+      description: Part of Crypto Data Feeds
+      operationId: crypto-feeds_get_api_prices
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '402':
+          description: Payment required (x402)
+        '429':
+          description: Rate limit exceeded
+  /v1/agent-screenshot/api/screenshot:
+    post:
+      tags:
+      - Data & Analytics
+      summary: Agent Screenshot — /api/screenshot
+      description: URL-to-image API. Headless Chromium, 5 viewports, full-page, dark mode, element targeting.
+      operationId: agent-screenshot_post_api_screenshot
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '402':
+          description: Payment required (x402)
+        '429':
+          description: Rate limit exceeded
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+    get:
+      tags:
+      - Data & Analytics
+      summary: Agent Screenshot — /api/screenshot
+      description: URL-to-image API. Headless Chromium, 5 viewports, full-page, dark mode, element targeting.
+      operationId: agent-screenshot_get_api_screenshot
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '402':
+          description: Payment required (x402)
+        '429':
+          description: Rate limit exceeded
+  /v1/agent-screenshot/api/screenshot/json:
+    post:
+      tags:
+      - Data & Analytics
+      summary: Agent Screenshot — /api/screenshot/json
+      description: Part of Agent Screenshot
+      operationId: agent-screenshot_post_api_screenshot_json
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '402':
+          description: Payment required (x402)
+        '429':
+          description: Rate limit exceeded
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+  /v1/agent-scraper/api/scrape:
+    post:
+      tags:
+      - Data & Analytics
+      summary: Agent Scraper — /api/scrape
+      description: Web content extraction. URL to markdown, text, HTML, or structured data. JavaScript rendering via Chromium.
+      operationId: agent-scraper_post_api_scrape
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '402':
+          description: Payment required (x402)
+        '429':
+          description: Rate limit exceeded
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+    get:
+      tags:
+      - Data & Analytics
+      summary: Agent Scraper — /api/scrape
+      description: Web content extraction. URL to markdown, text, HTML, or structured data. JavaScript rendering via Chromium.
+      operationId: agent-scraper_get_api_scrape
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '402':
+          description: Payment required (x402)
+        '429':
+          description: Rate limit exceeded
+  /v1/agent-scraper/api/extract:
+    post:
+      tags:
+      - Data & Analytics
+      summary: Agent Scraper — /api/extract
+      description: Part of Agent Scraper
+      operationId: agent-scraper_post_api_extract
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '402':
+          description: Payment required (x402)
+        '429':
+          description: Rate limit exceeded
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+  /v1/agent-transform/api/transform:
+    post:
+      tags:
+      - Data & Analytics
+      summary: Agent Data Transformer — /api/transform
+      description: Convert data between JSON, CSV, XML, YAML, TSV, and Markdown tables. Plus base64, URL encoding, hashing, and formatting.
+      operationId: agent-transform_post_api_transform
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '402':
+          description: Payment required (x402)
+        '429':
+          description: Rate limit exceeded
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+  /v1/agent-transform/api/detect:
+    post:
+      tags:
+      - Data & Analytics
+      summary: Agent Data Transformer — /api/detect
+      description: Part of Agent Data Transformer
+      operationId: agent-transform_post_api_detect
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '402':
+          description: Payment required (x402)
+        '429':
+          description: Rate limit exceeded
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+  /v1/agent-transform/api/format:
+    post:
+      tags:
+      - Data & Analytics
+      summary: Agent Data Transformer — /api/format
+      description: Part of Agent Data Transformer
+      operationId: agent-transform_post_api_format
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '402':
+          description: Payment required (x402)
+        '429':
+          description: Rate limit exceeded
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+  /v1/agent-transform/api/validate/json:
+    post:
+      tags:
+      - Data & Analytics
+      summary: Agent Data Transformer — /api/validate/json
+      description: Part of Agent Data Transformer
+      operationId: agent-transform_post_api_validate_json
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '402':
+          description: Payment required (x402)
+        '429':
+          description: Rate limit exceeded
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+  /v1/agent-transform/api/base64/encode:
+    post:
+      tags:
+      - Data & Analytics
+      summary: Agent Data Transformer — /api/base64/encode
+      description: Part of Agent Data Transformer
+      operationId: agent-transform_post_api_base64_encode
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '402':
+          description: Payment required (x402)
+        '429':
+          description: Rate limit exceeded
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+  /v1/agent-transform/api/hash:
+    post:
+      tags:
+      - Data & Analytics
+      summary: Agent Data Transformer — /api/hash
+      description: Part of Agent Data Transformer
+      operationId: agent-transform_post_api_hash
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '402':
+          description: Payment required (x402)
+        '429':
+          description: Rate limit exceeded
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+  /v1/agent-geo/api/geo/{ip}:
+    get:
+      tags:
+      - Data & Analytics
+      summary: Agent Geo API — /api/geo/:ip
+      description: IP geolocation, timezone, country, city lookup. Self-hosted MaxMind database, sub-microsecond lookups, batch and distance calculation.
+      operationId: agent-geo_get_api_geo_ip
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '402':
+          description: Payment required (x402)
+        '429':
+          description: Rate limit exceeded
+      parameters:
+      - name: ip
+        in: path
+        required: true
+        schema:
+          type: string
+  /v1/agent-geo/api/geo/me:
+    get:
+      tags:
+      - Data & Analytics
+      summary: Agent Geo API — /api/geo/me
+      description: Part of Agent Geo API
+      operationId: agent-geo_get_api_geo_me
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '402':
+          description: Payment required (x402)
+        '429':
+          description: Rate limit exceeded
+  /v1/agent-geo/api/geo/batch:
+    post:
+      tags:
+      - Data & Analytics
+      summary: Agent Geo API — /api/geo/batch
+      description: Part of Agent Geo API
+      operationId: agent-geo_post_api_geo_batch
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '402':
+          description: Payment required (x402)
+        '429':
+          description: Rate limit exceeded
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+  /v1/agent-geo/api/geo/distance:
+    post:
+      tags:
+      - Data & Analytics
+      summary: Agent Geo API — /api/geo/distance
+      description: Part of Agent Geo API
+      operationId: agent-geo_post_api_geo_distance
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '402':
+          description: Payment required (x402)
+        '429':
+          description: Rate limit exceeded
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+  /v1/agent-geo/api/geo/country/{ip}:
+    get:
+      tags:
+      - Data & Analytics
+      summary: Agent Geo API — /api/geo/country/:ip
+      description: Part of Agent Geo API
+      operationId: agent-geo_get_api_geo_country_ip
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '402':
+          description: Payment required (x402)
+        '429':
+          description: Rate limit exceeded
+      parameters:
+      - name: ip
+        in: path
+        required: true
+        schema:
+          type: string
+  /v1/agent-geo/api/geo/timezone/{ip}:
+    get:
+      tags:
+      - Data & Analytics
+      summary: Agent Geo API — /api/geo/timezone/:ip
+      description: Part of Agent Geo API
+      operationId: agent-geo_get_api_geo_timezone_ip
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '402':
+          description: Payment required (x402)
+        '429':
+          description: Rate limit exceeded
+      parameters:
+      - name: ip
+        in: path
+        required: true
+        schema:
+          type: string
+  /v1/agent-search/api/search:
+    get:
+      tags:
+      - Data & Analytics
+      summary: Agent Search API — /api/search
+      description: Web search for AI agents. DuckDuckGo-powered, structured JSON results. Single, multi-query, and extract modes.
+      operationId: agent-search_get_api_search
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '402':
+          description: Payment required (x402)
+        '429':
+          description: Rate limit exceeded
+    post:
+      tags:
+      - Data & Analytics
+      summary: Agent Search API — /api/search
+      description: Web search for AI agents. DuckDuckGo-powered, structured JSON results. Single, multi-query, and extract modes.
+      operationId: agent-search_post_api_search
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '402':
+          description: Payment required (x402)
+        '429':
+          description: Rate limit exceeded
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+  /v1/agent-search/api/search/multi:
+    post:
+      tags:
+      - Data & Analytics
+      summary: Agent Search API — /api/search/multi
+      description: Part of Agent Search API
+      operationId: agent-search_post_api_search_multi
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '402':
+          description: Payment required (x402)
+        '429':
+          description: Rate limit exceeded
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+  /v1/agent-search/api/search/extract:
+    post:
+      tags:
+      - Data & Analytics
+      summary: Agent Search API — /api/search/extract
+      description: Part of Agent Search API
+      operationId: agent-search_post_api_search_extract
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '402':
+          description: Payment required (x402)
+        '429':
+          description: Rate limit exceeded
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+components:
+  schemas:
+    Error:
+      type: object
+      properties:
+        error:
+          type: string
+        message:
+          type: string
+  securitySchemes:
+    ApiKeyHeader:
+      type: apiKey
+      in: header
+      name: X-API-Key
+      description: API key passed in header
+    ApiKeyQuery:
+      type: apiKey
+      in: query
+      name: key
+      description: API key passed as query parameter

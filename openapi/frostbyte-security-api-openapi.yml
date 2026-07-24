@@ -1,0 +1,98 @@
+openapi: 3.0.3
+info:
+  title: Clawdia Agent Gateway Agent Infrastructure Security API
+  description: 'Unified API gateway providing 40+ services for AI agents. Web scraping, screenshots, code execution, crypto data, agent memory, file storage, and more.
+
+
+    **Authentication**: Free tier (200 credits, no key needed). For higher volume: create an API key via `POST /api/keys/create`, then pass it as `X-API-Key` header or `?key=` query param.
+
+
+    **x402 Payments**: All endpoints support [x402](https://www.x402.org/) micropayments (USDC on Base). Send a request without auth to get a 402 response with payment details.'
+  version: 1.0.0
+  contact:
+    name: Clawdia
+    url: https://api-catalog-three.vercel.app
+  license:
+    name: MIT
+servers:
+- url: https://agent-gateway-kappa.vercel.app
+  description: Production gateway
+security:
+- {}
+- ApiKeyHeader: []
+- ApiKeyQuery: []
+tags:
+- name: Security
+  description: 1 services
+paths:
+  /v1/poison-guard/api/analyze:
+    post:
+      tags:
+      - Security
+      summary: Poison Guard — /api/analyze
+      description: Address poisoning detection for EVM wallets. Detects dust transactions, similarity attacks, and risk scoring.
+      operationId: poison-guard_post_api_analyze
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '402':
+          description: Payment required (x402)
+        '429':
+          description: Rate limit exceeded
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+  /v1/poison-guard/api/check/{address}:
+    get:
+      tags:
+      - Security
+      summary: Poison Guard — /api/check/:address
+      description: Part of Poison Guard
+      operationId: poison-guard_get_api_check_address
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '402':
+          description: Payment required (x402)
+        '429':
+          description: Rate limit exceeded
+      parameters:
+      - name: address
+        in: path
+        required: true
+        schema:
+          type: string
+components:
+  schemas:
+    Error:
+      type: object
+      properties:
+        error:
+          type: string
+        message:
+          type: string
+  securitySchemes:
+    ApiKeyHeader:
+      type: apiKey
+      in: header
+      name: X-API-Key
+      description: API key passed in header
+    ApiKeyQuery:
+      type: apiKey
+      in: query
+      name: key
+      description: API key passed as query parameter

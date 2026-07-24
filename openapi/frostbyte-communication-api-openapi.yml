@@ -1,11 +1,16 @@
 openapi: 3.0.3
 info:
-  title: Frostbyte DNS Lookup API
-  description: DNS lookup API. Resolve domains, check propagation, WHOIS data, batch lookups. Supports A, AAAA, MX, NS, TXT,
-    CNAME, SOA records.
+  title: Clawdia Agent Gateway Agent Infrastructure Communication API
+  description: 'Unified API gateway providing 40+ services for AI agents. Web scraping, screenshots, code execution, crypto data, agent memory, file storage, and more.
+
+
+    **Authentication**: Free tier (200 credits, no key needed). For higher volume: create an API key via `POST /api/keys/create`, then pass it as `X-API-Key` header or `?key=` query param.
+
+
+    **x402 Payments**: All endpoints support [x402](https://www.x402.org/) micropayments (USDC on Base). Send a request without auth to get a 402 response with payment details.'
   version: 1.0.0
   contact:
-    name: Frostbyte API
+    name: Clawdia
     url: https://api-catalog-three.vercel.app
   license:
     name: MIT
@@ -16,145 +21,17 @@ security:
 - {}
 - ApiKeyHeader: []
 - ApiKeyQuery: []
+tags:
+- name: Communication
+  description: 1 services
 paths:
-  /v1/agent-dns/api/resolve/{domain}:
-    get:
-      tags:
-      - Other
-      summary: "Agent DNS Lookup \u2014 /api/resolve/:domain"
-      description: DNS resolution, WHOIS/RDAP data, domain availability checking, and DNS propagation analysis across 8 public
-        resolvers.
-      operationId: agent-dns_get_api_resolve_domain
-      responses:
-        '200':
-          description: Successful response
-        '400':
-          description: Bad request
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-        '402':
-          description: Payment required (x402)
-        '429':
-          description: Rate limit exceeded
-      parameters:
-      - name: domain
-        in: path
-        required: true
-        schema:
-          type: string
-  /v1/agent-dns/api/all/{domain}:
-    get:
-      tags:
-      - Other
-      summary: "Agent DNS Lookup \u2014 /api/all/:domain"
-      description: Part of Agent DNS Lookup
-      operationId: agent-dns_get_api_all_domain
-      responses:
-        '200':
-          description: Successful response
-        '400':
-          description: Bad request
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-        '402':
-          description: Payment required (x402)
-        '429':
-          description: Rate limit exceeded
-      parameters:
-      - name: domain
-        in: path
-        required: true
-        schema:
-          type: string
-  /v1/agent-dns/api/whois/{domain}:
-    get:
-      tags:
-      - Other
-      summary: "Agent DNS Lookup \u2014 /api/whois/:domain"
-      description: Part of Agent DNS Lookup
-      operationId: agent-dns_get_api_whois_domain
-      responses:
-        '200':
-          description: Successful response
-        '400':
-          description: Bad request
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-        '402':
-          description: Payment required (x402)
-        '429':
-          description: Rate limit exceeded
-      parameters:
-      - name: domain
-        in: path
-        required: true
-        schema:
-          type: string
-  /v1/agent-dns/api/check/{domain}:
-    get:
-      tags:
-      - Other
-      summary: "Agent DNS Lookup \u2014 /api/check/:domain"
-      description: Part of Agent DNS Lookup
-      operationId: agent-dns_get_api_check_domain
-      responses:
-        '200':
-          description: Successful response
-        '400':
-          description: Bad request
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-        '402':
-          description: Payment required (x402)
-        '429':
-          description: Rate limit exceeded
-      parameters:
-      - name: domain
-        in: path
-        required: true
-        schema:
-          type: string
-  /v1/agent-dns/api/propagation/{domain}:
-    get:
-      tags:
-      - Other
-      summary: "Agent DNS Lookup \u2014 /api/propagation/:domain"
-      description: Part of Agent DNS Lookup
-      operationId: agent-dns_get_api_propagation_domain
-      responses:
-        '200':
-          description: Successful response
-        '400':
-          description: Bad request
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-        '402':
-          description: Payment required (x402)
-        '429':
-          description: Rate limit exceeded
-      parameters:
-      - name: domain
-        in: path
-        required: true
-        schema:
-          type: string
-  /v1/agent-dns/api/batch:
+  /v1/agent-email/api/send:
     post:
       tags:
-      - Other
-      summary: "Agent DNS Lookup \u2014 /api/batch"
-      description: Part of Agent DNS Lookup
-      operationId: agent-dns_post_api_batch
+      - Communication
+      summary: Agent Email Sender — /api/send
+      description: Email sending API for AI agents. Send plain text, HTML, or templated emails with SMTP configuration and delivery tracking.
+      operationId: agent-email_post_api_send
       responses:
         '200':
           description: Successful response
@@ -173,7 +50,130 @@ paths:
           application/json:
             schema:
               type: object
+  /v1/agent-email/api/send/template:
+    post:
+      tags:
+      - Communication
+      summary: Agent Email Sender — /api/send/template
+      description: Part of Agent Email Sender
+      operationId: agent-email_post_api_send_template
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '402':
+          description: Payment required (x402)
+        '429':
+          description: Rate limit exceeded
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+  /v1/agent-email/api/smtp/configure:
+    post:
+      tags:
+      - Communication
+      summary: Agent Email Sender — /api/smtp/configure
+      description: Part of Agent Email Sender
+      operationId: agent-email_post_api_smtp_configure
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '402':
+          description: Payment required (x402)
+        '429':
+          description: Rate limit exceeded
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+  /v1/agent-email/api/smtp/verify:
+    post:
+      tags:
+      - Communication
+      summary: Agent Email Sender — /api/smtp/verify
+      description: Part of Agent Email Sender
+      operationId: agent-email_post_api_smtp_verify
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '402':
+          description: Payment required (x402)
+        '429':
+          description: Rate limit exceeded
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+  /v1/agent-email/api/templates:
+    get:
+      tags:
+      - Communication
+      summary: Agent Email Sender — /api/templates
+      description: Part of Agent Email Sender
+      operationId: agent-email_get_api_templates
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '402':
+          description: Payment required (x402)
+        '429':
+          description: Rate limit exceeded
+  /v1/agent-email/api/logs:
+    get:
+      tags:
+      - Communication
+      summary: Agent Email Sender — /api/logs
+      description: Part of Agent Email Sender
+      operationId: agent-email_get_api_logs
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '402':
+          description: Payment required (x402)
+        '429':
+          description: Rate limit exceeded
 components:
+  schemas:
+    Error:
+      type: object
+      properties:
+        error:
+          type: string
+        message:
+          type: string
   securitySchemes:
     ApiKeyHeader:
       type: apiKey
@@ -185,11 +185,3 @@ components:
       in: query
       name: key
       description: API key passed as query parameter
-  schemas:
-    Error:
-      type: object
-      properties:
-        error:
-          type: string
-        message:
-          type: string

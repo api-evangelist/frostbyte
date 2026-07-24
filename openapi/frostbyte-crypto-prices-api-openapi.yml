@@ -1,27 +1,34 @@
 openapi: 3.0.3
 info:
-  title: Frostbyte Crypto Prices API
-  description: 'Free real-time cryptocurrency price API. Get live prices, 24h changes, volume data for 38+ trading pairs from
-    Binance. No signup required for basic usage.
+  title: Clawdia Agent Gateway Agent Infrastructure Crypto Prices API
+  description: 'Unified API gateway providing 40+ services for AI agents. Web scraping, screenshots, code execution, crypto data, agent memory, file storage, and more.
 
 
-    Free tier: 200 credits, no API key needed. Each request costs 1 credit.'
+    **Authentication**: Free tier (200 credits, no key needed). For higher volume: create an API key via `POST /api/keys/create`, then pass it as `X-API-Key` header or `?key=` query param.
+
+
+    **x402 Payments**: All endpoints support [x402](https://www.x402.org/) micropayments (USDC on Base). Send a request without auth to get a 402 response with payment details.'
   version: 1.0.0
   contact:
-    name: Frostbyte API
+    name: Clawdia
     url: https://api-catalog-three.vercel.app
   license:
-    name: Proprietary
-    url: https://api-catalog-three.vercel.app
+    name: MIT
 servers:
 - url: https://agent-gateway-kappa.vercel.app
-  description: Production
+  description: Production gateway
+security:
+- {}
+- ApiKeyHeader: []
+- ApiKeyQuery: []
+tags:
+- name: Crypto Prices
+  description: Real-time cryptocurrency price endpoints
 paths:
   /v1/crypto-feeds/api/prices:
     get:
       summary: Get All Cryptocurrency Prices
-      description: Returns real-time prices for 38+ cryptocurrency trading pairs including BTC, ETH, SOL, XRP, and more. Data
-        sourced from Binance with 24h OHLCV data.
+      description: Returns real-time prices for 38+ cryptocurrency trading pairs including BTC, ETH, SOL, XRP, and more. Data sourced from Binance with 24h OHLCV data.
       operationId: getAllPrices
       tags:
       - Crypto Prices
@@ -89,17 +96,6 @@ paths:
                 $ref: '#/components/schemas/PricesResponse'
 components:
   schemas:
-    PricesResponse:
-      type: object
-      properties:
-        count:
-          type: integer
-          description: Number of trading pairs
-          example: 38
-        prices:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/PriceData'
     PriceData:
       type: object
       properties:
@@ -144,12 +140,25 @@ components:
           type: integer
           format: int64
           description: Unix timestamp in milliseconds
+    PricesResponse:
+      type: object
+      properties:
+        count:
+          type: integer
+          description: Number of trading pairs
+          example: 38
+        prices:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/PriceData'
   securitySchemes:
-    ApiKey:
+    ApiKeyHeader:
       type: apiKey
       in: header
       name: X-API-Key
-      description: Optional API key for higher rate limits. Get one free at POST /api/keys/create
-tags:
-- name: Crypto Prices
-  description: Real-time cryptocurrency price endpoints
+      description: API key passed in header
+    ApiKeyQuery:
+      type: apiKey
+      in: query
+      name: key
+      description: API key passed as query parameter

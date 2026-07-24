@@ -1,0 +1,445 @@
+openapi: 3.0.3
+info:
+  title: Clawdia Agent Gateway Agent Infrastructure DeFi & Crypto API
+  description: 'Unified API gateway providing 40+ services for AI agents. Web scraping, screenshots, code execution, crypto data, agent memory, file storage, and more.
+
+
+    **Authentication**: Free tier (200 credits, no key needed). For higher volume: create an API key via `POST /api/keys/create`, then pass it as `X-API-Key` header or `?key=` query param.
+
+
+    **x402 Payments**: All endpoints support [x402](https://www.x402.org/) micropayments (USDC on Base). Send a request without auth to get a 402 response with payment details.'
+  version: 1.0.0
+  contact:
+    name: Clawdia
+    url: https://api-catalog-three.vercel.app
+  license:
+    name: MIT
+servers:
+- url: https://agent-gateway-kappa.vercel.app
+  description: Production gateway
+security:
+- {}
+- ApiKeyHeader: []
+- ApiKeyQuery: []
+tags:
+- name: DeFi & Crypto
+  description: 4 services
+paths:
+  /v1/agent-wallet/api/wallets/create:
+    post:
+      tags:
+      - DeFi & Crypto
+      summary: Agent Wallet — /api/wallets/create
+      description: Non-custodial multi-chain wallet API. Create wallets, check balances, send transactions across 7 chains.
+      operationId: agent-wallet_post_api_wallets_create
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '402':
+          description: Payment required (x402)
+        '429':
+          description: Rate limit exceeded
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+  /v1/agent-wallet/api/wallets/{id}/balance:
+    get:
+      tags:
+      - DeFi & Crypto
+      summary: Agent Wallet — /api/wallets/:id/balance
+      description: Part of Agent Wallet
+      operationId: agent-wallet_get_api_wallets_id_balance
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '402':
+          description: Payment required (x402)
+        '429':
+          description: Rate limit exceeded
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /v1/agent-wallet/api/wallets/{id}/send:
+    post:
+      tags:
+      - DeFi & Crypto
+      summary: Agent Wallet — /api/wallets/:id/send
+      description: Part of Agent Wallet
+      operationId: agent-wallet_post_api_wallets_id_send
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '402':
+          description: Payment required (x402)
+        '429':
+          description: Rate limit exceeded
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+  /v1/defi-trading/api/markets:
+    get:
+      tags:
+      - DeFi & Crypto
+      summary: DeFi Trading Proxy — /api/markets
+      description: REST API wrapper around Hyperliquid DEX. 229 perpetual futures markets. Market orders, limit orders, positions.
+      operationId: defi-trading_get_api_markets
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '402':
+          description: Payment required (x402)
+        '429':
+          description: Rate limit exceeded
+  /v1/defi-trading/api/orders:
+    post:
+      tags:
+      - DeFi & Crypto
+      summary: DeFi Trading Proxy — /api/orders
+      description: Part of DeFi Trading Proxy
+      operationId: defi-trading_post_api_orders
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '402':
+          description: Payment required (x402)
+        '429':
+          description: Rate limit exceeded
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+  /v1/defi-trading/api/positions:
+    get:
+      tags:
+      - DeFi & Crypto
+      summary: DeFi Trading Proxy — /api/positions
+      description: Part of DeFi Trading Proxy
+      operationId: defi-trading_get_api_positions
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '402':
+          description: Payment required (x402)
+        '429':
+          description: Rate limit exceeded
+  /v1/defi-mcp/mcp/tools/call:
+    post:
+      tags:
+      - DeFi & Crypto
+      summary: DeFi MCP Server — /mcp/tools/call
+      description: Model Context Protocol server for DeFi operations. 12 tools for token research, prices, and analytics.
+      operationId: defi-mcp_post_mcp_tools_call
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '402':
+          description: Payment required (x402)
+        '429':
+          description: Rate limit exceeded
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+  /v1/defi-mcp/mcp/tools/list:
+    get:
+      tags:
+      - DeFi & Crypto
+      summary: DeFi MCP Server — /mcp/tools/list
+      description: Part of DeFi MCP Server
+      operationId: defi-mcp_get_mcp_tools_list
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '402':
+          description: Payment required (x402)
+        '429':
+          description: Rate limit exceeded
+  /v1/frostbyte-wallet/v1/auth/register:
+    post:
+      tags:
+      - DeFi & Crypto
+      summary: Frostbyte Wallet — /v1/auth/register
+      description: Multi-chain non-custodial HD wallet API for AI agents. 9 chains (Ethereum, Base, Arbitrum, Optimism, Polygon, BSC, Avalanche, Solana, Bitcoin). Create wallets, check balances, send transactions, cross-chain swaps. 0.3% swap fee, 10 free transactions.
+      operationId: frostbyte-wallet_post_v1_auth_register
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '402':
+          description: Payment required (x402)
+        '429':
+          description: Rate limit exceeded
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+  /v1/frostbyte-wallet/v1/wallet/create:
+    post:
+      tags:
+      - DeFi & Crypto
+      summary: Frostbyte Wallet — /v1/wallet/create
+      description: Part of Frostbyte Wallet
+      operationId: frostbyte-wallet_post_v1_wallet_create
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '402':
+          description: Payment required (x402)
+        '429':
+          description: Rate limit exceeded
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+  /v1/frostbyte-wallet/v1/wallet/balance/{address}:
+    get:
+      tags:
+      - DeFi & Crypto
+      summary: Frostbyte Wallet — /v1/wallet/balance/:address
+      description: Part of Frostbyte Wallet
+      operationId: frostbyte-wallet_get_v1_wallet_balance_address
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '402':
+          description: Payment required (x402)
+        '429':
+          description: Rate limit exceeded
+      parameters:
+      - name: address
+        in: path
+        required: true
+        schema:
+          type: string
+  /v1/frostbyte-wallet/v1/wallet/send:
+    post:
+      tags:
+      - DeFi & Crypto
+      summary: Frostbyte Wallet — /v1/wallet/send
+      description: Part of Frostbyte Wallet
+      operationId: frostbyte-wallet_post_v1_wallet_send
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '402':
+          description: Payment required (x402)
+        '429':
+          description: Rate limit exceeded
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+  /v1/frostbyte-wallet/v1/swap/quote:
+    get:
+      tags:
+      - DeFi & Crypto
+      summary: Frostbyte Wallet — /v1/swap/quote
+      description: Part of Frostbyte Wallet
+      operationId: frostbyte-wallet_get_v1_swap_quote
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '402':
+          description: Payment required (x402)
+        '429':
+          description: Rate limit exceeded
+  /v1/frostbyte-wallet/v1/swap/execute:
+    post:
+      tags:
+      - DeFi & Crypto
+      summary: Frostbyte Wallet — /v1/swap/execute
+      description: Part of Frostbyte Wallet
+      operationId: frostbyte-wallet_post_v1_swap_execute
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '402':
+          description: Payment required (x402)
+        '429':
+          description: Rate limit exceeded
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+  /v1/frostbyte-wallet/v1/chains:
+    get:
+      tags:
+      - DeFi & Crypto
+      summary: Frostbyte Wallet — /v1/chains
+      description: Part of Frostbyte Wallet
+      operationId: frostbyte-wallet_get_v1_chains
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '402':
+          description: Payment required (x402)
+        '429':
+          description: Rate limit exceeded
+  /v1/frostbyte-wallet/v1/chains/gas:
+    get:
+      tags:
+      - DeFi & Crypto
+      summary: Frostbyte Wallet — /v1/chains/gas
+      description: Part of Frostbyte Wallet
+      operationId: frostbyte-wallet_get_v1_chains_gas
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '402':
+          description: Payment required (x402)
+        '429':
+          description: Rate limit exceeded
+  /v1/frostbyte-wallet/v1/referral/stats:
+    get:
+      tags:
+      - DeFi & Crypto
+      summary: Frostbyte Wallet — /v1/referral/stats
+      description: Part of Frostbyte Wallet
+      operationId: frostbyte-wallet_get_v1_referral_stats
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '402':
+          description: Payment required (x402)
+        '429':
+          description: Rate limit exceeded
+components:
+  schemas:
+    Error:
+      type: object
+      properties:
+        error:
+          type: string
+        message:
+          type: string
+  securitySchemes:
+    ApiKeyHeader:
+      type: apiKey
+      in: header
+      name: X-API-Key
+      description: API key passed in header
+    ApiKeyQuery:
+      type: apiKey
+      in: query
+      name: key
+      description: API key passed as query parameter

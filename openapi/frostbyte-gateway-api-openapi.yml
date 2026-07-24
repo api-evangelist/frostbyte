@@ -1,0 +1,166 @@
+openapi: 3.0.3
+info:
+  title: Clawdia Agent Agent Infrastructure Gateway API
+  description: 'Unified API gateway providing 40+ services for AI agents. Web scraping, screenshots, code execution, crypto data, agent memory, file storage, and more.
+
+
+    **Authentication**: Free tier (200 credits, no key needed). For higher volume: create an API key via `POST /api/keys/create`, then pass it as `X-API-Key` header or `?key=` query param.
+
+
+    **x402 Payments**: All endpoints support [x402](https://www.x402.org/) micropayments (USDC on Base). Send a request without auth to get a 402 response with payment details.'
+  version: 1.0.0
+  contact:
+    name: Clawdia
+    url: https://api-catalog-three.vercel.app
+  license:
+    name: MIT
+servers:
+- url: https://agent-gateway-kappa.vercel.app
+  description: Production gateway
+security:
+- {}
+- ApiKeyHeader: []
+- ApiKeyQuery: []
+tags:
+- name: Gateway
+  description: Gateway-level endpoints (auth, payments, analytics)
+paths:
+  /api/services:
+    get:
+      tags:
+      - Gateway
+      summary: List All Services
+      description: Returns all available services with their endpoints and metadata.
+      operationId: listServices
+      responses:
+        '200':
+          description: List of services
+  /api/keys/create:
+    post:
+      tags:
+      - Gateway
+      summary: Create API Key
+      description: Create a new API key with 200 free credits. Optionally pass email for updates and ref for referral tracking.
+      operationId: createApiKey
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  format: email
+                  description: Optional email for updates
+                ref:
+                  type: string
+                  description: Optional referral code
+      responses:
+        '200':
+          description: API key created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  key:
+                    type: string
+                  credits:
+                    type: integer
+  /api/keys/balance:
+    get:
+      tags:
+      - Gateway
+      summary: Check Key Balance
+      description: Check remaining credits for an API key.
+      operationId: checkBalance
+      responses:
+        '200':
+          description: Balance info
+  /api/credits/topup:
+    post:
+      tags:
+      - Gateway
+      summary: Top Up Credits (USDC)
+      description: Verify a USDC payment on Base and add credits to an API key.
+      operationId: topupUsdc
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                key:
+                  type: string
+                txHash:
+                  type: string
+              required:
+              - key
+              - txHash
+      responses:
+        '200':
+          description: Credits added
+  /api/credits/topup-xmr:
+    post:
+      tags:
+      - Gateway
+      summary: Top Up Credits (XMR)
+      description: Verify a Monero payment and add credits to an API key.
+      operationId: topupXmr
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                key:
+                  type: string
+                txid:
+                  type: string
+              required:
+              - key
+              - txid
+      responses:
+        '200':
+          description: Credits added
+  /api/payments/info:
+    get:
+      tags:
+      - Gateway
+      summary: Payment Info
+      description: Get USDC and XMR payment addresses and pricing.
+      operationId: paymentInfo
+      responses:
+        '200':
+          description: Payment details
+  /api/analytics:
+    get:
+      tags:
+      - Gateway
+      summary: Public Analytics
+      description: Get aggregate gateway analytics — request volume, top services, response times.
+      operationId: getAnalytics
+      responses:
+        '200':
+          description: Analytics data
+  /health:
+    get:
+      tags:
+      - Gateway
+      summary: Health Check
+      operationId: healthCheck
+      responses:
+        '200':
+          description: Gateway health status
+components:
+  securitySchemes:
+    ApiKeyHeader:
+      type: apiKey
+      in: header
+      name: X-API-Key
+      description: API key passed in header
+    ApiKeyQuery:
+      type: apiKey
+      in: query
+      name: key
+      description: API key passed as query parameter

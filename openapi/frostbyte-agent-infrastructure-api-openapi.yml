@@ -1,0 +1,1003 @@
+openapi: 3.0.3
+info:
+  title: Clawdia Agent Gateway Agent Infrastructure API
+  description: 'Unified API gateway providing 40+ services for AI agents. Web scraping, screenshots, code execution, crypto data, agent memory, file storage, and more.
+
+
+    **Authentication**: Free tier (200 credits, no key needed). For higher volume: create an API key via `POST /api/keys/create`, then pass it as `X-API-Key` header or `?key=` query param.
+
+
+    **x402 Payments**: All endpoints support [x402](https://www.x402.org/) micropayments (USDC on Base). Send a request without auth to get a 402 response with payment details.'
+  version: 1.0.0
+  contact:
+    name: Clawdia
+    url: https://api-catalog-three.vercel.app
+  license:
+    name: MIT
+servers:
+- url: https://agent-gateway-kappa.vercel.app
+  description: Production gateway
+security:
+- {}
+- ApiKeyHeader: []
+- ApiKeyQuery: []
+tags:
+- name: Agent Infrastructure
+  description: 12 services
+paths:
+  /v1/agent-registry/api/services/register:
+    post:
+      tags:
+      - Agent Infrastructure
+      summary: Agent Registry & Discovery — /api/services/register
+      description: Service registry for AI agents. Register, discover, search, rate, and monitor agent services.
+      operationId: agent-registry_post_api_services_register
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '402':
+          description: Payment required (x402)
+        '429':
+          description: Rate limit exceeded
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+  /v1/agent-registry/api/services/search:
+    get:
+      tags:
+      - Agent Infrastructure
+      summary: Agent Registry & Discovery — /api/services/search
+      description: Part of Agent Registry & Discovery
+      operationId: agent-registry_get_api_services_search
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '402':
+          description: Payment required (x402)
+        '429':
+          description: Rate limit exceeded
+  /v1/agent-registry/api/services/{id}:
+    get:
+      tags:
+      - Agent Infrastructure
+      summary: Agent Registry & Discovery — /api/services/:id
+      description: Part of Agent Registry & Discovery
+      operationId: agent-registry_get_api_services_id
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '402':
+          description: Payment required (x402)
+        '429':
+          description: Rate limit exceeded
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /v1/agent-identity/api/identities/create:
+    post:
+      tags:
+      - Agent Infrastructure
+      summary: Agent Identity Service — /api/identities/create
+      description: Disposable identities for AI agents. Ed25519 signing, DIDs, attestations, challenge-response auth.
+      operationId: agent-identity_post_api_identities_create
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '402':
+          description: Payment required (x402)
+        '429':
+          description: Rate limit exceeded
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+  /v1/agent-identity/api/identities/{id}/sign:
+    post:
+      tags:
+      - Agent Infrastructure
+      summary: Agent Identity Service — /api/identities/:id/sign
+      description: Part of Agent Identity Service
+      operationId: agent-identity_post_api_identities_id_sign
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '402':
+          description: Payment required (x402)
+        '429':
+          description: Rate limit exceeded
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+  /v1/agent-identity/api/auth/challenge:
+    post:
+      tags:
+      - Agent Infrastructure
+      summary: Agent Identity Service — /api/auth/challenge
+      description: Part of Agent Identity Service
+      operationId: agent-identity_post_api_auth_challenge
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '402':
+          description: Payment required (x402)
+        '429':
+          description: Rate limit exceeded
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+  /v1/agent-referral/api/programs/create:
+    post:
+      tags:
+      - Agent Infrastructure
+      summary: Agent Referral Network — /api/programs/create
+      description: Referral tracking for agent-to-agent commissions. Programs, affiliates, click/conversion tracking, leaderboards.
+      operationId: agent-referral_post_api_programs_create
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '402':
+          description: Payment required (x402)
+        '429':
+          description: Rate limit exceeded
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+  /v1/agent-referral/api/track/click:
+    post:
+      tags:
+      - Agent Infrastructure
+      summary: Agent Referral Network — /api/track/click
+      description: Part of Agent Referral Network
+      operationId: agent-referral_post_api_track_click
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '402':
+          description: Payment required (x402)
+        '429':
+          description: Rate limit exceeded
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+  /v1/agent-referral/api/track/conversion:
+    post:
+      tags:
+      - Agent Infrastructure
+      summary: Agent Referral Network — /api/track/conversion
+      description: Part of Agent Referral Network
+      operationId: agent-referral_post_api_track_conversion
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '402':
+          description: Payment required (x402)
+        '429':
+          description: Rate limit exceeded
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+  /v1/agent-memory/api/kv/set:
+    post:
+      tags:
+      - Agent Infrastructure
+      summary: Agent Memory — /api/kv/set
+      description: Persistent key-value storage + vector search for AI agents. 128d embeddings, conversations, namespaces.
+      operationId: agent-memory_post_api_kv_set
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '402':
+          description: Payment required (x402)
+        '429':
+          description: Rate limit exceeded
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+  /v1/agent-memory/api/kv/get/{key}:
+    get:
+      tags:
+      - Agent Infrastructure
+      summary: Agent Memory — /api/kv/get/:key
+      description: Part of Agent Memory
+      operationId: agent-memory_get_api_kv_get_key
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '402':
+          description: Payment required (x402)
+        '429':
+          description: Rate limit exceeded
+      parameters:
+      - name: key
+        in: path
+        required: true
+        schema:
+          type: string
+  /v1/agent-memory/api/vectors/search:
+    post:
+      tags:
+      - Agent Infrastructure
+      summary: Agent Memory — /api/vectors/search
+      description: Part of Agent Memory
+      operationId: agent-memory_post_api_vectors_search
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '402':
+          description: Payment required (x402)
+        '429':
+          description: Rate limit exceeded
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+  /v1/agent-taskqueue/api/tasks/enqueue:
+    post:
+      tags:
+      - Agent Infrastructure
+      summary: Agent Task Queue — /api/tasks/enqueue
+      description: Distributed job queue for AI agents. Workers, priorities, workflows, DLQ, webhook callbacks.
+      operationId: agent-taskqueue_post_api_tasks_enqueue
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '402':
+          description: Payment required (x402)
+        '429':
+          description: Rate limit exceeded
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+  /v1/agent-taskqueue/api/tasks/dequeue:
+    post:
+      tags:
+      - Agent Infrastructure
+      summary: Agent Task Queue — /api/tasks/dequeue
+      description: Part of Agent Task Queue
+      operationId: agent-taskqueue_post_api_tasks_dequeue
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '402':
+          description: Payment required (x402)
+        '429':
+          description: Rate limit exceeded
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+  /v1/agent-taskqueue/api/tasks/{id}:
+    get:
+      tags:
+      - Agent Infrastructure
+      summary: Agent Task Queue — /api/tasks/:id
+      description: Part of Agent Task Queue
+      operationId: agent-taskqueue_get_api_tasks_id
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '402':
+          description: Payment required (x402)
+        '429':
+          description: Rate limit exceeded
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /v1/agent-secrets/api/vaults/create:
+    post:
+      tags:
+      - Agent Infrastructure
+      summary: Agent Secrets Vault — /api/vaults/create
+      description: Encrypted secret storage. AES-256-GCM encryption, vault namespaces, versioning, audit logs.
+      operationId: agent-secrets_post_api_vaults_create
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '402':
+          description: Payment required (x402)
+        '429':
+          description: Rate limit exceeded
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+  /v1/agent-secrets/api/secrets/set:
+    post:
+      tags:
+      - Agent Infrastructure
+      summary: Agent Secrets Vault — /api/secrets/set
+      description: Part of Agent Secrets Vault
+      operationId: agent-secrets_post_api_secrets_set
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '402':
+          description: Payment required (x402)
+        '429':
+          description: Rate limit exceeded
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+  /v1/agent-secrets/api/secrets/get:
+    get:
+      tags:
+      - Agent Infrastructure
+      summary: Agent Secrets Vault — /api/secrets/get
+      description: Part of Agent Secrets Vault
+      operationId: agent-secrets_get_api_secrets_get
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '402':
+          description: Payment required (x402)
+        '429':
+          description: Rate limit exceeded
+  /v1/agent-scheduler/api/jobs/create:
+    post:
+      tags:
+      - Agent Infrastructure
+      summary: Agent Scheduler — /api/jobs/create
+      description: Job scheduling for AI agents. Cron expressions, intervals, one-time jobs, webhook callbacks.
+      operationId: agent-scheduler_post_api_jobs_create
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '402':
+          description: Payment required (x402)
+        '429':
+          description: Rate limit exceeded
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+  /v1/agent-scheduler/api/jobs:
+    get:
+      tags:
+      - Agent Infrastructure
+      summary: Agent Scheduler — /api/jobs
+      description: Part of Agent Scheduler
+      operationId: agent-scheduler_get_api_jobs
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '402':
+          description: Payment required (x402)
+        '429':
+          description: Rate limit exceeded
+  /v1/agent-scheduler/api/jobs/{id}:
+    delete:
+      tags:
+      - Agent Infrastructure
+      summary: Agent Scheduler — /api/jobs/:id
+      description: Part of Agent Scheduler
+      operationId: agent-scheduler_delete_api_jobs_id
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '402':
+          description: Payment required (x402)
+        '429':
+          description: Rate limit exceeded
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /v1/agent-webhooks/api/endpoints/create:
+    post:
+      tags:
+      - Agent Infrastructure
+      summary: Agent Webhook Relay — /api/endpoints/create
+      description: Receive, store, and forward webhooks. HMAC verification, retry logic, event filtering.
+      operationId: agent-webhooks_post_api_endpoints_create
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '402':
+          description: Payment required (x402)
+        '429':
+          description: Rate limit exceeded
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+  /v1/agent-webhooks/hook/{id}:
+    post:
+      tags:
+      - Agent Infrastructure
+      summary: Agent Webhook Relay — /hook/:id
+      description: Part of Agent Webhook Relay
+      operationId: agent-webhooks_post_hook_id
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '402':
+          description: Payment required (x402)
+        '429':
+          description: Rate limit exceeded
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+  /v1/agent-webhooks/api/events:
+    get:
+      tags:
+      - Agent Infrastructure
+      summary: Agent Webhook Relay — /api/events
+      description: Part of Agent Webhook Relay
+      operationId: agent-webhooks_get_api_events
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '402':
+          description: Payment required (x402)
+        '429':
+          description: Rate limit exceeded
+  /v1/agent-eventbus/api/channels/create:
+    post:
+      tags:
+      - Agent Infrastructure
+      summary: Agent Event Bus — /api/channels/create
+      description: Pub-sub messaging for AI agents. Channels, WebSocket subscriptions, event replay, webhooks.
+      operationId: agent-eventbus_post_api_channels_create
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '402':
+          description: Payment required (x402)
+        '429':
+          description: Rate limit exceeded
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+  /v1/agent-eventbus/api/events/publish:
+    post:
+      tags:
+      - Agent Infrastructure
+      summary: Agent Event Bus — /api/events/publish
+      description: Part of Agent Event Bus
+      operationId: agent-eventbus_post_api_events_publish
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '402':
+          description: Payment required (x402)
+        '429':
+          description: Rate limit exceeded
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+  /v1/agent-filestorage/api/files/upload:
+    post:
+      tags:
+      - Agent Infrastructure
+      summary: Agent File Storage — /api/files/upload
+      description: Temporary file storage for AI agents. Upload, download, share files with TTL expiration and direct links.
+      operationId: agent-filestorage_post_api_files_upload
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '402':
+          description: Payment required (x402)
+        '429':
+          description: Rate limit exceeded
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+  /v1/agent-filestorage/api/files/{id}/download:
+    get:
+      tags:
+      - Agent Infrastructure
+      summary: Agent File Storage — /api/files/:id/download
+      description: Part of Agent File Storage
+      operationId: agent-filestorage_get_api_files_id_download
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '402':
+          description: Payment required (x402)
+        '429':
+          description: Rate limit exceeded
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /v1/agent-filestorage/d/{token}/{filename}:
+    get:
+      tags:
+      - Agent Infrastructure
+      summary: Agent File Storage — /d/:token/:filename
+      description: Part of Agent File Storage
+      operationId: agent-filestorage_get_d_token_filename
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '402':
+          description: Payment required (x402)
+        '429':
+          description: Rate limit exceeded
+      parameters:
+      - name: token
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: filename
+        in: path
+        required: true
+        schema:
+          type: string
+  /v1/agent-logdrain/api/logs:
+    post:
+      tags:
+      - Agent Infrastructure
+      summary: Agent Log Drain — /api/logs
+      description: Centralized log ingestion and querying. Structured JSON logs, batch ingest, real-time tailing via WebSocket.
+      operationId: agent-logdrain_post_api_logs
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '402':
+          description: Payment required (x402)
+        '429':
+          description: Rate limit exceeded
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+    get:
+      tags:
+      - Agent Infrastructure
+      summary: Agent Log Drain — /api/logs
+      description: Centralized log ingestion and querying. Structured JSON logs, batch ingest, real-time tailing via WebSocket.
+      operationId: agent-logdrain_get_api_logs
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '402':
+          description: Payment required (x402)
+        '429':
+          description: Rate limit exceeded
+  /v1/agent-logdrain/api/logs/batch:
+    post:
+      tags:
+      - Agent Infrastructure
+      summary: Agent Log Drain — /api/logs/batch
+      description: Part of Agent Log Drain
+      operationId: agent-logdrain_post_api_logs_batch
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '402':
+          description: Payment required (x402)
+        '429':
+          description: Rate limit exceeded
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+  /v1/agent-monitor/api/monitors:
+    post:
+      tags:
+      - Agent Infrastructure
+      summary: Agent Uptime Monitor — /api/monitors
+      description: Uptime monitoring and health checking. Automated checks at 30s-1h intervals, response time tracking, webhook alerts, incident history, status page.
+      operationId: agent-monitor_post_api_monitors
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '402':
+          description: Payment required (x402)
+        '429':
+          description: Rate limit exceeded
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+  /v1/agent-monitor/api/monitors/{id}:
+    get:
+      tags:
+      - Agent Infrastructure
+      summary: Agent Uptime Monitor — /api/monitors/:id
+      description: Part of Agent Uptime Monitor
+      operationId: agent-monitor_get_api_monitors_id
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '402':
+          description: Payment required (x402)
+        '429':
+          description: Rate limit exceeded
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /v1/agent-monitor/api/monitors/{id}/check:
+    post:
+      tags:
+      - Agent Infrastructure
+      summary: Agent Uptime Monitor — /api/monitors/:id/check
+      description: Part of Agent Uptime Monitor
+      operationId: agent-monitor_post_api_monitors_id_check
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '402':
+          description: Payment required (x402)
+        '429':
+          description: Rate limit exceeded
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+  /v1/agent-monitor/api/monitors/{id}/incidents:
+    get:
+      tags:
+      - Agent Infrastructure
+      summary: Agent Uptime Monitor — /api/monitors/:id/incidents
+      description: Part of Agent Uptime Monitor
+      operationId: agent-monitor_get_api_monitors_id_incidents
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '402':
+          description: Payment required (x402)
+        '429':
+          description: Rate limit exceeded
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /v1/agent-monitor/api/monitors/{id}/alerts:
+    put:
+      tags:
+      - Agent Infrastructure
+      summary: Agent Uptime Monitor — /api/monitors/:id/alerts
+      description: Part of Agent Uptime Monitor
+      operationId: agent-monitor_put_api_monitors_id_alerts
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '402':
+          description: Payment required (x402)
+        '429':
+          description: Rate limit exceeded
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+  /v1/agent-monitor/api/status:
+    get:
+      tags:
+      - Agent Infrastructure
+      summary: Agent Uptime Monitor — /api/status
+      description: Part of Agent Uptime Monitor
+      operationId: agent-monitor_get_api_status
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '402':
+          description: Payment required (x402)
+        '429':
+          description: Rate limit exceeded
+components:
+  schemas:
+    Error:
+      type: object
+      properties:
+        error:
+          type: string
+        message:
+          type: string
+  securitySchemes:
+    ApiKeyHeader:
+      type: apiKey
+      in: header
+      name: X-API-Key
+      description: API key passed in header
+    ApiKeyQuery:
+      type: apiKey
+      in: query
+      name: key
+      description: API key passed as query parameter
