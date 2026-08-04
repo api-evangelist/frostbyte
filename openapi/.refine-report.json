@@ -1,0 +1,32 @@
+{
+  "provider": "frostbyte",
+  "sources": [
+    "frostbyte-agent-infrastructure-api-openapi.yml",
+    "frostbyte-communication-api-openapi.yml",
+    "frostbyte-crypto-prices-api-openapi.yml",
+    "frostbyte-data-analytics-api-openapi.yml",
+    "frostbyte-defi-crypto-api-openapi.yml",
+    "frostbyte-gaming-api-openapi.yml",
+    "frostbyte-gateway-api-openapi.yml",
+    "frostbyte-ip-geolocation-api-openapi.yml",
+    "frostbyte-other-api-openapi.yml",
+    "frostbyte-security-api-openapi.yml"
+  ],
+  "outputs": [
+    "frostbyte-agent-infrastructure-api-openapi.yml",
+    "frostbyte-communication-api-openapi.yml",
+    "frostbyte-crypto-prices-api-openapi.yml",
+    "frostbyte-data-analytics-api-openapi.yml",
+    "frostbyte-defi-crypto-api-openapi.yml",
+    "frostbyte-gaming-api-openapi.yml",
+    "frostbyte-gateway-api-openapi.yml",
+    "frostbyte-ip-geolocation-api-openapi.yml",
+    "frostbyte-other-api-openapi.yml",
+    "frostbyte-security-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

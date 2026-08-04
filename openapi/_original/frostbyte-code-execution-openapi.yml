@@ -1,0 +1,141 @@
+openapi: 3.0.3
+info:
+  title: Frostbyte Code Execution API
+  description: Sandboxed code execution API. Run Python, JavaScript, TypeScript, and Bash code securely. Perfect for AI agents,
+    online IDEs, and coding challenges.
+  version: 1.0.0
+  contact:
+    name: Frostbyte API
+    url: https://api-catalog-three.vercel.app
+  license:
+    name: MIT
+servers:
+- url: https://agent-gateway-kappa.vercel.app
+  description: Production gateway
+security:
+- {}
+- ApiKeyHeader: []
+- ApiKeyQuery: []
+paths:
+  /v1/agent-coderunner/api/execute:
+    post:
+      tags:
+      - Other
+      summary: "Agent Code Runner \u2014 /api/execute"
+      description: Sandboxed code execution for AI agents. Run JavaScript, Python, TypeScript, and Bash safely with resource
+        limits and sessions.
+      operationId: agent-coderunner_post_api_execute
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '402':
+          description: Payment required (x402)
+        '429':
+          description: Rate limit exceeded
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+  /v1/agent-coderunner/api/sessions:
+    post:
+      tags:
+      - Other
+      summary: "Agent Code Runner \u2014 /api/sessions"
+      description: Part of Agent Code Runner
+      operationId: agent-coderunner_post_api_sessions
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '402':
+          description: Payment required (x402)
+        '429':
+          description: Rate limit exceeded
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+  /v1/agent-coderunner/api/sessions/{id}/execute:
+    post:
+      tags:
+      - Other
+      summary: "Agent Code Runner \u2014 /api/sessions/:id/execute"
+      description: Part of Agent Code Runner
+      operationId: agent-coderunner_post_api_sessions_id_execute
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '402':
+          description: Payment required (x402)
+        '429':
+          description: Rate limit exceeded
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+  /v1/agent-coderunner/api/languages:
+    get:
+      tags:
+      - Other
+      summary: "Agent Code Runner \u2014 /api/languages"
+      description: Part of Agent Code Runner
+      operationId: agent-coderunner_get_api_languages
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '402':
+          description: Payment required (x402)
+        '429':
+          description: Rate limit exceeded
+components:
+  securitySchemes:
+    ApiKeyHeader:
+      type: apiKey
+      in: header
+      name: X-API-Key
+      description: API key passed in header
+    ApiKeyQuery:
+      type: apiKey
+      in: query
+      name: key
+      description: API key passed as query parameter
+  schemas:
+    Error:
+      type: object
+      properties:
+        error:
+          type: string
+        message:
+          type: string

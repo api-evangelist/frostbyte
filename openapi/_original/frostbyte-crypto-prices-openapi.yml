@@ -1,0 +1,155 @@
+openapi: 3.0.3
+info:
+  title: Frostbyte Crypto Prices API
+  description: 'Free real-time cryptocurrency price API. Get live prices, 24h changes, volume data for 38+ trading pairs from
+    Binance. No signup required for basic usage.
+
+
+    Free tier: 200 credits, no API key needed. Each request costs 1 credit.'
+  version: 1.0.0
+  contact:
+    name: Frostbyte API
+    url: https://api-catalog-three.vercel.app
+  license:
+    name: Proprietary
+    url: https://api-catalog-three.vercel.app
+servers:
+- url: https://agent-gateway-kappa.vercel.app
+  description: Production
+paths:
+  /v1/crypto-feeds/api/prices:
+    get:
+      summary: Get All Cryptocurrency Prices
+      description: Returns real-time prices for 38+ cryptocurrency trading pairs including BTC, ETH, SOL, XRP, and more. Data
+        sourced from Binance with 24h OHLCV data.
+      operationId: getAllPrices
+      tags:
+      - Crypto Prices
+      responses:
+        '200':
+          description: All cryptocurrency prices
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PricesResponse'
+              example:
+                count: 38
+                prices:
+                  BTCUSDT:
+                    symbol: BTCUSDT
+                    price: 71103.4
+                    open: 73228
+                    high: 73565.2
+                    low: 70647.1
+                    volume: 11622.15
+                    quote_volume: 838255962.02
+                    change: -2124.6
+                    change_pct: -2.9
+                    timestamp: 1772746736407
+  /v1/defi-trading/api/markets:
+    get:
+      summary: Get Market Data
+      description: Returns market data including available trading pairs and current prices.
+      operationId: getMarkets
+      tags:
+      - Crypto Prices
+      responses:
+        '200':
+          description: Market data
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  markets:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        symbol:
+                          type: string
+                        price:
+                          type: number
+                        change_pct:
+                          type: number
+  /api/prices:
+    get:
+      summary: Get Prices (shortcut Endpoint)
+      description: Shortcut endpoint that returns cryptocurrency prices directly.
+      operationId: getPricesShortcut
+      tags:
+      - Crypto Prices
+      security: []
+      responses:
+        '200':
+          description: Cryptocurrency prices
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PricesResponse'
+components:
+  schemas:
+    PricesResponse:
+      type: object
+      properties:
+        count:
+          type: integer
+          description: Number of trading pairs
+          example: 38
+        prices:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/PriceData'
+    PriceData:
+      type: object
+      properties:
+        symbol:
+          type: string
+          example: BTCUSDT
+        price:
+          type: number
+          format: double
+          description: Current price in USD
+          example: 71103.4
+        open:
+          type: number
+          description: 24h opening price
+        high:
+          type: number
+          description: 24h high price
+        low:
+          type: number
+          description: 24h low price
+        volume:
+          type: number
+          description: 24h trading volume in base currency
+        quote_volume:
+          type: number
+          description: 24h trading volume in quote currency (USD)
+        change:
+          type: number
+          description: 24h price change in USD
+        change_pct:
+          type: number
+          description: 24h price change percentage
+        bid:
+          type: number
+          nullable: true
+          description: Current best bid price
+        ask:
+          type: number
+          nullable: true
+          description: Current best ask price
+        timestamp:
+          type: integer
+          format: int64
+          description: Unix timestamp in milliseconds
+  securitySchemes:
+    ApiKey:
+      type: apiKey
+      in: header
+      name: X-API-Key
+      description: Optional API key for higher rate limits. Get one free at POST /api/keys/create
+tags:
+- name: Crypto Prices
+  description: Real-time cryptocurrency price endpoints

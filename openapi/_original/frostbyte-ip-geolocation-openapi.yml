@@ -1,0 +1,307 @@
+openapi: 3.0.3
+info:
+  title: Frostbyte IP Geolocation API
+  description: 'Free IP geolocation API. Get country, city, timezone, coordinates, and EU status for any IP address. No signup
+    required for basic usage. Supports single lookups, batch processing, distance calculation, and timezone detection.
+
+
+    Free tier: 200 credits, no API key needed. Each request costs 1 credit.'
+  version: 1.0.0
+  contact:
+    name: Frostbyte API
+    url: https://api-catalog-three.vercel.app
+  license:
+    name: Proprietary
+    url: https://api-catalog-three.vercel.app
+  x-logo:
+    url: https://api-catalog-three.vercel.app/favicon.ico
+servers:
+- url: https://agent-gateway-kappa.vercel.app
+  description: Production
+security: []
+paths:
+  /ip/json:
+    get:
+      summary: Get Your Own IP Geolocation
+      description: Returns geolocation data for the requesting IP address. No authentication required.
+      operationId: getOwnIp
+      tags:
+      - IP Geolocation
+      security: []
+      responses:
+        '200':
+          description: IP geolocation data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GeoResponse'
+              example:
+                ip: 203.0.113.42
+                found: true
+                country: US
+                region: California
+                city: San Francisco
+                timezone: America/Los_Angeles
+                latitude: 37.7749
+                longitude: -122.4194
+                metro: 807
+                area: 1
+                eu: false
+  /ip/geo/{ip}:
+    get:
+      summary: Get Geolocation for an IP Address
+      description: Returns geolocation data for the specified IP address.
+      operationId: getIpGeo
+      tags:
+      - IP Geolocation
+      security: []
+      parameters:
+      - name: ip
+        in: path
+        required: true
+        description: IPv4 or IPv6 address to look up
+        schema:
+          type: string
+          example: 8.8.8.8
+      responses:
+        '200':
+          description: IP geolocation data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GeoResponse'
+              example:
+                ip: 8.8.8.8
+                found: true
+                country: US
+                region: null
+                city: null
+                timezone: America/Chicago
+                latitude: 37.751
+                longitude: -97.822
+                metro: null
+                area: 1000
+                eu: false
+  /v1/agent-geo/api/geo/{ip}:
+    get:
+      summary: Full Geolocation Lookup (via Gateway)
+      description: Full geolocation data for any IP address via the gateway route.
+      operationId: getGeoViaGateway
+      tags:
+      - IP Geolocation
+      parameters:
+      - name: ip
+        in: path
+        required: true
+        schema:
+          type: string
+          example: 8.8.8.8
+      responses:
+        '200':
+          description: Geolocation data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GeoResponse'
+  /v1/agent-geo/api/geo/batch:
+    post:
+      summary: Batch IP Geolocation Lookup
+      description: Look up geolocation data for multiple IP addresses in a single request. Maximum 100 IPs per request.
+      operationId: batchGeo
+      tags:
+      - IP Geolocation
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - ips
+              properties:
+                ips:
+                  type: array
+                  items:
+                    type: string
+                  example:
+                  - 8.8.8.8
+                  - 1.1.1.1
+                  - 208.67.222.222
+                  maxItems: 100
+      responses:
+        '200':
+          description: Batch geolocation results
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/GeoResponse'
+  /v1/agent-geo/api/geo/me:
+    get:
+      summary: Get Your Own Geolocation
+      description: Returns geolocation data for the requesting IP address.
+      operationId: getGeoMe
+      tags:
+      - IP Geolocation
+      security: []
+      responses:
+        '200':
+          description: Your IP geolocation data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GeoResponse'
+  /v1/agent-geo/api/geo/timezone/{ip}:
+    get:
+      summary: Get Timezone for an IP
+      description: Returns the timezone for the specified IP address.
+      operationId: getTimezone
+      tags:
+      - IP Geolocation
+      parameters:
+      - name: ip
+        in: path
+        required: true
+        schema:
+          type: string
+          example: 8.8.8.8
+      responses:
+        '200':
+          description: Timezone data
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  ip:
+                    type: string
+                  timezone:
+                    type: string
+                    example: America/Chicago
+  /v1/agent-geo/api/geo/country/{ip}:
+    get:
+      summary: Get Country Code for an IP
+      description: Returns just the country code for the specified IP address.
+      operationId: getCountry
+      tags:
+      - IP Geolocation
+      parameters:
+      - name: ip
+        in: path
+        required: true
+        schema:
+          type: string
+          example: 8.8.8.8
+      responses:
+        '200':
+          description: Country data
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  ip:
+                    type: string
+                  country:
+                    type: string
+                    example: US
+  /v1/agent-geo/api/geo/distance:
+    post:
+      summary: Calculate Distance Between Two IPs
+      description: Calculates the geographic distance between two IP addresses using the Haversine formula.
+      operationId: getDistance
+      tags:
+      - IP Geolocation
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - ip1
+              - ip2
+              properties:
+                ip1:
+                  type: string
+                  example: 8.8.8.8
+                ip2:
+                  type: string
+                  example: 1.1.1.1
+      responses:
+        '200':
+          description: Distance result
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  ip1:
+                    type: string
+                  ip2:
+                    type: string
+                  distance_km:
+                    type: number
+                    example: 12345.67
+components:
+  schemas:
+    GeoResponse:
+      type: object
+      properties:
+        ip:
+          type: string
+          description: The IP address
+          example: 8.8.8.8
+        found:
+          type: boolean
+          description: Whether the IP was found in the database
+        country:
+          type: string
+          description: ISO 3166-1 alpha-2 country code
+          example: US
+        region:
+          type: string
+          nullable: true
+          description: Region or state name
+        city:
+          type: string
+          nullable: true
+          description: City name
+        timezone:
+          type: string
+          description: IANA timezone identifier
+          example: America/Chicago
+        latitude:
+          type: number
+          format: double
+          description: Latitude coordinate
+          example: 37.751
+        longitude:
+          type: number
+          format: double
+          description: Longitude coordinate
+          example: -97.822
+        metro:
+          type: integer
+          nullable: true
+          description: Metro area code (US only)
+        area:
+          type: integer
+          description: Accuracy radius in km
+          example: 1000
+        eu:
+          type: boolean
+          description: Whether the IP is in the European Union
+  securitySchemes:
+    ApiKey:
+      type: apiKey
+      in: header
+      name: X-API-Key
+      description: Optional API key for higher rate limits. Get one free at POST /api/keys/create
+tags:
+- name: IP Geolocation
+  description: IP address geolocation lookup endpoints
