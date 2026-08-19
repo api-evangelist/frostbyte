@@ -1,0 +1,258 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Clawdia Agent Gateway Agent Infrastructure DeFi & Crypto API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "DeFi & Crypto",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Agent Wallet — /api/wallets/create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-wallet/api/wallets/create",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Non-custodial multi-chain wallet API. Create wallets, check balances, send transactions across 7 chains."
+        },
+        {
+          "info": {
+            "name": "Agent Wallet — /api/wallets/:id/balance",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-wallet/api/wallets/:id/balance",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Part of Agent Wallet"
+        },
+        {
+          "info": {
+            "name": "Agent Wallet — /api/wallets/:id/send",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-wallet/api/wallets/:id/send",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Part of Agent Wallet"
+        },
+        {
+          "info": {
+            "name": "DeFi Trading Proxy — /api/markets",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/defi-trading/api/markets"
+          },
+          "docs": "REST API wrapper around Hyperliquid DEX. 229 perpetual futures markets. Market orders, limit orders, positions."
+        },
+        {
+          "info": {
+            "name": "DeFi Trading Proxy — /api/orders",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/defi-trading/api/orders",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Part of DeFi Trading Proxy"
+        },
+        {
+          "info": {
+            "name": "DeFi Trading Proxy — /api/positions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/defi-trading/api/positions"
+          },
+          "docs": "Part of DeFi Trading Proxy"
+        },
+        {
+          "info": {
+            "name": "DeFi MCP Server — /mcp/tools/call",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/defi-mcp/mcp/tools/call",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Model Context Protocol server for DeFi operations. 12 tools for token research, prices, and analytics."
+        },
+        {
+          "info": {
+            "name": "DeFi MCP Server — /mcp/tools/list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/defi-mcp/mcp/tools/list"
+          },
+          "docs": "Part of DeFi MCP Server"
+        },
+        {
+          "info": {
+            "name": "Frostbyte Wallet — /v1/auth/register",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/frostbyte-wallet/v1/auth/register",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Multi-chain non-custodial HD wallet API for AI agents. 9 chains (Ethereum, Base, Arbitrum, Optimism, Polygon, BSC, Avalanche, Solana, Bitcoin). Create wallets, check balances, send transactions, cross-chain swaps. 0.3% swap fee, 10 free transactions."
+        },
+        {
+          "info": {
+            "name": "Frostbyte Wallet — /v1/wallet/create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/frostbyte-wallet/v1/wallet/create",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Part of Frostbyte Wallet"
+        },
+        {
+          "info": {
+            "name": "Frostbyte Wallet — /v1/wallet/balance/:address",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/frostbyte-wallet/v1/wallet/balance/:address",
+            "params": [
+              {
+                "name": "address",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Part of Frostbyte Wallet"
+        },
+        {
+          "info": {
+            "name": "Frostbyte Wallet — /v1/wallet/send",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/frostbyte-wallet/v1/wallet/send",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Part of Frostbyte Wallet"
+        },
+        {
+          "info": {
+            "name": "Frostbyte Wallet — /v1/swap/quote",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/frostbyte-wallet/v1/swap/quote"
+          },
+          "docs": "Part of Frostbyte Wallet"
+        },
+        {
+          "info": {
+            "name": "Frostbyte Wallet — /v1/swap/execute",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/frostbyte-wallet/v1/swap/execute",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Part of Frostbyte Wallet"
+        },
+        {
+          "info": {
+            "name": "Frostbyte Wallet — /v1/chains",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/frostbyte-wallet/v1/chains"
+          },
+          "docs": "Part of Frostbyte Wallet"
+        },
+        {
+          "info": {
+            "name": "Frostbyte Wallet — /v1/chains/gas",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/frostbyte-wallet/v1/chains/gas"
+          },
+          "docs": "Part of Frostbyte Wallet"
+        },
+        {
+          "info": {
+            "name": "Frostbyte Wallet — /v1/referral/stats",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/frostbyte-wallet/v1/referral/stats"
+          },
+          "docs": "Part of Frostbyte Wallet"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

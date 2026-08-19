@@ -1,0 +1,392 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Clawdia Agent Gateway Agent Infrastructure Data & Analytics API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Data & Analytics",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "On-Chain Analytics — /api/tokens/:address",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/onchain-analytics/api/tokens/:address",
+            "params": [
+              {
+                "name": "address",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Token analytics via DexScreener + GeckoTerminal. Price, volume, liquidity, holders across 8 chains."
+        },
+        {
+          "info": {
+            "name": "On-Chain Analytics — /api/search",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/onchain-analytics/api/search"
+          },
+          "docs": "Part of On-Chain Analytics"
+        },
+        {
+          "info": {
+            "name": "On-Chain Analytics — /api/trending",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/onchain-analytics/api/trending"
+          },
+          "docs": "Part of On-Chain Analytics"
+        },
+        {
+          "info": {
+            "name": "Crypto Data Feeds — /api/prices",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/crypto-feeds/api/prices"
+          },
+          "docs": "Part of Crypto Data Feeds"
+        },
+        {
+          "info": {
+            "name": "Agent Screenshot — /api/screenshot",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-screenshot/api/screenshot"
+          },
+          "docs": "URL-to-image API. Headless Chromium, 5 viewports, full-page, dark mode, element targeting."
+        },
+        {
+          "info": {
+            "name": "Agent Screenshot — /api/screenshot",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-screenshot/api/screenshot",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "URL-to-image API. Headless Chromium, 5 viewports, full-page, dark mode, element targeting."
+        },
+        {
+          "info": {
+            "name": "Agent Screenshot — /api/screenshot/json",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-screenshot/api/screenshot/json",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Part of Agent Screenshot"
+        },
+        {
+          "info": {
+            "name": "Agent Scraper — /api/scrape",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-scraper/api/scrape"
+          },
+          "docs": "Web content extraction. URL to markdown, text, HTML, or structured data. JavaScript rendering via Chromium."
+        },
+        {
+          "info": {
+            "name": "Agent Scraper — /api/scrape",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-scraper/api/scrape",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Web content extraction. URL to markdown, text, HTML, or structured data. JavaScript rendering via Chromium."
+        },
+        {
+          "info": {
+            "name": "Agent Scraper — /api/extract",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-scraper/api/extract",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Part of Agent Scraper"
+        },
+        {
+          "info": {
+            "name": "Agent Data Transformer — /api/transform",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-transform/api/transform",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Convert data between JSON, CSV, XML, YAML, TSV, and Markdown tables. Plus base64, URL encoding, hashing, and formatting."
+        },
+        {
+          "info": {
+            "name": "Agent Data Transformer — /api/detect",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-transform/api/detect",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Part of Agent Data Transformer"
+        },
+        {
+          "info": {
+            "name": "Agent Data Transformer — /api/format",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-transform/api/format",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Part of Agent Data Transformer"
+        },
+        {
+          "info": {
+            "name": "Agent Data Transformer — /api/validate/json",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-transform/api/validate/json",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Part of Agent Data Transformer"
+        },
+        {
+          "info": {
+            "name": "Agent Data Transformer — /api/base64/encode",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-transform/api/base64/encode",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Part of Agent Data Transformer"
+        },
+        {
+          "info": {
+            "name": "Agent Data Transformer — /api/hash",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-transform/api/hash",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Part of Agent Data Transformer"
+        },
+        {
+          "info": {
+            "name": "Agent Geo API — /api/geo/:ip",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-geo/api/geo/:ip",
+            "params": [
+              {
+                "name": "ip",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "IP geolocation, timezone, country, city lookup. Self-hosted MaxMind database, sub-microsecond lookups, batch and distance calculation."
+        },
+        {
+          "info": {
+            "name": "Agent Geo API — /api/geo/me",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-geo/api/geo/me"
+          },
+          "docs": "Part of Agent Geo API"
+        },
+        {
+          "info": {
+            "name": "Agent Geo API — /api/geo/batch",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-geo/api/geo/batch",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Part of Agent Geo API"
+        },
+        {
+          "info": {
+            "name": "Agent Geo API — /api/geo/distance",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-geo/api/geo/distance",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Part of Agent Geo API"
+        },
+        {
+          "info": {
+            "name": "Agent Geo API — /api/geo/country/:ip",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-geo/api/geo/country/:ip",
+            "params": [
+              {
+                "name": "ip",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Part of Agent Geo API"
+        },
+        {
+          "info": {
+            "name": "Agent Geo API — /api/geo/timezone/:ip",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-geo/api/geo/timezone/:ip",
+            "params": [
+              {
+                "name": "ip",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Part of Agent Geo API"
+        },
+        {
+          "info": {
+            "name": "Agent Search API — /api/search",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-search/api/search"
+          },
+          "docs": "Web search for AI agents. DuckDuckGo-powered, structured JSON results. Single, multi-query, and extract modes."
+        },
+        {
+          "info": {
+            "name": "Agent Search API — /api/search",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-search/api/search",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Web search for AI agents. DuckDuckGo-powered, structured JSON results. Single, multi-query, and extract modes."
+        },
+        {
+          "info": {
+            "name": "Agent Search API — /api/search/multi",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-search/api/search/multi",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Part of Agent Search API"
+        },
+        {
+          "info": {
+            "name": "Agent Search API — /api/search/extract",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-search/api/search/extract",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Part of Agent Search API"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

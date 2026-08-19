@@ -1,0 +1,621 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Clawdia Agent Gateway Agent Infrastructure API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Agent Infrastructure",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Agent Registry & Discovery — /api/services/register",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-registry/api/services/register",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Service registry for AI agents. Register, discover, search, rate, and monitor agent services."
+        },
+        {
+          "info": {
+            "name": "Agent Registry & Discovery — /api/services/search",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-registry/api/services/search"
+          },
+          "docs": "Part of Agent Registry & Discovery"
+        },
+        {
+          "info": {
+            "name": "Agent Registry & Discovery — /api/services/:id",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-registry/api/services/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Part of Agent Registry & Discovery"
+        },
+        {
+          "info": {
+            "name": "Agent Identity Service — /api/identities/create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-identity/api/identities/create",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Disposable identities for AI agents. Ed25519 signing, DIDs, attestations, challenge-response auth."
+        },
+        {
+          "info": {
+            "name": "Agent Identity Service — /api/identities/:id/sign",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-identity/api/identities/:id/sign",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Part of Agent Identity Service"
+        },
+        {
+          "info": {
+            "name": "Agent Identity Service — /api/auth/challenge",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-identity/api/auth/challenge",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Part of Agent Identity Service"
+        },
+        {
+          "info": {
+            "name": "Agent Referral Network — /api/programs/create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-referral/api/programs/create",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Referral tracking for agent-to-agent commissions. Programs, affiliates, click/conversion tracking, leaderboards."
+        },
+        {
+          "info": {
+            "name": "Agent Referral Network — /api/track/click",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-referral/api/track/click",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Part of Agent Referral Network"
+        },
+        {
+          "info": {
+            "name": "Agent Referral Network — /api/track/conversion",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-referral/api/track/conversion",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Part of Agent Referral Network"
+        },
+        {
+          "info": {
+            "name": "Agent Memory — /api/kv/set",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-memory/api/kv/set",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Persistent key-value storage + vector search for AI agents. 128d embeddings, conversations, namespaces."
+        },
+        {
+          "info": {
+            "name": "Agent Memory — /api/kv/get/:key",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-memory/api/kv/get/:key",
+            "params": [
+              {
+                "name": "key",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Part of Agent Memory"
+        },
+        {
+          "info": {
+            "name": "Agent Memory — /api/vectors/search",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-memory/api/vectors/search",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Part of Agent Memory"
+        },
+        {
+          "info": {
+            "name": "Agent Task Queue — /api/tasks/enqueue",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-taskqueue/api/tasks/enqueue",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Distributed job queue for AI agents. Workers, priorities, workflows, DLQ, webhook callbacks."
+        },
+        {
+          "info": {
+            "name": "Agent Task Queue — /api/tasks/dequeue",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-taskqueue/api/tasks/dequeue",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Part of Agent Task Queue"
+        },
+        {
+          "info": {
+            "name": "Agent Task Queue — /api/tasks/:id",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-taskqueue/api/tasks/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Part of Agent Task Queue"
+        },
+        {
+          "info": {
+            "name": "Agent Secrets Vault — /api/vaults/create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-secrets/api/vaults/create",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Encrypted secret storage. AES-256-GCM encryption, vault namespaces, versioning, audit logs."
+        },
+        {
+          "info": {
+            "name": "Agent Secrets Vault — /api/secrets/set",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-secrets/api/secrets/set",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Part of Agent Secrets Vault"
+        },
+        {
+          "info": {
+            "name": "Agent Secrets Vault — /api/secrets/get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-secrets/api/secrets/get"
+          },
+          "docs": "Part of Agent Secrets Vault"
+        },
+        {
+          "info": {
+            "name": "Agent Scheduler — /api/jobs/create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-scheduler/api/jobs/create",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Job scheduling for AI agents. Cron expressions, intervals, one-time jobs, webhook callbacks."
+        },
+        {
+          "info": {
+            "name": "Agent Scheduler — /api/jobs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-scheduler/api/jobs"
+          },
+          "docs": "Part of Agent Scheduler"
+        },
+        {
+          "info": {
+            "name": "Agent Scheduler — /api/jobs/:id",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-scheduler/api/jobs/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Part of Agent Scheduler"
+        },
+        {
+          "info": {
+            "name": "Agent Webhook Relay — /api/endpoints/create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-webhooks/api/endpoints/create",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Receive, store, and forward webhooks. HMAC verification, retry logic, event filtering."
+        },
+        {
+          "info": {
+            "name": "Agent Webhook Relay — /hook/:id",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-webhooks/hook/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Part of Agent Webhook Relay"
+        },
+        {
+          "info": {
+            "name": "Agent Webhook Relay — /api/events",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-webhooks/api/events"
+          },
+          "docs": "Part of Agent Webhook Relay"
+        },
+        {
+          "info": {
+            "name": "Agent Event Bus — /api/channels/create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-eventbus/api/channels/create",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Pub-sub messaging for AI agents. Channels, WebSocket subscriptions, event replay, webhooks."
+        },
+        {
+          "info": {
+            "name": "Agent Event Bus — /api/events/publish",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-eventbus/api/events/publish",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Part of Agent Event Bus"
+        },
+        {
+          "info": {
+            "name": "Agent File Storage — /api/files/upload",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-filestorage/api/files/upload",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Temporary file storage for AI agents. Upload, download, share files with TTL expiration and direct links."
+        },
+        {
+          "info": {
+            "name": "Agent File Storage — /api/files/:id/download",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-filestorage/api/files/:id/download",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Part of Agent File Storage"
+        },
+        {
+          "info": {
+            "name": "Agent File Storage — /d/:token/:filename",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-filestorage/d/:token/:filename",
+            "params": [
+              {
+                "name": "token",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "filename",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Part of Agent File Storage"
+        },
+        {
+          "info": {
+            "name": "Agent Log Drain — /api/logs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-logdrain/api/logs"
+          },
+          "docs": "Centralized log ingestion and querying. Structured JSON logs, batch ingest, real-time tailing via WebSocket."
+        },
+        {
+          "info": {
+            "name": "Agent Log Drain — /api/logs",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-logdrain/api/logs",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Centralized log ingestion and querying. Structured JSON logs, batch ingest, real-time tailing via WebSocket."
+        },
+        {
+          "info": {
+            "name": "Agent Log Drain — /api/logs/batch",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-logdrain/api/logs/batch",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Part of Agent Log Drain"
+        },
+        {
+          "info": {
+            "name": "Agent Uptime Monitor — /api/monitors",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-monitor/api/monitors",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Uptime monitoring and health checking. Automated checks at 30s-1h intervals, response time tracking, webhook alerts, incident history, status page."
+        },
+        {
+          "info": {
+            "name": "Agent Uptime Monitor — /api/monitors/:id",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-monitor/api/monitors/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Part of Agent Uptime Monitor"
+        },
+        {
+          "info": {
+            "name": "Agent Uptime Monitor — /api/monitors/:id/check",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-monitor/api/monitors/:id/check",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Part of Agent Uptime Monitor"
+        },
+        {
+          "info": {
+            "name": "Agent Uptime Monitor — /api/monitors/:id/incidents",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-monitor/api/monitors/:id/incidents",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Part of Agent Uptime Monitor"
+        },
+        {
+          "info": {
+            "name": "Agent Uptime Monitor — /api/monitors/:id/alerts",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-monitor/api/monitors/:id/alerts",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Part of Agent Uptime Monitor"
+        },
+        {
+          "info": {
+            "name": "Agent Uptime Monitor — /api/status",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-monitor/api/status"
+          },
+          "docs": "Part of Agent Uptime Monitor"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

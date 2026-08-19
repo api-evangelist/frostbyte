@@ -1,0 +1,118 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Clawdia Agent Agent Infrastructure Gateway API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Gateway",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List All Services",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agent-gateway-kappa.vercel.app/api/services"
+          },
+          "docs": "Returns all available services with their endpoints and metadata."
+        },
+        {
+          "info": {
+            "name": "Create API Key",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/api/keys/create",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new API key with 200 free credits. Optionally pass email for updates and ref for referral tracking."
+        },
+        {
+          "info": {
+            "name": "Check Key Balance",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agent-gateway-kappa.vercel.app/api/keys/balance"
+          },
+          "docs": "Check remaining credits for an API key."
+        },
+        {
+          "info": {
+            "name": "Top Up Credits (USDC)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/api/credits/topup",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Verify a USDC payment on Base and add credits to an API key."
+        },
+        {
+          "info": {
+            "name": "Top Up Credits (XMR)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/api/credits/topup-xmr",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Verify a Monero payment and add credits to an API key."
+        },
+        {
+          "info": {
+            "name": "Payment Info",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agent-gateway-kappa.vercel.app/api/payments/info"
+          },
+          "docs": "Get USDC and XMR payment addresses and pricing."
+        },
+        {
+          "info": {
+            "name": "Public Analytics",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agent-gateway-kappa.vercel.app/api/analytics"
+          },
+          "docs": "Get aggregate gateway analytics — request volume, top services, response times."
+        },
+        {
+          "info": {
+            "name": "Health Check",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agent-gateway-kappa.vercel.app/health"
+          },
+          "docs": "Health Check"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

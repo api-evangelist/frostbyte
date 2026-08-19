@@ -1,0 +1,51 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Clawdia Agent Gateway Agent Infrastructure Security API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Security",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Poison Guard — /api/analyze",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/poison-guard/api/analyze",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Address poisoning detection for EVM wallets. Detects dust transactions, similarity attacks, and risk scoring."
+        },
+        {
+          "info": {
+            "name": "Poison Guard — /api/check/:address",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/poison-guard/api/check/:address",
+            "params": [
+              {
+                "name": "address",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Part of Poison Guard"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

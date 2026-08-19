@@ -1,0 +1,100 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Clawdia Agent Gateway Agent Infrastructure Communication API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Communication",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Agent Email Sender — /api/send",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-email/api/send",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Email sending API for AI agents. Send plain text, HTML, or templated emails with SMTP configuration and delivery tracking."
+        },
+        {
+          "info": {
+            "name": "Agent Email Sender — /api/send/template",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-email/api/send/template",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Part of Agent Email Sender"
+        },
+        {
+          "info": {
+            "name": "Agent Email Sender — /api/smtp/configure",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-email/api/smtp/configure",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Part of Agent Email Sender"
+        },
+        {
+          "info": {
+            "name": "Agent Email Sender — /api/smtp/verify",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-email/api/smtp/verify",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Part of Agent Email Sender"
+        },
+        {
+          "info": {
+            "name": "Agent Email Sender — /api/templates",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-email/api/templates"
+          },
+          "docs": "Part of Agent Email Sender"
+        },
+        {
+          "info": {
+            "name": "Agent Email Sender — /api/logs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/agent-email/api/logs"
+          },
+          "docs": "Part of Agent Email Sender"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

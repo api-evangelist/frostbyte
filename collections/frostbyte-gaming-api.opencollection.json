@@ -1,0 +1,63 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Clawdia Agent Gateway Agent Infrastructure Gaming API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Gaming",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Provably Fair Games — /api/games/dice",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/fair-games/api/games/dice",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Cryptographically provable fair games API. HMAC-SHA256 proofs on every outcome. Dice, coinflip, roulette, cards, lottery."
+        },
+        {
+          "info": {
+            "name": "Provably Fair Games — /api/games/coinflip",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/fair-games/api/games/coinflip",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Part of Provably Fair Games"
+        },
+        {
+          "info": {
+            "name": "Provably Fair Games — /api/games/roulette",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agent-gateway-kappa.vercel.app/v1/fair-games/api/games/roulette",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Part of Provably Fair Games"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

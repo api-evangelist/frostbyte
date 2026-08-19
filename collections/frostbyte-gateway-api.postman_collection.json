@@ -1,0 +1,599 @@
+{
+  "item": [
+    {
+      "id": "d2c128b3-ee7b-48ce-bcf5-ea7d1d953c90",
+      "name": "Gateway",
+      "description": {
+        "content": "Gateway-level endpoints (auth, payments, analytics)",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "0b2f7977-1c67-4f0b-933e-75b4153eb9e3",
+          "name": "List All Services",
+          "request": {
+            "name": "List All Services",
+            "description": {
+              "content": "Returns all available services with their endpoints and metadata.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "services"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4a7cdd44-adc3-4bf1-a7bc-d82463bf8aa7",
+              "name": "List of services",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "services"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a4c1348a-29bc-4df4-9eed-35978b7e296f",
+          "name": "Create API Key",
+          "request": {
+            "name": "Create API Key",
+            "description": {
+              "content": "Create a new API key with 200 free credits. Optionally pass email for updates and ref for referral tracking.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "keys",
+                "create"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"<email>\",\n  \"ref\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "1715d16b-0639-4049-9c6c-da3ee5a692f0",
+              "name": "API key created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "keys",
+                    "create"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"email\": \"<email>\",\n  \"ref\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"key\": \"string\",\n  \"credits\": 918\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "11253820-c134-4725-a9fc-ce86b64f66b4",
+          "name": "Check Key Balance",
+          "request": {
+            "name": "Check Key Balance",
+            "description": {
+              "content": "Check remaining credits for an API key.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "keys",
+                "balance"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1b50417d-cb32-4d83-af4f-41d9d591e0f4",
+              "name": "Balance info",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "keys",
+                    "balance"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8b39f6ee-47e5-486b-8087-e24db2471adb",
+          "name": "Top Up Credits (USDC)",
+          "request": {
+            "name": "Top Up Credits (USDC)",
+            "description": {
+              "content": "Verify a USDC payment on Base and add credits to an API key.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "credits",
+                "topup"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"key\": \"<string>\",\n  \"txHash\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "9674a2a5-250d-4bc3-a7ba-81bb43ebc063",
+              "name": "Credits added",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "credits",
+                    "topup"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"key\": \"<string>\",\n  \"txHash\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "388ab03b-34e8-4b7f-a982-c16ef431b6b3",
+          "name": "Top Up Credits (XMR)",
+          "request": {
+            "name": "Top Up Credits (XMR)",
+            "description": {
+              "content": "Verify a Monero payment and add credits to an API key.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "credits",
+                "topup-xmr"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"key\": \"<string>\",\n  \"txid\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "6a0fef22-acaf-4091-a4d6-1329c5deb5df",
+              "name": "Credits added",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "credits",
+                    "topup-xmr"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"key\": \"<string>\",\n  \"txid\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bd3d9a85-dcdf-48fa-bf7e-475fe1667a0f",
+          "name": "Payment Info",
+          "request": {
+            "name": "Payment Info",
+            "description": {
+              "content": "Get USDC and XMR payment addresses and pricing.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "payments",
+                "info"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3cd683e6-8758-4e09-9e9f-0de71e1c4207",
+              "name": "Payment details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "payments",
+                    "info"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b3856cdd-9763-47f0-bedc-e456a13f9b96",
+          "name": "Public Analytics",
+          "request": {
+            "name": "Public Analytics",
+            "description": {
+              "content": "Get aggregate gateway analytics — request volume, top services, response times.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "analytics"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "38cee60a-80ae-4718-b484-91545e88b6d6",
+              "name": "Analytics data",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "analytics"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "766e17e4-e5be-4e72-9471-5b8314637d1b",
+          "name": "Health Check",
+          "request": {
+            "name": "Health Check",
+            "description": {},
+            "url": {
+              "path": [
+                "health"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "33b54a55-4b2f-4a9e-8e0a-067328e9421e",
+              "name": "Gateway health status",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "health"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://agent-gateway-kappa.vercel.app",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "noauth"
+  },
+  "info": {
+    "_postman_id": "31c7a02e-c375-4642-a850-49ba29e854f0",
+    "name": "Clawdia Agent Agent Infrastructure Gateway API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Unified API gateway providing 40+ services for AI agents. Web scraping, screenshots, code execution, crypto data, agent memory, file storage, and more.\n\n**Authentication**: Free tier (200 credits, no key needed). For higher volume: create an API key via `POST /api/keys/create`, then pass it as `X-API-Key` header or `?key=` query param.\n\n**x402 Payments**: All endpoints support [x402](https://www.x402.org/) micropayments (USDC on Base). Send a request without auth to get a 402 response with payment details.\n\nContact Support:\n Name: Clawdia",
+      "type": "text/plain"
+    }
+  }
+}
