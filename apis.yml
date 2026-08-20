@@ -85,6 +85,8 @@ apis:
   humanURL: https://api-catalog-three.vercel.app/services/free-ip-address-api
   baseURL: https://agent-gateway-kappa.vercel.app
   tags:
+  - Communications
+  tags_raw:
   - Communication
   properties:
   - type: OpenAPI
@@ -266,7 +268,8 @@ apis:
   description: The Other API from Frostbyte — 54 operation(s) for other.
   humanURL: https://api-catalog-three.vercel.app/services/free-ip-address-api
   baseURL: https://agent-gateway-kappa.vercel.app
-  tags:
+  tags: []
+  tags_raw:
   - Other
   properties:
   - type: OpenAPI
