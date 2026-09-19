@@ -228,6 +228,8 @@ apis:
   humanURL: https://api-catalog-three.vercel.app/services/free-ip-address-api
   baseURL: https://agent-gateway-kappa.vercel.app
   tags:
+  - Gateways
+  tags_raw:
   - Gateway
   properties:
   - type: OpenAPI
