@@ -1,26 +1,20 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Clawdia Agent Gateway Agent Infrastructure Crypto Prices API
-  description: 'Unified API gateway providing 40+ services for AI agents. Web scraping, screenshots, code execution, crypto data, agent memory, file storage, and more.
+  title: Frostbyte Crypto Prices API
+  description: 'Free real-time cryptocurrency price API. Get live prices, 24h changes, volume data for 38+ trading pairs from Binance. No signup required for basic usage.
 
 
-    **Authentication**: Free tier (200 credits, no key needed). For higher volume: create an API key via `POST /api/keys/create`, then pass it as `X-API-Key` header or `?key=` query param.
-
-
-    **x402 Payments**: All endpoints support [x402](https://www.x402.org/) micropayments (USDC on Base). Send a request without auth to get a 402 response with payment details.'
+    Free tier: 200 credits, no API key needed. Each request costs 1 credit.'
   version: 1.0.0
   contact:
-    name: Clawdia
+    name: Frostbyte API
     url: https://api-catalog-three.vercel.app
   license:
-    name: MIT
+    name: Proprietary
+    url: https://api-catalog-three.vercel.app
 servers:
 - url: https://agent-gateway-kappa.vercel.app
-  description: Production gateway
-security:
-- {}
-- ApiKeyHeader: []
-- ApiKeyQuery: []
+  description: Production
 tags:
 - name: Crypto Prices
   description: Real-time cryptocurrency price endpoints
@@ -129,12 +123,14 @@ components:
           type: number
           description: 24h price change percentage
         bid:
-          type: number
-          nullable: true
+          type:
+          - number
+          - 'null'
           description: Current best bid price
         ask:
-          type: number
-          nullable: true
+          type:
+          - number
+          - 'null'
           description: Current best ask price
         timestamp:
           type: integer
@@ -152,13 +148,8 @@ components:
           additionalProperties:
             $ref: '#/components/schemas/PriceData'
   securitySchemes:
-    ApiKeyHeader:
+    ApiKey:
       type: apiKey
       in: header
       name: X-API-Key
-      description: API key passed in header
-    ApiKeyQuery:
-      type: apiKey
-      in: query
-      name: key
-      description: API key passed as query parameter
+      description: Optional API key for higher rate limits. Get one free at POST /api/keys/create

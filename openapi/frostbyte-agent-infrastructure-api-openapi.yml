@@ -1,4 +1,4 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
   title: Clawdia Agent Gateway Agent Infrastructure API
   description: 'Unified API gateway providing 40+ services for AI agents. Web scraping, screenshots, code execution, crypto data, agent memory, file storage, and more.
@@ -7,7 +7,7 @@ info:
     **Authentication**: Free tier (200 credits, no key needed). For higher volume: create an API key via `POST /api/keys/create`, then pass it as `X-API-Key` header or `?key=` query param.
 
 
-    **x402 Payments**: All endpoints support [x402](https://www.x402.org/) micropayments (USDC on Base). Send a request without auth to get a 402 response with payment details.'
+    **x402 Payments**: All endpoints support x402 micropayments (USDC on Base). Send a request without auth to get a 402 response with payment details.'
   version: 1.0.0
   contact:
     name: Clawdia
