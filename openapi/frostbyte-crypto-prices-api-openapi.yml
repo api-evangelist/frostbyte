@@ -90,6 +90,17 @@ paths:
                 $ref: '#/components/schemas/PricesResponse'
 components:
   schemas:
+    PricesResponse:
+      type: object
+      properties:
+        count:
+          type: integer
+          description: Number of trading pairs
+          example: 38
+        prices:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/PriceData'
     PriceData:
       type: object
       properties:
@@ -136,17 +147,6 @@ components:
           type: integer
           format: int64
           description: Unix timestamp in milliseconds
-    PricesResponse:
-      type: object
-      properties:
-        count:
-          type: integer
-          description: Number of trading pairs
-          example: 38
-        prices:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/PriceData'
   securitySchemes:
     ApiKey:
       type: apiKey
