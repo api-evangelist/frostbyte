@@ -1,3 +1,8 @@
+# Provenance stamped 2026-10-07 (roadmap#943): written by an API Evangelist sweep (dated 2026-05-16 by the file itself), not
+# harvested from the provider. `method: generated` so the economics campaign may replace it with a
+# dated, verbatim transcription; every figure below is unverified until it does.
+method: generated
+generated: '2026-05-16'
 apiCommonsPlans: '0.1'
 providerId: frostbyte
 provider:
@@ -118,3 +123,22 @@ apis:
           - dimension: credits
             included: 200
             period: per-key
+x-canonical:
+  generated: '2026-10-08'
+  vocabulary: all/0-working/economics/plans-canonical.yml
+  models:
+  - metered
+  units: []
+  plans:
+  - name: Free Tier
+    access: free
+    model: unstated
+    model_how: derived
+    units: []
+    periods: []
+  - name: Pay-As-You-Go (x402 / USDC on Base)
+    access: other
+    model: metered
+    model_how: stated
+    units: []
+    periods: []
